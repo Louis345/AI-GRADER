@@ -1,0 +1,18 @@
+{
+  "weekNumber": 9,
+  "name": "JS6 - DevTools & Debugging",
+  "rubricImagePath": "week9-rubric.png",
+  "images": [
+    {
+      "path": "week9-rubric.png",
+      "description": "Week 9 project rubric with point allocations: Completion (160 pts), GitHub (140 pts), Errors (70 pts), Video (30 pts)"
+    },
+    {
+      "path": "week9-assignment.png",
+      "description": "Week 9 assignment details and requirements focusing on DevTools and debugging"
+    }
+  ],
+  "rubricDescription": "This assignment focuses on using DevTools and debugging techniques. Students will create a JavaScript application that demonstrates their understanding of debugging tools. The rubric evaluates completion (160 pts), GitHub repository setup (140 pts), errors/functionality (70 pts), and video explanation (30 pts), for a total of 400 possible points.",
+  "resubmissionAllowed": true,
+  "totalPoints": 400
+}

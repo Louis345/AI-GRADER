@@ -1,0 +1,18 @@
+{
+  "weekNumber": 17,
+  "name": "Final Coding Project",
+  "rubricImagePath": "week17-rubric.png",
+  "images": [
+    {
+      "path": "week17-rubric.png",
+      "description": "Final project grading rubric with point allocations: Completion (320 pts), GitHub (280 pts), Errors (140 pts), Video (60 pts)"
+    },
+    {
+      "path": "week17-assignment.png",
+      "description": "Final project assignment details and requirements"
+    }
+  ],
+  "rubricDescription": "This is the final project where students create a React application that connects to an API and includes CRUD operations. The rubric evaluates completion (320 pts), GitHub repository setup (280 pts), errors/functionality (140 pts), and video explanation (60 pts), for a total of 800 possible points.",
+  "resubmissionAllowed": true,
+  "totalPoints": 800
+}

@@ -1,0 +1,36 @@
+{
+  "name": "ai-grader",
+  "version": "1.0.0",
+  "description": "AI-powered grading tool for programming assignments",
+  "main": "src/index.js",
+  "bin": {
+    "ai-grader": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "education",
+    "grading",
+    "ai",
+    "github",
+    "anthropic",
+    "claude"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.15.0",
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^8.2.4",
+    "node-fetch": "^2.7.0",
+    "yargs": "^17.7.2",
+    "youtube-transcript": "^1.2.1",
+    "youtube-transcript-api": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

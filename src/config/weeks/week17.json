@@ -1,0 +1,16 @@
+{
+  "weekNumber": 17,
+  "name": "Final Coding Project",
+  "images": [
+    {
+      "path": "week17-rubric.png",
+      "description": "Final project grading rubric with point allocations"
+    },
+    {
+      "path": "week17-assignment.png",
+      "description": "Final project assignment details and requirements"
+    }
+  ],
+  "rubricDescription": "This is the final project where students create a React application that connects to an API and includes CRUD operations. The rubric evaluates completion (implementing all requirements), GitHub repository setup, errors/functionality, and video explanation.",
+  "resubmissionAllowed": true
+}

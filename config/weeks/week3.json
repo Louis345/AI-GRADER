@@ -1,0 +1,16 @@
+{
+  "weekNumber": 3,
+  "name": "Bootstrap Project",
+  "images": [
+    {
+      "path": "week3-rubric.png",
+      "description": "Grading rubric with point allocations"
+    },
+    {
+      "path": "week3-assignment.png",
+      "description": "Assignment details and requirements"
+    }
+  ],
+  "rubricDescription": "This assignment evaluates a Bootstrap website...",
+  "resubmissionAllowed": true
+}

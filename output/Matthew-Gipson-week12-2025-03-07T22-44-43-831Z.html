@@ -1,0 +1,121 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading: Matthew Gipson - API's and Fetch</title>
+    <style>
+      body { 
+        font-family: Arial, sans-serif; 
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header { 
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1, h2, h3, h4 {
+        color: #0275d8;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>API's and Fetch Evaluation</h1>
+      <h2>Student: Matthew Gipson</h2>
+      <p>Week 12</p>
+    </div>
+    
+    <div id="content-to-copy">
+      <p>Hi Matthew,</p><p>I've reviewed your Week 12 Coding Assignment on APIs and Fetch, and here is my evaluation of your work based on the provided rubric:</p><p>Completion (0/50): ⚠️
+<ul><li>The required CRUD functionality (without update) using json-server or another API is not fully implemented.</li>
+<li>Fetch and async/await are used in parts, but the API interaction is incomplete.</li>
+<li>Forms for creating/posting entities and deletion functionality are present but not fully functional.</li>
+<li>Fetched entities are not properly displayed.</li></p><p>GitHub Repository (30/35): ✅
+<li>The GitHub repository is set up correctly with the necessary files.</li>
+<li>The code is properly organized into separate files (index.html, index.js, styles.css).</li>
+<li>The repository could benefit from a more descriptive README explaining the project's purpose and functionality.</li></p><p>Errors/Functionality (10/35): ⚠️
+<li>The code contains errors that prevent the application from functioning as intended.</li>
+<li>The server setup and API integration are incomplete, leading to issues with fetching and manipulating data.</li>
+<li>Buttons for fetching, updating, deleting, and creating teams are present but not fully operational.</li></p><p>Video Explanation (20/30): ✅
+<li>The video provides a clear overview of the project and its components.</li>
+<li>You explain the purpose of each file and the intended functionality.</li>
+<li>The video could be enhanced by demonstrating the working features of the application and explaining the challenges faced during development.</li></ul></p><p>Total Score: 60/150 (40%)</p><p>Matthew, I appreciate your effort in attempting this assignment despite the challenges you faced with setting up the server and integrating the API. It's clear that you have a good understanding of the project structure and the required components.</p><p>To improve your work, I suggest focusing on the following areas:
+1. Ensure that the server and API are properly set up and configured to enable seamless data fetching and manipulation.
+2. Implement the CRUD functionality completely, including the ability to create, read, update (if required), and delete entities using the API.
+3. Display the fetched entities in a user-friendly manner, ensuring that the data is properly rendered on the webpage.
+4. Test your code thoroughly to identify and fix any errors that prevent the application from functioning as intended.
+5. Enhance the video explanation by demonstrating the working features and discussing the challenges you encountered and how you attempted to overcome them.</p><p>Keep practicing and exploring different resources to strengthen your understanding of APIs, server setup, and data manipulation. Don't hesitate to seek assistance from your instructor or peers when needed.</p><p>I believe that with more practice and perseverance, you'll be able to master these concepts and deliver a fully functional application. Keep up the good work, and feel free to reach out if you need further guidance or support!</p><p>Best regards,
+Your Instructor</p>
+    </div>
+    
+    <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+    
+    <div class="footer">
+      <p>Generated by AI Grader on 3/7/2025, 5:44:43 PM</p>
+    </div>
+    
+    <script>
+      function copyContent() {
+        const content = document.getElementById('content-to-copy').innerText;
+        navigator.clipboard.writeText(content)
+          .then(() => alert('Feedback copied to clipboard!'))
+          .catch(err => console.error('Failed to copy: ', err));
+      }
+    </script>
+  </body>
+  </html>
+    

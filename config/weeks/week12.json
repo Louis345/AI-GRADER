@@ -1,0 +1,18 @@
+{
+  "weekNumber": 12,
+  "name": "API's and Fetch",
+  "rubricImagePath": "week12-rubric.png",
+  "images": [
+    {
+      "path": "week12-rubric.png",
+      "description": "API project rubric with point allocations: Completion (160 pts), GitHub (140 pts), Errors (70 pts), Video (30 pts)"
+    },
+    {
+      "path": "week12-assignment.png",
+      "description": "API project assignment details and requirements"
+    }
+  ],
+  "rubricDescription": "This assignment requires students to create a CRUD application (CRUD without update) using json-server or another API. Students must use fetch and async/await to interact with the API, implement forms to create/post entities, include deletion functionality, and display fetched entities. The rubric evaluates completion (160 pts), GitHub repository setup (140 pts), errors/functionality (70 pts), and video explanation (30 pts), for a total of 400 possible points.",
+  "resubmissionAllowed": true,
+  "totalPoints": 400
+}
