@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-require("dotenv").config();
-const fs = require("fs-extra");
 const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
+const fs = require("fs-extra");
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 
@@ -11,7 +11,11 @@ const { getYouTubeTranscript } = require("./services/youtube");
 const { evaluateAssignment } = require("./services/ai");
 const { generateHtml } = require("./utils/html-template");
 const { launchInteractiveGrader } = require("./interactive");
+const { logToExcel } = require("./excelLogger");
 const config = require("../config/config");
+
+// Debug: Log the loaded API key
+console.log("Loaded ANTHROPIC_API_KEY:", process.env.ANTHROPIC_API_KEY);
 
 /**
  * Main function to handle assignment grading
@@ -23,6 +27,11 @@ async function main() {
       .option("name", {
         alias: "n",
         description: "Student name",
+        type: "string",
+      })
+      .option("email", {
+        alias: "e",
+        description: "Student email",
         type: "string",
       })
       .option("github", {
@@ -62,6 +71,7 @@ async function main() {
 
     const {
       name: studentName,
+      email: studentEmail = "N/A",
       github: githubUrl,
       youtube: youtubeUrl,
       week: weekNumber,
@@ -69,6 +79,7 @@ async function main() {
 
     console.log("\n🚀 Starting AI Grader...");
     console.log(`Student: ${studentName}`);
+    console.log(`Email: ${studentEmail}`);
     console.log(`Week: ${weekNumber}`);
     console.log(`GitHub: ${githubUrl}`);
     console.log(`YouTube: ${youtubeUrl}`);
@@ -142,8 +153,10 @@ async function main() {
     const outputPath = path.join(config.outputDir, outputFilename);
 
     // Generate and save HTML
+    // In index.js, update where you call generateHtml
     const htmlOutput = generateHtml(
       studentName,
+      studentEmail,
       weekNumber,
       weekConfig.name,
       aiResponse
@@ -151,6 +164,23 @@ async function main() {
     fs.writeFileSync(outputPath, htmlOutput);
 
     console.log(`\n📝 Results saved to: ${outputPath}`);
+
+    // Log to Excel (no download or upload)
+    console.log("\n📊 Logging grading result to Excel...");
+    console.log("Appending to local Excel file...");
+    await logToExcel(
+      studentName,
+      studentEmail,
+      `Week ${weekNumber}`,
+      aiResponse.rawResponse,
+      new Date().toISOString().split("T")[0]
+    );
+
+    console.log("✅ Grading logged to local Excel file: ../grading_temp.xlsx");
+    console.log(
+      "Please manually download the latest Excel file from SharePoint at the start of the month and upload grading_temp.xlsx at the end of the month."
+    );
+
     console.log(
       "\n✨ Grading complete! Open the HTML file in your browser to view and copy the results."
     );

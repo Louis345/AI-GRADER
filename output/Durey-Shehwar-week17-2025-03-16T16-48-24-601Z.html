@@ -1,0 +1,114 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading: Durey Shehwar - Final Coding Project</title>
+    <style>
+      body { 
+        font-family: Arial, sans-serif; 
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header { 
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1, h2, h3, h4 {
+        color: #0275d8;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Final Coding Project Evaluation</h1>
+      <h2>Student: Durey Shehwar</h2>
+      <p>Week 17</p>
+    </div>
+    
+    <div id="content-to-copy">
+      <p>Completion (320 points):
+✅ The project appears to meet the core requirements outlined in the rubric. It is a React application that connects to an API and includes CRUD operations for managing a movie library. The application has components for displaying, adding, editing, and deleting movies. Overall, the project seems to be complete based on the provided code and video demonstration. (320/320 points)</p><p>GitHub (280 points):
+✅ The provided GitHub repository link is valid and contains the project code. The repository includes all the necessary files and folders for the React application, such as components, pages, services, and assets. The code is well-organized and follows a clear structure. (280/280 points)</p><p>Errors/Functionality (140 points):
+⚠️ Based on the provided code and video demonstration, the application appears to be functional without any major errors. However, there are a few minor issues to note:
+<li>The video mentioned that there is still some work needed for the movie poster images, as they are not currently displayed properly.</li>
+<li>The video also mentioned that the presenter did not include links for the movie posters, which may affect the overall user experience.</li>
+Despite these minor issues, the core functionality of the application seems to be working as expected. (120/140 points)</p><p>Video (60 points):
+✅ The provided video demonstration covers the main functionality of the application, including the homepage, adding movies, editing movies, and deleting movies. The presenter explains the different components and pages used in the application and shows how to interact with the movie library.
+⚠️ However, the video could benefit from some improvements in terms of presentation quality. The audio is a bit unclear at times, and there are some pauses and hesitations in the explanation. Additionally, the video does not provide a comprehensive overview of all the features and code structure of the application. (40/60 points)</p><p>Total Score: 760/800 (95%)</p><p>Summary:
+You have done an excellent job on your final coding project! Your React application successfully connects to an API and provides CRUD functionality for managing a movie library. The code is well-structured and organized, making it easy to understand and navigate. The video demonstration showcases the main features of the application, giving a clear idea of how it works.</p><p>To further enhance your project, I would suggest the following improvements:
+1. Ensure that the movie poster images are properly displayed in the application. You mentioned that there is still some work needed in this area, so focus on resolving that issue to provide a better visual experience for users.
+2. Consider adding links or URLs for the movie posters to enhance the overall user experience and make the application more informative.
+3. When creating future video demonstrations, try to speak more clearly and confidently. Practice your presentation beforehand to minimize pauses and hesitations. Additionally, consider providing a more comprehensive overview of the application's features and code structure to give viewers a better understanding of your work.</p><p>Overall, you have demonstrated a strong understanding of React, API integration, and CRUD operations. Keep up the great work, and with a few minor improvements, your project will be even more impressive. Well done!</p>
+    </div>
+    
+    <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+    
+    <div class="footer">
+      <p>Generated by AI Grader on 3/16/2025, 12:48:24 PM</p>
+    </div>
+    
+    <script>
+      function copyContent() {
+        const content = document.getElementById('content-to-copy').innerText;
+        navigator.clipboard.writeText(content)
+          .then(() => alert('Feedback copied to clipboard!'))
+          .catch(err => console.error('Failed to copy: ', err));
+      }
+    </script>
+  </body>
+  </html>
+    

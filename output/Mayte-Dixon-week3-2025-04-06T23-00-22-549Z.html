@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Mayte Dixon - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Mayte Dixon">
+  <meta name="student-email" content="N/A">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-04-06T23:00:22.551Z">
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header { 
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Mayte Dixon</h2>
+    <p>Week 3</p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> N/A</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p>📊 Evaluation Overview:
+Mayte, you've done a solid job on your Bootstrap project! Your website has a consistent navigation bar, multiple pages, and incorporates several key Bootstrap components. Let's go through each rubric section to provide specific feedback. 👍</p><p>📝 Completion (30 points):
+✅ You've included all the required pages: index.html, menu.html, and reservations.html. Well done! (10/10 pts)
+✅ The navigation bar is present on all pages and links are working as expected. Great job maintaining consistency! (10/10 pts)
+⚠️ While you have tables for the menu items and a form for reservations, a few small details are missing, such as form validation and additional form fields. (8/10 pts)
+Completion score: 28/30 pts</p><p>🖥️ GitHub Repository (25 points):
+✅ Your GitHub repository is set up correctly with an appropriate name and description. (10/10 pts)
+✅ All the required files are present in the repository. (10/10 pts)
+💡 Consider adding a README file to provide an overview of your project. (4/5 pts)
+GitHub Repository score: 24/25 pts</p><p>📱 Functionality (15 points):
+✅ The website is responsive and displays well on different screen sizes. Good use of Bootstrap's grid system! (5/5 pts)
+⚠️ The reservation form submission doesn't have any validation or error handling. Consider adding some form validation to enhance user experience. (3/5 pts)
+✅ No major errors or issues encountered during testing. (5/5 pts)
+Functionality score: 13/15 pts</p><p>📹 Video Explanation (10 points):
+✅ Your video provides a clear walkthrough of your website's pages and functionality. (5/5 pts)
+💡 Consider elaborating a bit more on your design choices and any challenges you faced during development. (4/5 pts)
+Video Explanation score: 9/10 pts</p><p>🌟 Total Score: 74/80 points</p><p>💯 Overall Feedback:
+Mayte, you've created a solid foundation for your Bootstrap website! Your consistent use of the navbar and inclusion of required pages demonstrate a good understanding of Bootstrap's key components. The tables for menu items and the reservation form add interactivity to your site.</p><p>To take your project to the next level, consider adding form validation to the reservation page and providing more informative feedback to users. Additionally, enhancing the visual appeal of your site with custom CSS or additional Bootstrap components could make it even more engaging.</p><p>Keep up the great work, Mayte! Your progress so far is commendable. Feel free to reach out if you have any questions or need further guidance. 💪🚀</p>
+  </div>
+  
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  
+  <div class="footer">
+    <p>Generated by AI Grader on 4/6/2025, 7:00:22 PM</p>
+  </div>
+  
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

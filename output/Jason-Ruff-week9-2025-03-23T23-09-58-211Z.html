@@ -1,0 +1,116 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading: Jason Ruff - JS6 - DevTools & Debugging</title>
+    <style>
+      body { 
+        font-family: Arial, sans-serif; 
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header { 
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1, h2, h3, h4 {
+        color: #0275d8;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>JS6 - DevTools & Debugging Evaluation</h1>
+      <h2>Student: Jason Ruff</h2>
+      <p>Week 9</p>
+    </div>
+    
+    <div id="content-to-copy">
+      <p>Hi Jason, great work on your JavaScript project! 🌟 Let's break down your assignment and provide some feedback. 📝</p><p>📊 Completion (160 points)
+✅ Your project successfully implements the War card game as described in the assignment. You've included all the required elements such as card dealing, round iterations, point tracking, and displaying the final winner. Well done! 👏
+Score: 160/160</p><p>📝 GitHub Repository (140 points)
+✅ Your GitHub repository is set up correctly with the necessary files (index.html and script.js). The code is clean, well-organized, and properly commented. Great job! 💯
+Score: 140/140</p><p>📈 Errors/Functionality (70 points)
+✅ Your code runs without any errors and successfully executes the game as intended. The gameplay follows the rules of War, and the score is tracked accurately. Fantastic work! 🔥
+Score: 70/70</p><p>📱 Video Explanation (30 points)
+✅ Your video explanation is clear, concise, and covers all the important aspects of your project. You walk through the code, explaining the different classes, methods, and game flow. Your explanations demonstrate a solid understanding of the concepts used. Excellent job! 🚀
+Score: 30/30</p><p>🖥️ Total Score
+✅ Based on the rubric, your total score is:
+160 + 140 + 70 + 30 = 400/400 🎉</p><p>👍 Suggestions for Improvement:
+While your project is already impressive, here are a couple of things you could consider for future enhancements:
+💡 You could add some basic HTML elements to display the game progress and winner on the webpage itself, in addition to the console output.
+🛠️ Consider adding some error handling or input validation to make the game more robust.</p><p>Jason, your War card game project is exceptionally well-done! 🌟 Your code is clean, well-structured, and demonstrates a strong grasp of object-oriented programming principles. The use of classes for Card, Deck, Player, and Game showcases your ability to organize and encapsulate functionality effectively. 💪</p><p>I particularly liked how you incorporated the Fisher-Yates shuffle algorithm to ensure a fair and random deck shuffling. 🔀 Your attention to detail, such as handling face cards and providing informative console output, enhances the overall user experience. 👌</p><p>Your video explanation was clear and concise, highlighting your understanding of the code and the game's logic. Your ability to articulate your thought process and design decisions is commendable. 🎥</p><p>Keep up the fantastic work, Jason! Your programming skills are really shining through in this project. 🌟 I'm confident that you'll continue to excel in your JavaScript journey. If you have any further questions or need assistance, don't hesitate to reach out. 📩</p><p>Once again, congratulations on an outstanding project! 🎉🙌</p><p>Best regards,
+Your JavaScript Instructor</p>
+    </div>
+    
+    <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+    
+    <div class="footer">
+      <p>Generated by AI Grader on 3/23/2025, 7:09:58 PM</p>
+    </div>
+    
+    <script>
+      function copyContent() {
+        const content = document.getElementById('content-to-copy').innerText;
+        navigator.clipboard.writeText(content)
+          .then(() => alert('Feedback copied to clipboard!'))
+          .catch(err => console.error('Failed to copy: ', err));
+      }
+    </script>
+  </body>
+  </html>
+    

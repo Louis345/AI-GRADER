@@ -1,0 +1,18 @@
+{
+  "weekNumber": 7,
+  "name": "JS4 - ECMA Script",
+  "rubricImagePath": "week7-rubric.png",
+  "images": [
+    {
+      "path": "week7-rubric.png",
+      "description": "Week 7 project rubric with point allocations"
+    },
+    {
+      "path": "week7-assgnment.png",
+      "description": "Week 7 assignment details and requirements focusing on ECMA Script"
+    }
+  ],
+  "rubricDescription": "This assignment focuses on JavaScript ECMA Script features. The rubric evaluates completion of requirements, GitHub repository setup, code functionality, and video explanation.",
+  "resubmissionAllowed": true,
+  "totalPoints": 400
+}

@@ -1,9 +1,10 @@
 {
   "weekNumber": 3,
   "name": "Bootstrap Project",
+  "rubricImagePath": "week3-bootstrap.png",
   "images": [
     {
-      "path": "week3-rubric.png",
+      "path": "week3-bootstrap.png",
       "description": "Grading rubric with point allocations"
     },
     {
@@ -11,6 +12,6 @@
       "description": "Assignment details and requirements"
     }
   ],
-  "rubricDescription": "This assignment evaluates a Bootstrap website...",
+  "rubricDescription": "This assignment evaluates a Bootstrap website with requirements including multiple pages, navbar, tables, and forms. The rubric grades on completion (30 pts), GitHub repository setup (25 pts), error-free functionality (15 pts), and video explanation (10 pts).",
   "resubmissionAllowed": true
 }

@@ -23,9 +23,12 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.15.0",
     "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
     "fs-extra": "^11.3.0",
     "inquirer": "^8.2.4",
     "node-fetch": "^2.7.0",
+    "node-sp-auth": "^3.0.9",
+    "request": "^2.88.2",
     "yargs": "^17.7.2",
     "youtube-transcript": "^1.2.1",
     "youtube-transcript-api": "^1.1.2"
