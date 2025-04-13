@@ -1,6 +1,4 @@
-const { Anthropic } = require("@anthropic-ai/sdk");
-const fs = require("fs");
-const path = require("path");
+const Anthropic = require("@anthropic-ai/sdk");
 const config = require("../../config/config");
 
 // Initialize Anthropic client
@@ -9,125 +7,160 @@ const anthropic = new Anthropic({
 });
 
 /**
- * Encodes an image file to base64
- * @param {string} imagePath - Path to the image file
- * @returns {string} Base64-encoded image
- */
-function encodeImageToBase64(imagePath) {
-  try {
-    const imageBuffer = fs.readFileSync(imagePath);
-    return imageBuffer.toString("base64");
-  } catch (error) {
-    console.error("Error encoding image:", error);
-    throw error;
-  }
-}
-
-/**
- * Evaluates a student assignment using Anthropic's Claude
+ * Evaluates a student assignment using AI
  * @param {Object} options - Evaluation options
  * @param {string} options.studentName - Student's name
- * @param {string} options.weekConfig - Week configuration object
+ * @param {string} options.studentEmail - Student's email
+ * @param {Object} options.weekConfig - Week configuration
  * @param {string} options.githubContent - GitHub repository content
  * @param {string} options.youtubeTranscript - YouTube video transcript
- * @returns {Promise<Object>} The evaluation results
+ * @returns {Promise<Object>} AI evaluation response
  */
 async function evaluateAssignment({
   studentName,
+  studentEmail,
   weekConfig,
   githubContent,
   youtubeTranscript,
 }) {
   try {
-    // Load and encode the rubric image
-    const rubricImagePath = path.join(
-      config.rubricDir,
-      weekConfig.rubricImagePath
-    );
-    const imageBase64 = encodeImageToBase64(rubricImagePath);
+    // Construct the prompt
+    const prompt = constructPrompt({
+      studentName,
+      studentEmail,
+      weekConfig,
+      githubContent,
+      youtubeTranscript,
+    });
 
-    // Prepare content for the API call
-    const messageContent = [
-      {
-        type: "image",
-        source: {
-          type: "base64",
-          media_type: "image/png",
-          data: imageBase64,
-        },
-      },
-      {
-        type: "text",
-        text: config.defaultPrompt,
-      },
-      {
-        type: "text",
-        text: `STUDENT: ${studentName}\nASSIGNMENT: ${weekConfig.name} (Week ${weekConfig.weekNumber})\n\nRUBRIC DESCRIPTION: ${weekConfig.rubricDescription}\n\nGITHUB REPOSITORY CONTENT:\n${githubContent}\n\nYOUTUBE TRANSCRIPT:\n${youtubeTranscript}`,
-      },
-    ];
-
-    // Make API call to Claude
-    console.log("Sending request to Claude API...");
-
+    // Call Anthropic API
+    console.log("Sending request to Anthropic API...");
     const response = await anthropic.messages.create({
       model: config.anthropic.model,
       max_tokens: config.anthropic.maxTokens,
-      messages: [
-        {
-          role: "user",
-          content: messageContent,
-        },
-      ],
+      system: config.defaultPrompt,
+      messages: [{ role: "user", content: prompt }],
     });
 
-    const evaluation = response.content[0].text;
+    // Extract and format the response
+    const rawResponse = response.content.reduce(
+      (acc, item) => (item.text ? acc + item.text : acc),
+      ""
+    );
 
-    // Format the response for HTML display
-    const formattedHtml = formatResponseForHtml(evaluation);
+    // Process response into HTML format with preserved emojis and structure
+    const formattedHtml = formatResponseToHtml(rawResponse);
 
     return {
-      rawResponse: evaluation,
+      rawResponse,
       formattedHtml,
     };
   } catch (error) {
-    console.error("Error evaluating assignment:", error);
-    throw error;
+    console.error("Error in AI evaluation:", error);
+    throw new Error(`AI evaluation failed: ${error.message}`);
   }
 }
 
 /**
- * Formats the AI response for HTML display
- * @param {string} text - The raw AI response
- * @returns {string} HTML-formatted response
+ * Constructs the evaluation prompt
+ * @param {Object} options - Prompt options
+ * @returns {string} Formatted prompt
  */
-function formatResponseForHtml(text) {
-  // Replace markdown headings with HTML headings
-  text = text
-    .replace(/^# (.*$)/gm, "<h1>$1</h1>")
-    .replace(/^## (.*$)/gm, "<h2>$1</h2>")
-    .replace(/^### (.*$)/gm, "<h3>$1</h3>")
-    .replace(/^#### (.*$)/gm, "<h4>$1</h4>");
+function constructPrompt({
+  studentName,
+  studentEmail,
+  weekConfig,
+  githubContent,
+  youtubeTranscript,
+}) {
+  return `
+Student: ${studentName} (${studentEmail})
+Assignment: ${weekConfig.name}
 
-  // Replace markdown lists
-  text = text
-    .replace(/^\* (.*$)/gm, "<li>$1</li>")
-    .replace(/^- (.*$)/gm, "<li>$1</li>");
+# Assignment Description
+${weekConfig.rubricDescription}
 
-  // Wrap list items in ul tags (simple approach)
-  text = text.replace(/(<li>.*<\/li>)\n\n/gs, "<ul>$1</ul>\n\n");
+# GitHub Repository Content
+\`\`\`
+${truncateIfNeeded(githubContent, 30000)}
+\`\`\`
 
-  // Convert double newlines to paragraph breaks
-  text = text.replace(/\n\n/g, "</p><p>");
+# YouTube Video Transcript
+\`\`\`
+${truncateIfNeeded(youtubeTranscript, 10000)}
+\`\`\`
 
-  // Wrap in paragraph tags
-  text = "<p>" + text + "</p>";
-
-  // Fix any doubled paragraph tags
-  text = text.replace(/<\/p><p><\/p><p>/g, "</p><p>");
-
-  return text;
+# Instructions
+Please evaluate this student's assignment based on the rubric and provided content.
+Remember to use emojis throughout your feedback.
+Focus on being helpful, specific, and constructive in your feedback.
+Mention the student by name and refer to yourself as "I" (the instructor).
+Include any specific areas for improvement and strengths you observe.
+`;
 }
 
-module.exports = {
-  evaluateAssignment,
-};
+/**
+ * Truncates text if it exceeds a specified length
+ * @param {string} text - Text to truncate
+ * @param {number} maxLength - Maximum length
+ * @returns {string} Truncated text
+ */
+function truncateIfNeeded(text, maxLength) {
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength) + "... [content truncated for length]";
+}
+
+/**
+ * Formats the AI response into HTML
+ * @param {string} response - Raw AI response
+ * @returns {string} HTML formatted response
+ */
+function formatResponseToHtml(response) {
+  // Replace newlines with <br> tags
+  let html = response.replace(/\n/g, "<br>");
+
+  // Convert markdown-style headers
+  html = html.replace(/^# (.+)$/gm, "<h1>$1</h1>");
+  html = html.replace(/^## (.+)$/gm, "<h2>$1</h2>");
+  html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
+
+  // Convert markdown-style lists
+  html = html.replace(/^\* (.+)$/gm, "<li>$1</li>");
+  html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
+  html = html.replace(/^(\d+)\. (.+)$/gm, "<li>$1. $2</li>");
+
+  // Wrap lists in <ul> tags
+  html = html.replace(/(?:<li>.*?<\/li>)+/g, (match) => `<ul>${match}</ul>`);
+
+  // Bold text with asterisks
+  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+  // Italicize text with single asterisks
+  html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+
+  // Format code blocks
+  html = html.replace(/```(.+?)```/gs, "<pre><code>$1</code></pre>");
+
+  // Inline code
+  html = html.replace(/`(.+?)`/g, "<code>$1</code>");
+
+  // Add section styling
+  html = html.replace(
+    /<h[1-3]>(.+?)<\/h[1-3]>/g,
+    '<div class="section"><h3>$1</h3>'
+  );
+  html = html.replace(/<\/ul>/g, "</ul></div>");
+
+  // Highlight score text
+  html = html.replace(/(\d+\/\d+ points)/g, '<span class="score">$1</span>');
+
+  // Add special styling for total score
+  html = html.replace(
+    /(Total Score:) (\d+\/\d+)/g,
+    '<div class="total-score">$1 <span class="score">$2</span></div>'
+  );
+
+  return html;
+}
+
+module.exports = { evaluateAssignment };

@@ -1,170 +1,313 @@
-const fetch = require('node-fetch');
+const axios = require("axios");
+const path = require("path");
+const fs = require("fs-extra");
 
 /**
- * Parses a GitHub URL to extract owner and repo name
- * @param {string} url - The GitHub repository URL
- * @returns {Object} The owner and repo name
+ * Process GitHub repository and extract relevant content
+ * @param {string} repoUrl - GitHub repository URL
+ * @returns {Promise<string>} Repository content as formatted text
  */
-function parseGitHubUrl(url) {
-  // Clean up URL - remove trailing .git if present
-  const cleanUrl = url.replace(/\.git$/, '');
-  
-  // Remove trailing slash if present
-  const noTrailingSlash = cleanUrl.endsWith('/') ? cleanUrl.slice(0, -1) : cleanUrl;
-  
-  // Regular expression to match GitHub URLs
-  const regex = /github\.com\/([^\/]+)\/([^\/]+)/;
-  const match = noTrailingSlash.match(regex);
-  
-  if (!match) {
-    throw new Error('Invalid GitHub URL format');
-  }
-  
-  return {
-    owner: match[1],
-    repo: match[2]
-  };
-}
-
-/**
- * Fetches the file list from a GitHub repository
- * @param {string} owner - The repository owner
- * @param {string} repo - The repository name
- * @returns {Promise<Array>} List of file objects
- */
-async function getRepoFiles(owner, repo) {
+async function processGitHubRepo(repoUrl) {
   try {
-    console.log(`Attempting to fetch GitHub repo: ${owner}/${repo}`);
-    
-    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`);
-    
-    if (!response.ok) {
-      console.log(`Main branch not found, trying master branch...`);
-      // Try master branch if main doesn't exist
-      const masterResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/master?recursive=1`);
-      
-      if (!masterResponse.ok) {
-        // If both fail, try to fetch the default branch
-        console.log(`Master branch not found, attempting to get default branch...`);
-        const repoInfoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-        
-        if (!repoInfoResponse.ok) {
-          throw new Error(`Failed to fetch repository content: ${masterResponse.statusText}`);
+    console.log(`Processing GitHub repository: ${getRepoPath(repoUrl)}`);
+
+    // Validate GitHub URL format
+    if (!repoUrl.includes("github.com")) {
+      throw new Error("Invalid GitHub URL format");
+    }
+
+    // Extract repo path
+    const repoPath = getRepoPath(repoUrl);
+    console.log(`Attempting to fetch GitHub repo: ${repoPath}`);
+
+    // Try to get the repository files
+    try {
+      return await getRepositoryContent(repoPath);
+    } catch (error) {
+      // If original repo path fails, try with "s" appended (common mistake)
+      if (repoPath.endsWith("API")) {
+        const alternateRepoPath = `${repoPath}s`;
+        console.log(
+          `Original repo not found. Trying alternate path: ${alternateRepoPath}`
+        );
+
+        try {
+          return await getRepositoryContent(alternateRepoPath);
+        } catch (altError) {
+          console.error(
+            `Alternate repository path also failed: ${altError.message}`
+          );
+          throw new Error(
+            `Could not find repository at ${repoPath} or ${alternateRepoPath}`
+          );
         }
-        
-        const repoInfo = await repoInfoResponse.json();
-        const defaultBranch = repoInfo.default_branch;
-        console.log(`Using default branch: ${defaultBranch}`);
-        
-        const defaultBranchResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${defaultBranch}?recursive=1`);
-        
-        if (!defaultBranchResponse.ok) {
-          throw new Error(`Failed to fetch repository content from default branch: ${defaultBranchResponse.statusText}`);
-        }
-        
-        const data = await defaultBranchResponse.json();
-        return data.tree.filter(item => item.type === 'blob');
       }
-      
-      const data = await masterResponse.json();
-      return data.tree.filter(item => item.type === 'blob');
+
+      // If we reach here, both attempts failed or it wasn't an API/APIs issue
+      throw error;
     }
-    
-    const data = await response.json();
-    return data.tree.filter(item => item.type === 'blob');
   } catch (error) {
-    console.error('Error fetching repository file list:', error);
-    throw error;
+    console.error(`Error processing GitHub repository: ${error.message}`);
+
+    // Return a structured error message instead of throwing
+    return `
+GitHub Repository Error:
+- Repository URL: ${repoUrl}
+- Error Message: ${error.message}
+- Possible Solutions:
+  1. Check if the repository URL is correct
+  2. Verify the repository is public
+  3. Make sure the repository exists
+  4. Check for typos in the repository name (e.g., API vs APIs)
+
+Please correct the repository URL and try again.
+`;
   }
 }
 
 /**
- * Fetches file content from GitHub
- * @param {string} owner - The repository owner
- * @param {string} repo - The repository name
- * @param {string} path - Path to the file
- * @returns {Promise<string>} The file content
+ * Get repository content from GitHub
+ * @param {string} repoPath - Repository path (owner/repo)
+ * @returns {Promise<string>} Repository content
  */
-async function getFileContent(owner, repo, path) {
+async function getRepositoryContent(repoPath) {
   try {
-    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch file content: ${response.statusText}`);
-    }
-    
-    const data = await response.json();
-    
-    // GitHub API returns content as base64
-    return Buffer.from(data.content, 'base64').toString('utf-8');
-  } catch (error) {
-    console.error(`Error fetching content for ${path}:`, error);
-    return `/* Unable to fetch content for ${path} */`;
-  }
-}
+    // Get repository files
+    const files = await getRelevantFiles(repoPath);
 
-/**
- * Gets relevant files from the repository
- * Filters out node_modules, images, etc.
- * @param {string} owner - The repository owner
- * @param {string} repo - The repository name
- * @returns {Promise<Object>} Object with file paths and their contents
- */
-async function getRelevantFiles(owner, repo) {
-  const files = await getRepoFiles(owner, repo);
-  
-  // Filter out irrelevant files
-  const relevantFiles = files.filter(file => {
-    const path = file.path.toLowerCase();
-    // Exclude node_modules, images, and other binary files
-    return !path.includes('node_modules/') && 
-           !path.match(/\.(jpg|jpeg|png|gif|svg|ico|woff|ttf|eot)$/) &&
-           !path.match(/package-lock\.json$/);
-  });
-  
-  // Get content for HTML, CSS, JS files first (most important for grading)
-  const priorityFiles = relevantFiles.filter(file => 
-    file.path.match(/\.(html|css|js|jsx|ts|tsx)$/) && 
-    file.path.length < 500 // Avoid extremely long paths
-  );
-  
-  // Limit to 20 files to avoid API rate limits and excessive content
-  const filesToFetch = priorityFiles.slice(0, 20);
-  
-  const fileContents = {};
-  
-  for (const file of filesToFetch) {
-    fileContents[file.path] = await getFileContent(owner, repo, file.path);
-  }
-  
-  return fileContents;
-}
+    // Format repository content
+    let formattedContent = `# GitHub Repository: ${repoPath}\n\n`;
 
-/**
- * Main function to process a GitHub repository
- * @param {string} url - The GitHub repository URL
- * @returns {Promise<string>} Formatted repository content
- */
-async function processGitHubRepo(url) {
-  try {
-    const { owner, repo } = parseGitHubUrl(url);
-    console.log(`Processing GitHub repository: ${owner}/${repo}`);
-    const files = await getRelevantFiles(owner, repo);
-    
-    let formattedContent = `GitHub Repository: ${url}\n\n`;
-    
-    for (const [path, content] of Object.entries(files)) {
-      formattedContent += `FILE: ${path}\n${'='.repeat(80)}\n${content}\n\n`;
+    // Process each file
+    for (const file of files) {
+      formattedContent += `## File: ${file.path}\n\`\`\`${getFileExtension(
+        file.path
+      )}\n${file.content}\n\`\`\`\n\n`;
     }
-    
+
     return formattedContent;
   } catch (error) {
-    console.error('Error processing GitHub repository:', error);
     throw error;
   }
 }
 
-module.exports = {
-  parseGitHubUrl,
-  processGitHubRepo
-};
+/**
+ * Extract repository path from URL
+ * @param {string} url - GitHub repository URL
+ * @returns {string} Repository path (owner/repo)
+ */
+function getRepoPath(url) {
+  // Handle both HTTPS and SSH URLs
+  if (url.includes("github.com")) {
+    // HTTPS URL format
+    const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
+    if (match) {
+      return match[1].replace(".git", "");
+    }
+  } else if (url.includes("git@github.com")) {
+    // SSH URL format
+    const match = url.match(/git@github\.com:([^\/]+\/[^\/]+)/);
+    if (match) {
+      return match[1].replace(".git", "");
+    }
+  }
+
+  throw new Error("Invalid GitHub URL format");
+}
+
+/**
+ * Get repository files from GitHub
+ * @param {string} repoPath - Repository path (owner/repo)
+ * @returns {Promise<Array>} Array of file objects
+ */
+async function getRelevantFiles(repoPath) {
+  try {
+    // Get default branch name
+    const defaultBranch = await getDefaultBranch(repoPath);
+
+    // Get file list from default branch
+    const fileList = await getRepoFiles(repoPath, defaultBranch);
+
+    // Filter relevant files
+    const relevantFiles = fileList.filter((file) => {
+      // Include only text files under a certain size and exclude certain directories
+      return (
+        file.type === "file" &&
+        file.size < 500000 && // 500 KB limit
+        !file.path.startsWith("node_modules/") &&
+        !file.path.startsWith(".git/") &&
+        !file.path.includes("/node_modules/") &&
+        !file.path.endsWith(".jpg") &&
+        !file.path.endsWith(".jpeg") &&
+        !file.path.endsWith(".png") &&
+        !file.path.endsWith(".gif") &&
+        !file.path.endsWith(".svg") &&
+        !file.path.endsWith(".mp4") &&
+        !file.path.endsWith(".mp3") &&
+        !file.path.endsWith(".zip") &&
+        !file.path.endsWith(".tar.gz")
+      );
+    });
+
+    // Get content for each file
+    const filesWithContent = await Promise.all(
+      relevantFiles.map(async (file) => {
+        try {
+          const content = await getFileContent(
+            repoPath,
+            file.path,
+            defaultBranch
+          );
+          return {
+            path: file.path,
+            content: content,
+          };
+        } catch (error) {
+          return {
+            path: file.path,
+            content: `[Error fetching content: ${error.message}]`,
+          };
+        }
+      })
+    );
+
+    return filesWithContent;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
+ * Get default branch name for a repository
+ * @param {string} repoPath - Repository path (owner/repo)
+ * @returns {Promise<string>} Default branch name
+ */
+async function getDefaultBranch(repoPath) {
+  try {
+    // Try common branch names first to reduce API calls
+    const commonBranches = ["main", "master"];
+
+    for (const branch of commonBranches) {
+      try {
+        await axios.get(
+          `https://api.github.com/repos/${repoPath}/branches/${branch}`
+        );
+        console.log(`Found branch: ${branch}`);
+        return branch;
+      } catch (error) {
+        console.log(`Branch "${branch}" not found, trying next...`);
+      }
+    }
+
+    // If common branches not found, get repository info to find default branch
+    console.log(`Common branches not found, getting default branch info...`);
+    const response = await axios.get(
+      `https://api.github.com/repos/${repoPath}`
+    );
+
+    if (response.data && response.data.default_branch) {
+      console.log(`Using default branch: ${response.data.default_branch}`);
+      return response.data.default_branch;
+    }
+
+    throw new Error("Could not determine default branch");
+  } catch (error) {
+    throw new Error(`Failed to get default branch: ${error.message}`);
+  }
+}
+
+/**
+ * Get repository files from a specific branch
+ * @param {string} repoPath - Repository path (owner/repo)
+ * @param {string} branch - Branch name
+ * @returns {Promise<Array>} Array of file objects
+ */
+async function getRepoFiles(repoPath, branch) {
+  try {
+    // Get repository tree
+    const response = await axios.get(
+      `https://api.github.com/repos/${repoPath}/git/trees/${branch}?recursive=1`
+    );
+
+    if (!response.data || !response.data.tree) {
+      throw new Error("Repository tree not found");
+    }
+
+    return response.data.tree;
+  } catch (error) {
+    // Improve error messages for common issues
+    if (error.response) {
+      if (error.response.status === 404) {
+        throw new Error(
+          "Repository not found. Check the URL and make sure it's public."
+        );
+      } else if (error.response.status === 403) {
+        throw new Error("API rate limit exceeded or access denied.");
+      }
+    }
+
+    throw new Error(`Failed to fetch repository content: ${error.message}`);
+  }
+}
+
+/**
+ * Get file content from GitHub
+ * @param {string} repoPath - Repository path (owner/repo)
+ * @param {string} filePath - File path within the repository
+ * @param {string} branch - Branch name
+ * @returns {Promise<string>} File content
+ */
+async function getFileContent(repoPath, filePath, branch) {
+  try {
+    // Get file content
+    const response = await axios.get(
+      `https://raw.githubusercontent.com/${repoPath}/${branch}/${filePath}`
+    );
+
+    return response.data;
+  } catch (error) {
+    throw new Error(`Failed to fetch file content: ${error.message}`);
+  }
+}
+
+/**
+ * Get file extension for syntax highlighting
+ * @param {string} filePath - File path
+ * @returns {string} File extension for syntax highlighting
+ */
+function getFileExtension(filePath) {
+  const ext = path.extname(filePath).toLowerCase().substring(1);
+
+  // Map file extensions to syntax highlighting languages
+  const languageMap = {
+    js: "javascript",
+    jsx: "javascript",
+    ts: "typescript",
+    tsx: "typescript",
+    py: "python",
+    rb: "ruby",
+    java: "java",
+    c: "c",
+    cpp: "cpp",
+    cs: "csharp",
+    php: "php",
+    html: "html",
+    css: "css",
+    scss: "scss",
+    sass: "sass",
+    less: "less",
+    md: "markdown",
+    json: "json",
+    xml: "xml",
+    yaml: "yaml",
+    yml: "yaml",
+    sql: "sql",
+    sh: "bash",
+    bash: "bash",
+    txt: "text",
+  };
+
+  return languageMap[ext] || "";
+}
+
+module.exports = { processGitHubRepo };

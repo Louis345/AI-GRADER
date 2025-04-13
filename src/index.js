@@ -15,7 +15,10 @@ const { logToExcel } = require("./excelLogger");
 const config = require("../config/config");
 
 // Debug: Log the loaded API key
-console.log("Loaded ANTHROPIC_API_KEY:", process.env.ANTHROPIC_API_KEY);
+console.log(
+  "Loaded ANTHROPIC_API_KEY:",
+  process.env.ANTHROPIC_API_KEY ? "API key found" : "API key missing"
+);
 
 /**
  * Main function to handle assignment grading
@@ -140,6 +143,7 @@ async function main() {
     console.log("This may take a minute or two...");
     const aiResponse = await evaluateAssignment({
       studentName,
+      studentEmail, // Pass email to AI evaluation
       weekConfig,
       githubContent,
       youtubeTranscript,
@@ -153,10 +157,9 @@ async function main() {
     const outputPath = path.join(config.outputDir, outputFilename);
 
     // Generate and save HTML
-    // In index.js, update where you call generateHtml
     const htmlOutput = generateHtml(
       studentName,
-      studentEmail,
+      studentEmail, // Make sure to pass student email to HTML generator
       weekNumber,
       weekConfig.name,
       aiResponse
@@ -170,7 +173,7 @@ async function main() {
     console.log("Appending to local Excel file...");
     await logToExcel(
       studentName,
-      studentEmail,
+      studentEmail, // Make sure email is passed to Excel logger
       `Week ${weekNumber}`,
       aiResponse.rawResponse,
       new Date().toISOString().split("T")[0]

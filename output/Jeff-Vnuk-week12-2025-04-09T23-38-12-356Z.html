@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jeff Vnuk - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jeff Vnuk">
+  <meta name="student-email" content="orangejuice1993@hotmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-04-09T23:38:12.357Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jeff Vnuk</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> orangejuice1993@hotmail.com</p>
+    <p><strong>Date:</strong> 4/9/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jeff Vnuk</p>
+    <p><strong>Student Email:</strong> orangejuice1993@hotmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+<p>📊 Grading Rubric Evaluation</p><p>✅ Completion (160/160 pts)
+<ul><li>Create a CRUD application (CRUD without update) using json-server or another API (40/40 pts)</li>
+<li>Use fetch and async/await to interact with the API (40/40 pts)</li>
+<li>Use a form to create/post new entities (40/40 pts)</li>
+<li>Include a way to use entities from the API and display them (40/40 pts)</li></p><p>Excellent work on completing all the required elements of the assignment! 👏 Your CRUD application successfully interacts with the API using fetch and async/await, allows creating new entities through a form, and displays the fetched entities. Well done! 🌟</p><p>📝 GitHub Repository (140/140 pts)
+<li>Submit the URL links for the GitHub repo and Video in the Text box. (10/10 pts)</li>
+<li>Ensure the link you share is PUBLIC or UNLISTED (10/10 pts)</li>
+<li>It is not accessible by your grader, your project will be graded based on what they can access. (120/120 pts)</li></p><p>Your GitHub repository is set up correctly and accessible. The provided links work as expected. Great job ensuring your project is available for grading! 💯</p><p>📈 Errors/Functionality (70/70 pts)
+<li>Build a way for users to delete entities (35/35 pts)</li>
+<li>Include a way to get entities from the API and display them (35/35 pts)</li>
+<li>You do NOT need update, but you can add it if you'd like</li></p><p>The delete functionality works smoothly, allowing the removal of the most recently added entity. Fetching and displaying entities from the API is also implemented effectively. Fantastic work on error-free functionality! 🔥</p><p>📱 Video (30/30 pts)
+<li>Create a video, up to five minutes max, showing and explaining how your project works with an emphasis on the portions you contributed. (30/30 pts)</li></p><p>Your video walkthrough is concise and informative, clearly demonstrating the key features of your application. The explanation emphasizes your contributions and provides a solid understanding of how your project works. Nicely done! 👍</p><p>🖥️ Total Score: 400/400</p><p>Congratulations on an outstanding job with this assignment! 🎉 Your CRUD application meets all the requirements and functions smoothly. The code is well-structured, and your video explanation is clear and focused on your contributions.</p><p>💡 Suggestions for Improvement:
+<li>Consider adding some styling to enhance the visual appeal of your application. 🎨</li>
+<li>Explore additional features like updating entities to further showcase your skills. 💪</li>
+<li>Provide more detailed comments in your code to improve readability and maintainability. 📝</li></ul></p><p>Keep up the excellent work, Jeff! Your dedication and attention to detail are evident in this project. Feel free to reach out if you have any questions or need further guidance. 🚀✨</p>
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 4/9/2025, 7:38:12 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
