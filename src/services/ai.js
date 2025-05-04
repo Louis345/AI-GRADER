@@ -14,6 +14,7 @@ const anthropic = new Anthropic({
  * @param {Object} options.weekConfig - Week configuration
  * @param {string} options.githubContent - GitHub repository content
  * @param {string} options.youtubeTranscript - YouTube video transcript
+ * @param {boolean} options.hasYoutubeVideo - Whether the student submitted a YouTube video
  * @returns {Promise<Object>} AI evaluation response
  */
 async function evaluateAssignment({
@@ -22,6 +23,7 @@ async function evaluateAssignment({
   weekConfig,
   githubContent,
   youtubeTranscript,
+  hasYoutubeVideo = true, // Default to true for backward compatibility
 }) {
   try {
     // Construct the prompt
@@ -31,14 +33,41 @@ async function evaluateAssignment({
       weekConfig,
       githubContent,
       youtubeTranscript,
+      hasYoutubeVideo,
     });
+
+    // Create system prompt based on YouTube submission
+    let systemPrompt = config.defaultPrompt;
+
+    // Add YouTube override if needed
+    if (!hasYoutubeVideo) {
+      systemPrompt += `
+IMPORTANT OVERRIDE: The student did NOT submit a YouTube video for this assignment.
+Please do NOT evaluate or mention any video-related requirements in your feedback.
+Adjust your grading to focus ONLY on the GitHub code components.
+If the rubric includes points for the video presentation (usually 10-15 points), 
+either redistribute those points to code-related categories or note that this portion 
+was not applicable for this student's submission.
+`;
+    }
 
     // Call Anthropic API
     console.log("Sending request to Anthropic API...");
     const response = await anthropic.messages.create({
       model: config.anthropic.model,
       max_tokens: config.anthropic.maxTokens,
-      system: config.defaultPrompt,
+      system:
+        config.defaultPrompt +
+        (!hasYoutubeVideo
+          ? `
+IMPORTANT OVERRIDE: The student did NOT submit a YouTube video for this assignment.
+Please do NOT evaluate or mention any video-related requirements in your feedback.
+Adjust your grading to focus ONLY on the GitHub code components.
+If the rubric includes points for the video presentation (usually 10-15 points), 
+either redistribute those points to code-related categories or note that this portion 
+was not applicable for this student's submission.
+`
+          : ""),
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -72,8 +101,10 @@ function constructPrompt({
   weekConfig,
   githubContent,
   youtubeTranscript,
+  hasYoutubeVideo = true, // Default to true for backward compatibility
 }) {
-  return `
+  // Base prompt with student and assignment info
+  let prompt = `
 Student: ${studentName} (${studentEmail})
 Assignment: ${weekConfig.name}
 
@@ -84,19 +115,39 @@ ${weekConfig.rubricDescription}
 \`\`\`
 ${truncateIfNeeded(githubContent, 30000)}
 \`\`\`
+`;
 
+  // Conditionally include YouTube section
+  if (hasYoutubeVideo) {
+    prompt += `
 # YouTube Video Transcript
 \`\`\`
 ${truncateIfNeeded(youtubeTranscript, 10000)}
 \`\`\`
+`;
+  } else {
+    prompt += `
+# YouTube Video
+No YouTube video was submitted for this assignment.
+`;
+  }
 
+  // Instructions section
+  prompt += `
 # Instructions
 Please evaluate this student's assignment based on the rubric and provided content.
+${
+  !hasYoutubeVideo
+    ? "NOTE: Do NOT evaluate any video-related requirements as no video was submitted."
+    : ""
+}
 Remember to use emojis throughout your feedback.
 Focus on being helpful, specific, and constructive in your feedback.
 Mention the student by name and refer to yourself as "I" (the instructor).
 Include any specific areas for improvement and strengths you observe.
 `;
+
+  return prompt;
 }
 
 /**
@@ -163,4 +214,5 @@ function formatResponseToHtml(response) {
   return html;
 }
 
+// Make sure to properly export the function
 module.exports = { evaluateAssignment };

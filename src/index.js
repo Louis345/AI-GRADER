@@ -44,7 +44,7 @@ async function main() {
       })
       .option("youtube", {
         alias: "y",
-        description: "YouTube video URL",
+        description: "YouTube video URL (optional)",
         type: "string",
       })
       .option("week", {
@@ -62,13 +62,7 @@ async function main() {
       .alias("help", "h").argv;
 
     // If interactive mode is specified or no required args provided, launch interactive mode
-    if (
-      argv.interactive ||
-      !argv.name ||
-      !argv.github ||
-      !argv.youtube ||
-      !argv.week
-    ) {
+    if (argv.interactive || !argv.name || !argv.github || !argv.week) {
       return await launchInteractiveGrader();
     }
 
@@ -85,7 +79,7 @@ async function main() {
     console.log(`Email: ${studentEmail}`);
     console.log(`Week: ${weekNumber}`);
     console.log(`GitHub: ${githubUrl}`);
-    console.log(`YouTube: ${youtubeUrl}`);
+    console.log(`YouTube: ${youtubeUrl || "Not submitted"}`);
 
     // Load week configuration
     const weekConfigPath = path.join(
@@ -133,20 +127,40 @@ async function main() {
       `✅ GitHub repository processed (${githubContent.length} characters)`
     );
 
-    console.log("\n🎬 Fetching YouTube transcript...");
-    const youtubeTranscript = await getYouTubeTranscript(youtubeUrl);
-    console.log(
-      `✅ YouTube transcript processed (${youtubeTranscript.length} characters)`
-    );
+    // Process YouTube video (optional)
+    let youtubeTranscript = "";
+    let hasYoutubeVideo = false;
+
+    if (youtubeUrl) {
+      hasYoutubeVideo = true;
+      console.log("\n🎬 Fetching YouTube transcript...");
+      try {
+        youtubeTranscript = await getYouTubeTranscript(youtubeUrl);
+        console.log(
+          `✅ YouTube transcript processed (${youtubeTranscript.length} characters)`
+        );
+      } catch (error) {
+        console.log(
+          `⚠️ Warning: Could not process YouTube video: ${error.message}`
+        );
+        youtubeTranscript = "Video submitted but could not be processed.";
+      }
+    } else {
+      console.log(
+        "\n⚠️ No YouTube URL provided. This part of the assignment will not be evaluated."
+      );
+      youtubeTranscript = "No YouTube video provided.";
+    }
 
     console.log("\n🤖 Evaluating assignment with AI...");
     console.log("This may take a minute or two...");
     const aiResponse = await evaluateAssignment({
       studentName,
-      studentEmail, // Pass email to AI evaluation
+      studentEmail,
       weekConfig,
       githubContent,
       youtubeTranscript,
+      hasYoutubeVideo,
     });
     console.log("✅ AI evaluation complete!");
 
@@ -159,7 +173,7 @@ async function main() {
     // Generate and save HTML
     const htmlOutput = generateHtml(
       studentName,
-      studentEmail, // Make sure to pass student email to HTML generator
+      studentEmail,
       weekNumber,
       weekConfig.name,
       aiResponse
@@ -173,7 +187,7 @@ async function main() {
     console.log("Appending to local Excel file...");
     await logToExcel(
       studentName,
-      studentEmail, // Make sure email is passed to Excel logger
+      studentEmail,
       `Week ${weekNumber}`,
       aiResponse.rawResponse,
       new Date().toISOString().split("T")[0]

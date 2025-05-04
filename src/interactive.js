@@ -45,9 +45,16 @@ async function launchInteractiveGrader() {
             : "Please enter a valid GitHub URL",
       },
       {
+        type: "confirm",
+        name: "hasYoutubeVideo",
+        message: "Did the student submit a YouTube video?",
+        default: true,
+      },
+      {
         type: "input",
         name: "youtubeUrl",
         message: "Enter the YouTube video URL or ID:",
+        when: (answers) => answers.hasYoutubeVideo,
         validate: (input) => {
           if (
             input.match(/^[a-zA-Z0-9_-]{11}$/) ||
@@ -79,8 +86,13 @@ async function launchInteractiveGrader() {
 
     console.log("\n📝 Grading Details Summary:");
     console.log(`Student: ${answers.studentName}`);
+    console.log(`Email: ${answers.email}`);
     console.log(`GitHub: ${answers.githubUrl}`);
-    console.log(`YouTube: ${answers.youtubeUrl}`);
+    console.log(
+      `YouTube: ${
+        answers.hasYoutubeVideo ? answers.youtubeUrl : "Not submitted"
+      }`
+    );
     console.log(`Week: ${answers.weekNumber}`);
 
     const confirm = await inquirer.prompt([
@@ -94,7 +106,12 @@ async function launchInteractiveGrader() {
 
     if (confirm.proceed) {
       // Build the command
-      const command = `node ${indexPath} -n "${answers.studentName}" -e "${answers.email}" -g ${answers.githubUrl} -y ${answers.youtubeUrl} -w ${answers.weekNumber}`;
+      let command = `node ${indexPath} -n "${answers.studentName}" -e "${answers.email}" -g ${answers.githubUrl} -w ${answers.weekNumber}`;
+
+      // Only add YouTube URL if provided
+      if (answers.hasYoutubeVideo) {
+        command += ` -y ${answers.youtubeUrl}`;
+      }
 
       console.log("\n🚀 Starting grading process...");
       console.log(`Executing: ${command}`);

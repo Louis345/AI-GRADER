@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Eric Lee - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Eric Lee">
+  <meta name="student-email" content="ericallenlee2002@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-04-22T23:33:54.890Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Eric Lee</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> ericallenlee2002@gmail.com</p>
+    <p><strong>Date:</strong> 4/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Eric Lee</p>
+    <p><strong>Student Email:</strong> ericallenlee2002@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Eric! 👋 I've reviewed your work for the API's and Fetch assignment. Here's my evaluation based on the provided rubric and content:<br><br>📊 Completion (<span class="score">130/160 points</span>)<br>✅ JSON Database (30/30): Excellent job setting up the <code>db.json</code> file with appropriate data for the meal tracking app. The structure is clear and includes relevant fields.<br>✅ HTML (35/35): Your HTML is well-structured and includes the necessary elements for the form and displaying meal notes. Great use of Bootstrap classes for styling.<br>✅ API Interaction (30/35): You've successfully implemented API interactions using fetch and async/await. The code is able to get, post, and delete meal entries. However, I noticed that the form doesn't clear after submitting a new meal (-5 points). Consider resetting the form fields after a successful submission.<br>✅ Delete Functionality (30/30): The delete functionality works perfectly! Clicking the delete button removes the meal entry from both the API and the displayed list.<br>⚠️ Display Notes (25/30): The meal notes are displayed correctly, showing the relevant information. However, the styling could be improved to enhance readability and visual appeal (-5 points). Consider adding more spacing, using a card layout, or improving the color scheme.<br><br>📝 GitHub Repository (<span class="score">140/140 points</span>)<br>✅ Repository Created (20/20): The GitHub repository is set up correctly with all the necessary files.<br>✅ README.md (30/30): The README.md file provides clear instructions for running the project locally. Well done!<br>✅ HTML/CSS/JS Files (50/50): All the required HTML, CSS, and JavaScript files are present in the repository.<br>✅ Repo Naming/Commit History (40/40): The repository is named appropriately and has a detailed commit history. Great job documenting your progress!<br><br>📈 Errors/Functionality (<span class="score">70/70 points</span>)<br>✅ Error Free (40/40): The application runs without any errors or console warnings. Fantastic work on ensuring a smooth user experience!<br>✅ Functionality (30/30): All the core functionalities, such as adding, displaying, and deleting meal entries, work as expected. The app fulfills its intended purpose.<br><br>📱 Video Explanation (N/A)<br>Since no video was submitted for this assignment, I won't be evaluating the video-related requirements. The points for this section are redistributed to the other rubric categories.<br><br>🌟 <div class="total-score">Total Score: <span class="score">340/370</span></div> (No video)<br><br>👏 Overall, you've done an excellent job on this assignment, Eric! Your code is well-structured, and you've successfully implemented the core functionalities of a CRUD application using JSON Server. The GitHub repository is set up correctly, and the app runs without any errors.<br><br>💡 To take your project to the next level, consider the following suggestions:<br>- Reset the form fields after successfully submitting a new meal entry.<br>- Enhance the styling of the displayed meal notes to improve readability and visual appeal.<br>- Add form validation to ensure that all required fields are filled before submitting.<br><br>Keep up the great work, Eric! 🚀 You've demonstrated a solid understanding of working with APIs and fetch. If you have any questions or need further guidance, don't hesitate to reach out. Happy coding! 😄
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 4/22/2025, 7:33:54 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

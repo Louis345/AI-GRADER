@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jenna Moy - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jenna Moy">
+  <meta name="student-email" content="jennacmoy@gmail.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-04-24T02:00:38.387Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Jenna Moy</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Date:</strong> 4/23/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jenna Moy</p>
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hi Jenna! 👋 I've reviewed your Bootstrap coding project and I'm excited to share my feedback with you. Let's dive in and see how you did! 🚀<br><br>📊 Completion (30 points)<br>✅ All required pages (home, form, table) are present and functional. Great job including all the necessary components! (<span class="score">30/30 points</span>)<br><br>📝 GitHub Repository (25 points) <br>✅ The GitHub repository is set up correctly with all the required files. Your file structure looks clean and well-organized. (<span class="score">20/25 points</span>)<br>⚠️ Consider adding more content to your README file to provide an overview of your project and instructions for running it locally. This will make your repository more informative and user-friendly. (5 points deducted)<br><br>🖥️ Error-Free Functionality (15 points)<br>👏 Your website functions without any errors. The navigation, form submission, and table display work as expected. Well done! (<span class="score">15/15 points</span>)<br><br>📱 Video Explanation (10 points)<br>💯 Your video does an excellent job walking through your code and demonstrating the functionality of your website. Your explanations are clear and concise. (<span class="score">10/10 points</span>)<br><br>🌟 Strengths:<br>- Your use of Bootstrap classes and components is impressive! The navbar, grid system, and form elements are implemented effectively. 🎉<br>- The overall design and color scheme of your website are visually appealing and cohesive. Great job on the styling! 🎨<br>- Your code is well-structured and follows best practices. Keep up the good work! 💪<br><br>💡 Areas for Improvement:<br>- Consider adding more content to your README file to enhance the documentation of your project. This will make it easier for others to understand and run your code. 📝<br>- Feel free to experiment with more advanced Bootstrap features and components to further enhance the functionality and interactivity of your website. 🚀<br><br>📈 Total Score: <span class="score">75/80 points</span><br><br>🎉 Congratulations, Jenna! You've done an amazing job on this Bootstrap project. Your website looks great, functions well, and demonstrates a solid understanding of Bootstrap concepts. Keep up the fantastic work! 🌟<br><br>If you have any questions or need further guidance, don't hesitate to reach out. I'm here to support you in your learning journey. 💪<br><br>Happy coding! 🚀<br>Instructor [Your Name]
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 4/23/2025, 10:00:38 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
