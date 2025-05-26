@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Test Student - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Test Student">
+  <meta name="student-email" content="test@example.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-05-26T19:52:17.439Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Test Student</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> test@example.com</p>
+    <p><strong>Date:</strong> 5/26/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Test Student</p>
+    <p><strong>Student Email:</strong> test@example.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hi Test 👋,<br><br>I've just finished reviewing your Bootstrap project submission. Let's go through each component and see how you did! 📊<br><br>📝 GitHub Repository (25 pts)<br>You successfully created a GitHub repository for this project, which is great! ✅ However, I wasn't able to fully access all the files. ⚠️ It looks like you may have some JavaScript, HTML, and testing files, but please double check that your repo is public and all the required files are properly pushed. I'd like to be able to view your full code to provide more detailed feedback. Right now, I'll award <span class="score">15/25 points</span> for this section, but you can resubmit for a full review once the repo access is sorted out. 💪<br><br>📱 Required Bootstrap Elements (30 pts)<br>Since I wasn't able to view your full site code, I can't assess whether you've included all the required Bootstrap components like multiple pages, a navbar, tables, and forms. ⚠️ Once your GitHub repository is fully accessible, I'll be happy to review this section and update your score accordingly. For now, I'll have to assign <span class="score">0/30 points</span>. Don't worry though, you'll have a chance to resubmit and improve this score! 🚀<br><br>🖥️ Functionality (15 pts)<br>Again, without being able to test your live site, I can't currently evaluate the functionality. ⚠️ I'll be looking for a site with no errors or broken links once I can access it. Please make sure to test it thoroughly yourself too! I know you can get this working smoothly. 💪 For the moment, I'll mark this as <span class="score">0/15 points</span>, but it's not final.<br><br>📈 Walkthrough Video (10 pts) <br>I tried to view your walkthrough video explaining the project, but couldn't retrieve the transcript. ⚠️ Can you please check the YouTube URL and make sure the video has closed captions enabled? This will allow me to follow along with your explanation. 🙏 Feel free to resubmit the URL when that's set up. For now, this will be <span class="score">0/10 points</span>, but it's an easy fix!<br><br><div class="total-score">Total Score: <span class="score">15/80</span></div> pts<br><br>Summary:<br>Test, you're off to a good start by setting up the GitHub repo! 👏 The main thing holding back the grading is getting full access to your code files and video. Once those are sorted out, I'll be able to give you much more specific feedback on the Bootstrap elements, functionality, and your video walkthrough. 🌟<br><br>Please make the following improvements:<br>1. Ensure your GitHub repo is public and all code files are viewable ✅ <br>2. Double-check that you've included all the required Bootstrap components 🛠️<br>3. Test your site for any broken links or errors 🔎<br>4. Enable closed captions on your YouTube walkthrough video 📹<br><br>You're on the right track, and I'm looking forward to seeing your updated submission! 🚀 Let me know if you have any other questions.<br><br>Keep up the hard work! 💪<br><br>All the best,<br>Your Instructor
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 5/26/2025, 3:52:17 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

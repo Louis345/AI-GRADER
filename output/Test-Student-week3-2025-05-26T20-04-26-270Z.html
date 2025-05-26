@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Test Student - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Test Student">
+  <meta name="student-email" content="test@example.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-05-26T20:04:26.273Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Test Student</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> test@example.com</p>
+    <p><strong>Date:</strong> 5/26/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Test Student</p>
+    <p><strong>Student Email:</strong> test@example.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hey there Test Student! 👋 I've taken a look at your Bootstrap project submission. Let's break it down section-by-section and see how you did! 📊<br><br>## Project Completion (30 points)<br>⚠️ I was unable to fully evaluate project completion, as I encountered issues accessing the specific files in your GitHub repository. Please double check that your repo is set to public and all the required files are properly committed and pushed. <br><br>I'd expect to see files for multiple linked pages, a navbar, tables, forms, and other Bootstrap components as outlined in the assignment description. Once you get the repo squared away, ping me and I'll take another look! 💪<br><br>Score: 0/30 (awaiting repo access)<br><br>## GitHub Repository (25 points)  <br>✅ Awesome job getting your GitHub repository set up! It looks like you've got the basic structure in place with JavaScript, HTML, and testing files. That's a great foundation. 👏<br><br>One tip - it can be helpful to include a README.md file introducing your project and explaining how to run it. Let me know if you need any pointers there! 📝<br><br>Score: 20/25<br><br>## Error-free Functionality (15 points)<br>⚠️ I wasn't able to test functionality without access to the code files. But I'm looking forward to seeing your project in action once the repo is sorted out! <br><br>Aim for a smooth, error-free user experience across devices. Let me know if you hit any snags and I'm happy to help troubleshoot. 🛠️<br><br>Score: 0/15 (awaiting repo access)<br><br>## Video Explanation (10 points) <br>⚠️ Looks like the video URL may be missing or set to private. Double check the link and make sure it's accessible. Excited to hear your walkthrough! 🎥<br><br>In the video, aim to cover:<br>- 📱 Key features and interactivity <br>- 🖥️ Challenges overcome<br>- 💡 Explain 2-3 things you learned<br><br>Let me know if you need any help with the recording or captioning process!<br><br>Score: 0/10 (awaiting accessible video)<br><br># Total Score<br>⚠️ <span class="score">20/80 points</span> - Needs Improvement<br><br>You've got a solid start with the GitHub repo structure, but the missing files and video are holding back the grade at the moment. No worries though, I'm confident you can get things polished up! 💪<br><br># Summary  <br>Test Student, you're off to a good start, but there's still some work to do to meet all the assignment requirements. Here's what I recommend:<br><br>1. 🔓 Ensure your GitHub repository is public and all code files are committed/pushed <br>2. ⚙️ Configure any build processes if needed to get the project running smoothly<br>3. 🎬 Record your explanation video, upload it, and double check the link and captions<br><br>You've got this! Reach out if you have any questions. I'm here to help you succeed! 👍<br><br>Keep up the coding momentum and let's get this project shipped. You're going to learn a ton in the process! 🚀✨
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 5/26/2025, 4:04:26 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
