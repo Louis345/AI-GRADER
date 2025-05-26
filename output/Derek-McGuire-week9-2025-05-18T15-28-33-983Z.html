@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Derek McGuire - JS6 - DevTools & Debugging</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Derek McGuire">
+  <meta name="student-email" content="derekrmc@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JS6 - DevTools & Debugging">
+  <meta name="grading-date" content="2025-05-18T15:28:33.984Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JS6 - DevTools & Debugging Evaluation</h1>
+    <h2>Student: Derek McGuire</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> derekrmc@gmail.com</p>
+    <p><strong>Date:</strong> 5/18/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Derek McGuire</p>
+    <p><strong>Student Email:</strong> derekrmc@gmail.com</p>
+    <p><strong>Week 9:</strong> JS6 - DevTools & Debugging</p>
+    <hr>
+Hey there Derek! 👋 It's great to see your submission for the DevTools & Debugging assignment. Let's dive in and see how you did! 🔍📝<br><br>📊 Completion (160 points)<br>✅ GitHub repository created (20 points)<br>✅ Repository contains required files (40 points) <br>✅ Code runs without errors (50 points)<br>✅ Code includes comments explaining logic (25 points)<br>✅ All required functionality implemented (25 points)<br>Score: 160/160 - Great job on completing all the required elements! 🌟<br><br>📝 GitHub Repository (140 points)<br>✅ All required files committed (40 points)<br>⚠️ README.md provides overview of project (<span class="score">20/30 points</span>) - The README could use a bit more detail about what your project does and how to run it. Consider adding some instructions! 💡<br>✅ Code is well-organized and follows best practices (40 points) <br>✅ Commit messages are clear and descriptive (30 points)<br>Score: 130/140 - Solid work on your GitHub repo! Just flesh out that README a bit more. 💪<br><br>📈 Errors/Functionality (70 points)<br>✅ Code is free of syntax errors (25 points)<br>✅ Code runs without runtime errors (25 points)<br>⚠️ All functionality works as expected (<span class="score">10/20 points</span>) - It looks like your test case is failing. Double check your logic and make sure the test passes! 🛠️<br>Score: 60/70 - You're almost there! Fix up that failing test and you'll be golden. 👍<br><br>📱 Video Explanation (30 points)<br>⚠️ 4-6 minute video thoroughly explains the code (<span class="score">0/20 points</span>) - I don't see a video explanation uploaded yet. Make sure to include this! 🎥<br>⚠️ Video highlights key parts of the code (<span class="score">0/10 points</span>) - Once you add your video, aim to point out the most important aspects of your code.<br>Score: 0/30 - The video is a key part of this assignment. Record a walkthrough when you can! 😄<br><br>🖥️ Total Score<br>Based on the rubric, your current score is:<br>160 + 130 + 60 + 0 = <span class="score">350/400 points</span><br><br>🚀 Overall Feedback<br>Derek, this is a solid start on the assignment! Your code looks well-structured and your GitHub repo is in good shape. I'd love to see a more detailed README to help users understand your project. <br><br>The main areas for improvement are:<br>1️⃣ Fixing the failing test case <br>2️⃣ Recording your video explanation<br><br>Once you get those last couple pieces in place, you'll be in great shape! Keep up the good work and let me know if you have any questions. You've got this! 💯<br><br>Let me know if you have any other questions!<br><br>Professor Jared
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 5/18/2025, 11:28:33 AM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

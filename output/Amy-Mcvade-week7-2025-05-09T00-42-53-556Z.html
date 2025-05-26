@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Amy Mcvade - JS4 - ECMA Script</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Amy Mcvade">
+  <meta name="student-email" content="Hainsamy@gmail.com">
+  <meta name="week-number" content="7">
+  <meta name="assignment-name" content="JS4 - ECMA Script">
+  <meta name="grading-date" content="2025-05-09T00:42:53.557Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JS4 - ECMA Script Evaluation</h1>
+    <h2>Student: Amy Mcvade</h2>
+    <p>Week 7</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> Hainsamy@gmail.com</p>
+    <p><strong>Date:</strong> 5/8/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Amy Mcvade</p>
+    <p><strong>Student Email:</strong> Hainsamy@gmail.com</p>
+    <p><strong>Week 7:</strong> JS4 - ECMA Script</p>
+    <hr>
+📝 Assignment Evaluation for Amy Mcvade (Hainsamy@gmail.com)<br><br>Hello Amy! 👋 I've reviewed your JS4 - ECMA Script assignment and here is my detailed feedback. Let's go through each section of the rubric:<br><br>📊 Repository (10 points)<br>✅ GitHub repository is set up correctly with the required files (10/10)<br>Great job setting up your GitHub repository with the necessary JavaScript, HTML and README files! The file structure looks organized. 💯<br><br>📱 JS Code Functionality (25 points)<br>✅ Code executes without errors (5/5)<br>✅ Code meets all requirements outlined (15/15)<br>⚠️ Some requirements need further work (3/5)<br>Your code executes without errors and meets most of the assignment requirements, which is fantastic! 🌟 However, there are a few areas that need improvement:<br>- The average letters per name calculation seems incomplete. Make sure you are summing the total letters correctly before dividing.<br>- For accessing the first and last elements of an array, double-check the index used. array[array.length - 1] gives the last element, while array[0] gives the first.<br>- The nameLengths array creation also looks incomplete. Ensure you are pushing the length of each name into the new array.<br>Keep up the good work, but do review those parts of your code for accuracy. You're on the right track! 💪<br><br>🖥️ HTML Structure (5 points)<br>✅ Basic HTML page with JS script linked (5/5) <br>Your HTML file is structured properly and links the JavaScript file. Well done! 🔥<br><br>📈 Video Explanation (20 points)<br>✅ Video covers all code explanations (10/10)<br>✅ Clear and concise, easy to follow along (10/10)<br>Excellent job on your video explanation! 🎥 You walked through each part of your code, provided insights into your thought process, and made it easy to understand. Your explanations were clear and concise. I appreciate you sharing the challenges you faced, like remembering exact syntax - that's completely normal and improves with practice. 👍 Keep up the great work!<br><br>🌟 <div class="total-score">Total Score: <span class="score">52/60</span></div> 🌟<br><br>Amy, you did a fantastic job on this assignment! 🎉 Your code demonstrates a solid understanding of arrays, loops, functions, and basic JavaScript concepts. You explained your work well in the video too.<br><br>A few suggestions for improvement:<br>- Review the requirements closely and make sure your code fully implements each one 🔍<br>- Double-check array indexing and make sure you're performing operations on the correct elements 🔢<br>- When you get stuck, don't hesitate to consult the course materials, documentations, or reach out for help 🙋‍♀️<br><br>Overall, you should be proud of what you accomplished here! 👏 Keep practicing and coding - you're making great progress. Feel free to ask any questions. I'm here to support you in your learning journey! 😊<br><br>Happy coding! 👩‍💻<br>[Instructor Name]
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 5/8/2025, 8:42:53 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

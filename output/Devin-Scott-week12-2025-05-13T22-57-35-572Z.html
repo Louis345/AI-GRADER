@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Devin Scott - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Devin Scott">
+  <meta name="student-email" content="devin.michael.scott@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-05-13T22:57:35.573Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Devin Scott</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> devin.michael.scott@gmail.com</p>
+    <p><strong>Date:</strong> 5/13/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Devin Scott</p>
+    <p><strong>Student Email:</strong> devin.michael.scott@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Devin! 👋 This is your instructor providing feedback on your Week 12 Assignment for the APIs and Fetch project. Let's dive in and see how you did! 🚀<br><br>📊 Completion (160 points)<br>✅ GitHub repository set up correctly with all required files (30 points)<br>✅ Functioning CRUD application that can fetch and display entities (70 points) <br>⚠️ Able to create/post new entities, but delete functionality not fully working (<span class="score">30/40 points</span>)<br>⚠️ Video walkthrough provided, but missing explanation of a few key aspects (<span class="score">20/30 points</span>)<br>Total: <span class="score">140/160 points</span><br><br>📝 GitHub Repository (140 points)<br>✅ All required files committed and pushed (40 points)<br>✅ Descriptive commit messages used (20 points)<br>✅ Code is well-organized and readable (40 points)<br>✅ README file provides clear overview of the project (40 points)<br>Total: <span class="score">140/140 points</span><br><br>📈 Functionality & Error Handling (70 points)<br>✅ Application fetches and displays data from the API (20 points)<br>✅ Create functionality adds new entities (20 points)<br>⚠️ Delete functionality not working as expected - 404 errors (<span class="score">0/20 points</span>)<br>⚠️ Some error handling present, but could be more robust (<span class="score">10/20 points</span>) <br>Total: <span class="score">50/70 points</span><br><br>📱 Video Explanation (30 points)<br>✅ Video is clear and easy to follow (10 points)<br>⚠️ Some key aspects of the code and functionality not fully explained (<span class="score">10/20 points</span>)<br>Total: <span class="score">20/30 points</span><br><br>🌟 Overall Score: <span class="score">350/400 points</span><br><br>💯 Great work on setting up your GitHub repository, Devin! Your code is well-organized and the README provides a good overview. <br><br>🔥 The core functionality of fetching and displaying data, as well as creating new entities, is working well. Nice job implementing that!<br><br>💡 The main area for improvement is getting the delete functionality working. I saw that you were getting 404 errors when trying to delete. Double check your route and make sure the ID is being passed correctly. Adding more robust error handling could also help diagnose issues.<br><br>🚀 In your video, you did a good job walking through the different parts of your code. For future videos, try to explain each key aspect of the functionality in a bit more detail. <br><br>👏 Overall, this is a solid attempt at the assignment, Devin! With a bit more troubleshooting on the delete functionality, I think you'll have a fully working CRUD app. Keep up the great work and let me know if you have any questions!<br><br>🙌 You've got this, Devin! Feel free to reach out if you need any assistance. Looking forward to seeing your continued progress in the course.
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 5/13/2025, 6:57:35 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
