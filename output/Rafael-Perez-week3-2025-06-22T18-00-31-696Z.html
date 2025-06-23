@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Rafael Perez - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Rafael Perez">
+  <meta name="student-email" content="rafantperez1@gmail.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-06-22T18:00:31.704Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Rafael Perez</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> rafantperez1@gmail.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Rafael Perez</p>
+    <p><strong>Student Email:</strong> rafantperez1@gmail.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Here is my evaluation of the Bootstrap project assignment:<br><br>📊 Completion (<span class="score">25/30 points</span>)<br>✅ Multiple pages created - both a main page and "Our Lot" page <br>✅ Bootstrap navbar implemented with dropdown menu<br>✅ Tables styled using Bootstrap classes <br>✅ Forms included with proper Bootstrap styling<br>⚠️ Responsive design partially implemented but could be improved. Some elements don't resize ideally.<br>Specific, constructive suggestions:<br>- Test responsiveness more thoroughly, especially on smaller screen sizes<br>- Adjust padding/margins on elements like the car cards so they look better when stacked vertically<br><br>📝 GitHub (<span class="score">20/25 points</span>)  <br>✅ Repository properly set up under RafyPerez95/fe-week3-project<br>✅ Files organized logically in root directory<br>⚠️ README file not found in repository. Always include a README describing the project!<br>⚠️ Only a couple commits present. Aim for more incremental commits to show project progress.<br>To get full points in the future:<br>- Add a README markdown file explaining the project's purpose, features, and any setup instructions<br>- Make frequent, small commits as you develop features instead of one or two large commits<br><br>📈 Errors (<span class="score">13/15 points</span>)<br>✅ No console errors noted <br>✅ All links seem to work, including the navbar links<br>⚠️ Some HTML validation errors found (ex: incorrect heading order, unclosed tags)<br>⚠️ A few CSS issues like improper responsive classes on some elements<br>Overall very good, just a few small things to clean up:<br>- Run your HTML through a validator to catch any lingering errors<br>- Double check that your Bootstrap classes are being applied as expected<br><br>📱 Video Explanation (<span class="score">8/10 points</span>)<br>✅ Clearly explained the design and showed the main pages <br>✅ Discussed some challenges like implementing the responsive navbar<br>⚠️ The video ended a bit abruptly. Summarize key takeaways at the end.<br>⚠️ Consider showing your code and explaining how some key Bootstrap features were implemented<br>Well done on the video! In the future, aim to:<br>- Have a strong conclusion recapping the project and what you learned<br>- Show snippets of interesting code to give more insight into your development process<br><br>🌟 Total Score: <span class="score">66/80 points</span><br><br>Overall this is a very good first attempt at a responsive Bootstrap site! 👏 You implemented several key Bootstrap components like the navbar, tables, forms, and grid. The design is clear and professional.<br><br>The main areas for improvement are:<br>1. Responsive design - make sure everything looks good at all screen sizes 📱<br>2. Code quality - validate your HTML and double check class names 🛠️<br>3. GitHub practices - add a README and make more frequent commits 📝<br><br>With a bit more polish, this will be an excellent addition to your portfolio. Keep up the great work! Feel free to reach out if you have any other questions. 👍<br><br>Let me know if you would like me to clarify or expand on any part of the evaluation. I'm happy to provide additional guidance!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 2:00:31 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

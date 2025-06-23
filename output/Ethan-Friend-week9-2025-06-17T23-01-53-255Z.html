@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Ethan Friend - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Ethan Friend">
+  <meta name="student-email" content="ethanf25@sbcglobal.net">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-06-17T23:01:53.256Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Ethan Friend</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> ethanf25@sbcglobal.net</p>
+    <p><strong>Date:</strong> 6/17/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Ethan Friend</p>
+    <p><strong>Student Email:</strong> ethanf25@sbcglobal.net</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of the assignment based on the provided rubric:<br><br>📊 Completion (<span class="score">140/160 points</span>)<br>The project meets most of the key criteria by using classes for Card, Deck, and Player, dealing 26 cards to each player, iterating through all rounds, awarding points, and displaying the final score. ✅ However, it's not clear if ties are handled properly by awarding zero points. ⚠️ The game also doesn't appear to run completely automatically, as it relies on console.log output rather than running independently. 💡<br><br>📝 GitHub (<span class="score">110/140 points</span>)  <br>The repository is set up properly on GitHub and the code is accessible. ✅ Most of the code is well-commented explaining the functionality. 👏 However, there is no .gitignore file included to exclude node_modules. ⚠️ The code structure is fairly clean and organized. Variable and function names are generally meaningful. 🌟<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>From the code provided, the game appears to run without any major crashes or errors. 💯 The logic for playing 26 rounds and tracking points looks correct overall. 👍 However, there may be a small logical error in not handling ties properly by awarding zero points. ⚠️ This prevents getting the full points in this section.<br><br>📱 Video Explanation (<span class="score">0/30 points</span>)<br>There was no video explanation provided with the assignment files. The video is a required part of the project, so 0 points were awarded. 🛠️ Make sure to record a video walking through the code, demonstrating the game, and explaining the OOP concepts used. It should be no more than 5 minutes. This will help you get the full credit! 📹<br><br>🌟 Total Score: <span class="score">310/400 points</span><br><br>Overall, this is a solid attempt at the War card game using JavaScript classes and OOP principles! The core functionality is there. 💪 The main areas for improvement are:<br>1. Handle ties properly by awarding 0 points <br>2. Make the game run automatically without relying on console output<br>3. Include a .gitignore file <br>4. Record and submit the required video explanation<br><br>With a few tweaks to the code and including the video, you'll be well on your way to a top score! Keep up the great work! 🚀 Let me know if you have any other questions.
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/17/2025, 7:01:53 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

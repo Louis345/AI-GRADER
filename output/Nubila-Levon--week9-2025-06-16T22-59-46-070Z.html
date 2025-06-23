@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Nubila Levon  - JS6 - DevTools & Debugging</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Nubila Levon ">
+  <meta name="student-email" content="nubila.levon@outlook.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JS6 - DevTools & Debugging">
+  <meta name="grading-date" content="2025-06-16T22:59:46.071Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JS6 - DevTools & Debugging Evaluation</h1>
+    <h2>Student: Nubila Levon </h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> nubila.levon@outlook.com</p>
+    <p><strong>Date:</strong> 6/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Nubila Levon </p>
+    <p><strong>Student Email:</strong> nubila.levon@outlook.com</p>
+    <p><strong>Week 9:</strong> JS6 - DevTools & Debugging</p>
+    <hr>
+Here is my evaluation of your assignment:<br><br>📊 Completion (<span class="score">145/160 points</span>)<br>✅ Great job demonstrating usage of console methods like console.log for debugging! Your code makes effective use of logging to display the game state.<br>✅ I see you are using const to declare variables that don't get reassigned, which is a good practice. <br>⚠️ While you implemented the core game logic well, I didn't see examples of using breakpoints, the network tab, performance analysis or error resolution. Including more diverse debugging techniques would strengthen this section. <br><br>📝 GitHub (<span class="score">135/140 points</span>)  <br>🌟 Fantastic work on writing clean, well-documented code! Your use of classes and modularization makes the program easy to follow.<br>✅ The GitHub repo is well-organized with all the necessary files like .gitignore, README, etc.<br>👏 Your README is super thorough and informative! It clearly explains how to run the code and covers the key features. Great job!<br>⚠️ A few more comments explaining complex code blocks would be helpful, but overall your code is very readable.<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No crashes or major bugs observed - the game runs smoothly from start to end.<br>💡 Consider adding more robust error handling, for example checking for valid user input. Right now entering an invalid option will exit the game.<br>⚠️ Think about edge cases more - what happens if there is a tie in a round? Make sure to handle that.<br><br>📱 Video Explanation (<span class="score">25/30 points</span>) <br>👍 Your video does a good job walking through the different parts of your code and demoing the gameplay.<br>⚠️ The video would be even better if you showed your debugging process and how you used DevTools to troubleshoot issues during development. <br>✨ Audio is clear and the code walkthrough is easy to follow. Nice work!<br><br>🌟 Total Score: <span class="score">365/400 points</span><br><br>Overall this is a very solid project! You demonstrated good coding practices and a strong grasp of JavaScript fundamentals. The game works well and your code is clean and organized.<br><br>To take it to the next level, put more focus on the debugging techniques showcased in the assignment brief. Implement error handling, use the DevTools for debugging, and analyze performance. With a bit more polish, this will be an outstanding submission!<br><br>Keep up the great work Nubila, you're doing awesome. Feel free to reach out if any of the feedback is unclear. You've got this! 💪
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/16/2025, 6:59:46 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

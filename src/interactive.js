@@ -3,8 +3,10 @@ const fs = require("fs-extra");
 const path = require("path");
 const { execSync } = require("child_process");
 
+// Import the unified weeks config
+const { getAvailableWeeksWithNames } = require("../config/weeks");
+
 // Configure paths
-const configDir = path.join(__dirname, "../config/weeks");
 const indexPath = path.join(__dirname, "index.js");
 
 /**
@@ -14,8 +16,8 @@ async function launchInteractiveGrader() {
   console.log("\n🎓 Welcome to the AI Grader Interactive Mode 🎓\n");
 
   try {
-    // Get available week configurations
-    const weekConfigs = getAvailableWeeks();
+    // Get available week configurations from unified config
+    const weekConfigs = getAvailableWeeksWithNames();
 
     // Prompt for grading details
     const answers = await inquirer.prompt([
@@ -77,7 +79,7 @@ async function launchInteractiveGrader() {
         name: "weekNumber",
         message: "Select the assignment week:",
         choices: weekConfigs.map((w) => ({
-          name: `Week ${w.number}: ${w.name}`,
+          name: `Week ${w.number}: ${w.name} (${w.totalPoints} pts)`,
           value: w.number,
         })),
         default: weekConfigs.length > 0 ? weekConfigs[0].number : null,
@@ -140,40 +142,6 @@ async function launchInteractiveGrader() {
     }
   } catch (error) {
     console.error("Error in interactive mode:", error);
-  }
-}
-
-/**
- * Get available week configurations from the config directory
- * @returns {Array} List of available week configs with number and name
- */
-function getAvailableWeeks() {
-  try {
-    // Read config directory
-    const files = fs.readdirSync(configDir);
-
-    // Parse week configs
-    const weekConfigs = files
-      .filter((file) => file.match(/week\d+\.json/i))
-      .map((file) => {
-        try {
-          const config = require(path.join(configDir, file));
-          return {
-            number: config.weekNumber,
-            name: config.name,
-          };
-        } catch (e) {
-          console.error(`Error loading config ${file}:`, e);
-          return null;
-        }
-      })
-      .filter((config) => config !== null)
-      .sort((a, b) => a.number - b.number);
-
-    return weekConfigs;
-  } catch (error) {
-    console.error("Error getting available weeks:", error);
-    return [];
   }
 }
 

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Ethan Friend - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Ethan Friend">
+  <meta name="student-email" content="ethanf25@sbcglobal.net">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-19T21:45:18.761Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Ethan Friend</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> ethanf25@sbcglobal.net</p>
+    <p><strong>Date:</strong> 6/19/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Ethan Friend</p>
+    <p><strong>Student Email:</strong> ethanf25@sbcglobal.net</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of the assignment:<br><br>📊 Completion (<span class="score">140/160 points</span>)<br>✅ Fetch API used for data retrieval (20 points)<br>✅ Async/await implemented properly (20 points) <br>✅ Create (POST) functionality working (20 points)<br>✅ Read (GET) functionality displaying data (20 points)<br>✅ Delete functionality implemented (20 points)<br>✅ Forms properly connected to API (20 points)<br>✅ json-server or alternative API used (20 points)<br>⚠️ Missing update functionality (-20 points) - Update is not required but would make this a full CRUD app<br><br>Overall, great work on implementing the core CRUD operations using fetch and async/await! The code is functional and meets most of the requirements. The only piece missing for a perfect score is update functionality, but that was optional.<br><br>📝 GitHub (<span class="score">140/140 points</span>)  <br>✅ Repository properly created and accessible (20 points)<br>✅ File structure is logical and organized (40 points) <br>✅ Code is clean and well-commented (40 points)<br>✅ README file explains project setup (20 points)<br>✅ Commit history shows development progress (20 points)<br><br>Fantastic job with your GitHub repository! The code is well-organized, extensively commented, and the commit history demonstrates your development process. The README provides clear instructions. Keep up the great work! 💯<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>✅ No console errors during operation (20 points)<br>✅ All CRUD operations work correctly (20 points)<br>✅ Error handling for failed API calls (10 points) <br>✅ Proper async/await usage without errors (10 points)<br>✅ UI responds correctly to user interactions (10 points)<br><br>Incredible attention to detail in your error handling! The app runs smoothly without any console errors, API errors are caught gracefully, and the UI is responsive. Async/await is implemented flawlessly. Nicely done! 🌟<br><br>📱 Video Explanation (<span class="score">30/30 points</span>)<br>✅ Clear explanation of project functionality (10 points)<br>✅ Demonstration of all CRUD operations (10 points)<br>✅ Discussion of API integration challenges (5 points)<br>✅ Code walkthrough showing key components (5 points)<br><br>Your video was informative and engaging! You gave an excellent overview of the project, demoed the working CRUD features, talked through the key code pieces, and even touched on the challenges faced with the API. Great communication skills! 🎥<br><br>🌟 Total Score: <span class="score">380/400 points</span><br><br>You did an outstanding job on this assignment! The CRUD features work smoothly, your code is pristine and well-documented, and your video explained everything clearly. The only thing keeping you from a perfect score is the lack of update functionality, but that was optional. <br><br>Keep up the fantastic work and never stop challenging yourself! With skills like these, you're well on your way to becoming an amazing developer. 🚀<br><br>Let me know if you have any other questions!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/19/2025, 5:45:18 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

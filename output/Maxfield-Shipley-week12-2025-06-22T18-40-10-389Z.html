@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Maxfield Shipley - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Maxfield Shipley">
+  <meta name="student-email" content="maxamousprime@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-22T18:40:10.390Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Maxfield Shipley</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> maxamousprime@gmail.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Maxfield Shipley</p>
+    <p><strong>Student Email:</strong> maxamousprime@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of the assignment based on the provided rubric and repository:<br><br>📊 Completion (<span class="score">115/160 points</span>)<br>- Fetch API used for data retrieval ✅<br>- Async/await usage not found ⚠️ (-20 points)<br>- Create (POST) functionality working via form ✅<br>- Read (GET) functionality displaying game data ✅ <br>- Delete functionality not implemented ⚠️ (-25 points)<br>- Forms are properly connected to add games and comments ✅<br>- json-server or alternative API not used, data stored locally in state ⚠️ (-15 points)<br><br>Overall the core functionality is in place to add games and comments and display them. However, key requirements around async/await, deletion, and API integration are missing. Solid start but needs some key additions!<br><br>📝 GitHub (<span class="score">105/140 points</span>)  <br>- Repository is properly created and accessible ✅<br>- File structure is logical with components organized ✅<br>- Code is clean but lacks comments explaining key sections ⚠️ (-10 points)<br>- README exists but doesn't explain project setup/running the code ⚠️ (-15 points)<br>- Commit history shows some development progress but lacks detail ⚠️ (-10 points)<br><br>The repo is set up properly with an organized component structure. The code looks clean but would benefit from comments. Be sure to include setup instructions in the README and more descriptive commit messages as you go.<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>- No obvious console errors during operation ✅ <br>- Create and Read operations work, but Delete not implemented ⚠️ (-10 points)<br>- No error handling found for failed API calls ⚠️ (-10 points) <br>- Async/await not used so no errors there, but should be implemented<br>- UI responds to adding games and comments ✅<br><br>The existing CRUD operations seem to work without JavaScript errors. However, implementing the delete functionality and handling potential API errors would make this more complete. Don't forget to use async/await as well.<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>- Shows adding games and comments ✅<br>- CRUD operations not fully demonstrated due to missing Delete ⚠️ (-5 points)<br>- Challenges and thought process explained at high level <br>- Some key code components shown but more detail would be helpful<br><br>The video does a nice job demonstrating the core functionality and touching on the approach. To get full points, be sure to show all CRUD operations and explain the key code snippets in more depth. Keep up the good work! 🙌<br><br>🌟 Total Score: <span class="score">290/400 points</span><br><br>You've built a solid foundation here and the main functionality is working. To take it to the next level, focus on implementing the delete feature, adding error handling, integrating an actual API with async/await, and providing more code detail in the README and video. Keep up the coding momentum - you're on the right track! 💪<br><br>Let me know if you have any other questions!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 2:40:10 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

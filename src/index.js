@@ -6,6 +6,9 @@ const fs = require("fs-extra");
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 
+// Import unified config
+const { getWeekConfig } = require("../config/weeks");
+
 const { processGitHubRepo } = require("./services/github");
 const { getYouTubeTranscript } = require("./services/youtube");
 const { evaluateAssignment } = require("./services/ai");
@@ -81,31 +84,18 @@ async function main() {
     console.log(`GitHub: ${githubUrl}`);
     console.log(`YouTube: ${youtubeUrl || "Not submitted"}`);
 
-    // Load week configuration
-    const weekConfigPath = path.join(
-      __dirname,
-      `../config/weeks/week${weekNumber}.json`
-    );
-    if (!fs.existsSync(weekConfigPath)) {
-      console.error(
-        `❌ Error: Configuration for week ${weekNumber} not found!`
-      );
-      console.log(`Please create config file at: ${weekConfigPath}`);
+    // Load week configuration from unified config
+    let weekConfig;
+    try {
+      weekConfig = getWeekConfig(weekNumber);
+    } catch (error) {
+      console.error(`❌ ${error.message}`);
       process.exit(1);
     }
 
-    const weekConfig = require(weekConfigPath);
-    console.log(`\n📋 Assignment: ${weekConfig.name}`);
-
-    // Ensure rubric image exists
-    const rubricImagePath = path.join(
-      config.rubricDir,
-      weekConfig.rubricImagePath
+    console.log(
+      `\n📋 Assignment: ${weekConfig.name} (${weekConfig.totalPoints} points)`
     );
-    if (!fs.existsSync(rubricImagePath)) {
-      console.error(`❌ Error: Rubric image not found at ${rubricImagePath}`);
-      process.exit(1);
-    }
 
     // Ensure API key is set
     if (!process.env.ANTHROPIC_API_KEY) {

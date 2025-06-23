@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jessica Landeros - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jessica Landeros">
+  <meta name="student-email" content="jessicatrujilio56@yahoo.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-06-17T22:38:57.310Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Jessica Landeros</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jessicatrujilio56@yahoo.com</p>
+    <p><strong>Date:</strong> 6/17/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jessica Landeros</p>
+    <p><strong>Student Email:</strong> jessicatrujilio56@yahoo.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Here is my evaluation of your Bootstrap project:<br><br>📊 Completion (<span class="score">25/30 points</span>)<br>✅ Great job implementing multiple pages for your real estate website! The index and destinations pages demonstrate good use of Bootstrap components.<br>✅ The navbar is implemented correctly and allows easy navigation between pages.<br>✅ The destinations page features a well-styled table with location and restaurant info. Nice work!<br>⚠️ While you included a form on the index page, it seems to be missing some key Bootstrap form classes and styling. Applying more Bootstrap classes would improve the form layout and consistency with the rest of the design.<br>💡 The responsive design works well on the index page, but the destinations page could use some optimization for smaller screen sizes. Ensure key content is easily accessible on mobile.<br><br>📝 GitHub (<span class="score">20/25 points</span>)  <br>✅ Your repository is set up correctly under your GitHub account.<br>✅ The files are organized logically with separate HTML files for each page.<br>⚠️ The README file is quite minimal. Consider expanding it with more details about your project, the Bootstrap components used, and any special features. This helps others understand your work.<br>⚠️ While you have multiple commits, they seem to cover the entire project. More granular commits showing your step-by-step development process will help demonstrate your progress and make it easier to revert changes if needed.<br><br>📈 Errors (<span class="score">15/15 points</span>)<br>🌟 No console errors noted - great work on error-free code!<br>✅ The navbar links work smoothly to navigate between your pages.<br>✅ The HTML and CSS validate with no major issues.<br>✅ Bootstrap classes are used correctly throughout to style and structure your content.<br><br>📱 Video Explanation (<span class="score">8/10 points</span>)<br>✅ Your video provides a solid overview of your design choices, explaining the key pages and Bootstrap elements used.<br>✅ The demonstration successfully shows your site's features and functionality.<br>⚠️ While you touched on it briefly, discussing any challenges you faced during the development process and how you overcame them would enhance your explanation. Reflecting on your experience helps solidify your learning.<br>💡 The audio is a bit uneven in places - aim for a steadier narration flow and consider adding a text outline to guide your presentation.<br><br>🌟 Total Score: <span class="score">68/80 points</span><br><br>Jessica, you delivered a functional Bootstrap website that meets the core requirements. Your multi-page structure, navbar, and use of key Bootstrap components demonstrate a good grasp of the framework. Some areas to focus on refining are building out your README, making more granular commits to show your process, polishing up the form styling, and optimizing the responsive behavior. Also, expanding on your development experience in the video will help showcase your growth. Keep up the solid work - with a bit more attention to those details, you'll be well on your way to Bootstrap mastery! Feel free to reach out if you have any other questions. 💪
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/17/2025, 6:38:57 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

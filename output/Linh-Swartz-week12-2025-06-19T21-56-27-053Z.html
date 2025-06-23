@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Linh Swartz - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Linh Swartz">
+  <meta name="student-email" content="wildcatua@aol.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-19T21:56:27.054Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Linh Swartz</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> wildcatua@aol.com</p>
+    <p><strong>Date:</strong> 6/19/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Linh Swartz</p>
+    <p><strong>Student Email:</strong> wildcatua@aol.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of your assignment:<br><br>📊 Completion (<span class="score">130/160 points</span>)<br>✅ Great job using fetch to retrieve data from the API! Your async/await implementation looks solid.<br>✅ The create (POST) and read (GET) functionality are working well, allowing you to add new cases and display the case list.<br>⚠️ I don't see the update/edit (PUT) functionality implemented yet. To get full points, make sure to add the ability to edit existing cases.<br>✅ Delete functionality is properly wired up and removes cases as expected.<br>✅ Your form is correctly posting data to the API to create new cases. Well done!<br>✅ Nice use of json-server to quickly set up a mock API for your app. <br><br>📝 GitHub (<span class="score">120/140 points</span>)  <br>✅ Your GitHub repository is set up correctly and the link works. Good job making it public!<br>⚠️ The file structure is mostly organized, but consider putting your JavaScript, CSS and db.json files into separate folders like /js, /css and /data to keep things tidy as your app grows.<br>✅ Code is formatted consistently and you have some helpful comments explaining key sections.<br>⚠️ The README file is a bit sparse. Flesh it out with more details on how to set up and run your app, and include a screenshot or two showing it in action!<br>👏 Strong commit history showing your progress at each step. Keep it up! <br><br>📈 Errors (<span class="score">65/70 points</span>)<br>✅ No console errors - great work debugging and testing your code!<br>⚠️ The CRUD operations work, but editing is missing. Implement update/put to round out the functionality.<br>✅ Good error handling for issues like blank form submissions.<br>✅ Proper use of async/await throughout - no issues with the promises.<br>✅ The UI updates correctly when adding and deleting. Just need ability to edit. <br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ Your video clearly demos the core functionality and shows the app in action.<br>⚠️ The audio is a bit hard to hear at times - consider investing in an inexpensive lapel mic to improve the sound quality.<br>💡 For full points, expand your code walkthrough to explain more of how the front-end and back-end are communicating via the API. <br>⚠️ Don't forget to discuss some of the key challenges you ran into with the API integration and how you debugged them!<br><br>🌟 Total Score: <span class="score">335/400 points</span><br><br>Overall this is a strong submission that demonstrates a solid grasp of API integration with CRUD operations! To take it to the next level, implement the missing update/edit functionality, organize your code into folders, enhance the README, and expand your video walkthrough. With a bit more polish, this will be an impressive project for your portfolio. Keep up the great work! 🚀
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/19/2025, 5:56:27 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

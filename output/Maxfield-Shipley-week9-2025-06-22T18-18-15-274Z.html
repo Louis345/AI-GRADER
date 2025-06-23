@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Maxfield Shipley - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Maxfield Shipley">
+  <meta name="student-email" content="maxamousprime@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-06-22T18:18:15.275Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Maxfield Shipley</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> maxamousprime@gmail.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Maxfield Shipley</p>
+    <p><strong>Student Email:</strong> maxamousprime@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of your WAR card game assignment:<br><br>📊 Completion (<span class="score">120/160 points</span>)<br>✅ You implemented a basic version of the WAR card game using JavaScript functions, which is a good start! The game creates and shuffles a deck, deals cards to players, iterates through rounds, and declares a winner. 👏<br><br>⚠️ However, to receive full points, the code should be structured using object-oriented programming concepts like classes for the Card, Deck, and Player. Using separate functions is a more procedural approach. Consider refactoring your code to leverage classes and methods. 🛠️<br><br>💡 Also, the output is currently done using an alert box. To meet the requirement of using console.log for output, update the code to log the game progress and results to the console instead.<br><br>📝 GitHub (<span class="score">100/140 points</span>)  <br>✅ Your repository is set up correctly and the code is accessible on GitHub. Nice work! 🌟<br><br>⚠️ However, the code could use more comments explaining the functionality and logic. Well-commented code is easier to understand and maintain. Aim to describe key sections, complex logic, and the purpose behind code blocks. 📝 <br><br>⚠️ There is no .gitignore file in the repository. It's a best practice to include one to avoid tracking unnecessary files like node_modules. 💡<br><br>✨ Your code is cleanly structured and uses meaningful names, which is great! Keep up the good organization. 👍<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ The game runs without any major crashes or errors, which is fantastic! The basic game flow of dealing cards, playing rounds, and tracking points works. Excellent job getting the core functionality working. 🚀<br><br>⚠️ There are a couple minor issues to address:<br>- The template literals in the gameLog are missing the backticks, so the variable values don't populate. <br>- The indentation and spacing is inconsistent in some places.<br>Making those small fixes will polish up the code. You're almost there! 💪<br><br>📱 Video Explanation (<span class="score">0/30 points</span>)<br>⚠️ Unfortunately I did not receive a valid video link to evaluate this part of the assignment. Double check that you uploaded your explanation video and provided the correct URL. Resubmit the video and I'll be happy to update your grade! 🙌<br><br>🌟 Total Score: <span class="score">280/400 points</span><br><br>Overall, this is a solid start on the WAR card game! You have the core functionality working. The main areas to focus on improving are:<br>1. Refactoring to use classes and OOP principles <br>2. Adding code comments <br>3. Minor syntax fixes<br>4. Submitting the explanation video<br><br>With some polishing and restructuring, you'll be well on your way to a great final version. Keep up the coding! Don't hesitate to reach out if you have any questions. You got this! 💯
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 2:18:15 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

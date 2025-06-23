@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jakob Bertram - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jakob Bertram">
+  <meta name="student-email" content="bertramjakob0@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-18T23:30:37.193Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jakob Bertram</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> bertramjakob0@gmail.com</p>
+    <p><strong>Date:</strong> 6/18/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jakob Bertram</p>
+    <p><strong>Student Email:</strong> bertramjakob0@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of your Week 12 API's and Fetch assignment:<br><br>📊 Completion (<span class="score">140/160 points</span>)<br>✅ Great job using fetch to retrieve data from the API! Your GET request is working well.<br>✅ Async/await is implemented properly to handle the asynchronous API calls. Nice work! <br>✅ The create (POST) functionality is working correctly to add new entries.<br>✅ Data from the API is being displayed properly after fetching. The images and captions look good!<br>✅ Delete functionality is implemented and working as expected.<br>⚠️ While the form is properly connected to the API for adding entries, there is no form for updating existing entries. Implementing update would give you full CRUD functionality. Consider adding that for a perfect score here!<br><br>📝 GitHub (<span class="score">125/140 points</span>)  <br>✅ Your GitHub repository is set up correctly and the link works. Good job!<br>👏 The file structure is logical and well-organized. HTML, CSS, and JS files are separated.<br>⚠️ The code could use some more comments explaining key sections and functions. More detailed comments make the code easier for other developers to understand.<br>💡 The README file is a bit sparse. Consider adding more details about the project's functionality, how to set it up and run it, and your development process. A good README helps others learn about your project.<br>✅ Your commit history shows steady progress on the assignment. Keep up the regular commits!<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No console errors observed during testing. The app runs smoothly!<br>✅ Create, Read and Delete operations are working properly based on the functionality implemented.<br>⚠️ While the existing code runs without errors, there could be more robust error handling, especially for the API calls. Consider adding .catch() blocks to handle any rejected promises.<br>⚠️ The update operation is currently commented out and not fully implemented, so that accounts for the point deduction here. Aim for full CRUD functionality next time!<br><br>📱 Video Explanation (<span class="score">30/30 points</span>)<br>🌟 Fantastic video walkthrough! You clearly explained all the key parts of your project.<br>✨ Showing the CRUD operations working was a great demonstration of your app's capabilities. <br>💯 I liked that you discussed some of the challenges you faced with implementing certain features. It shows your problem-solving process!<br>🔥 Walking through the key code snippets helped tie everything together nicely. Great commentary!<br><br>🌟 Total Score: <span class="score">355/400 points</span><br><br>You did an excellent job on this assignment, Jakob! You have a solid grasp of using fetch and async/await to interact with APIs. Your code is well-structured, and the app's core functionality is working nicely. <br><br>To take your project to the next level, I would recommend implementing the update functionality for full CRUD capabilities. More detailed code comments and a more thorough README file are also good habits to build. And while no major errors popped up, more robust error handling is always beneficial, especially when dealing with external APIs.<br><br>Keep up the great work! You're making strong progress in using APIs and asynchronous JavaScript. Let me know if you have any other questions!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/18/2025, 7:30:37 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

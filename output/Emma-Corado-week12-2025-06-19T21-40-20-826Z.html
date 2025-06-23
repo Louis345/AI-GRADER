@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Emma Corado - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Emma Corado">
+  <meta name="student-email" content="dangely.sesma92@yahoo.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-19T21:40:20.826Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Emma Corado</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> dangely.sesma92@yahoo.com</p>
+    <p><strong>Date:</strong> 6/19/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Emma Corado</p>
+    <p><strong>Student Email:</strong> dangely.sesma92@yahoo.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of the student's assignment based on the provided rubric:<br><br>📊 Completion (<span class="score">135/160 points</span>)<br>✅ Great job using fetch API to retrieve data from the server! Your async/await implementation looks solid.<br>✅ The create (POST) and read (GET) functionality are working well to add and display exercises.<br>✅ Awesome work implementing the delete functionality to remove exercises.<br>⚠️ I don't see the update/edit functionality implemented, but it was noted as optional. Consider adding it for extra practice.<br>🌟 Connecting the form to the API is handled nicely. Using json-server as the API is a good choice.<br><br>📝 GitHub (<span class="score">125/140 points</span>)  <br>✅ The GitHub repository is set up properly and accessible. Good job!<br>✅ The file structure is logical and organized, making the code easy to navigate.<br>💡 While the code is clear, adding more comments explaining key sections would enhance readability.<br>⚠️ The README file is quite minimal. Consider expanding it with setup instructions and an overview of the project.<br>👏 The commit history shows steady progress on the assignment. Keep up the great work!<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No major console errors observed during testing. The app runs smoothly!<br>✅ The create, read, and delete operations are functioning correctly.<br>⚠️ I didn't see explicit error handling for failed API calls. Consider adding try/catch blocks or .catch() to handle potential errors gracefully.<br>✅ Async/await is used properly without any errors. Well done!<br>💯 The UI responds as expected to user interactions like submitting the form and deleting exercises.<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✅ Your explanation of the project functionality is clear and easy to follow.<br>🌟 Demonstrating the CRUD operations in action helps showcase your working app.<br>💡 Consider discussing some of the challenges you faced with the API integration and how you overcame them.<br>⚠️ A code walkthrough of a few key components would further elevate your explanation.<br><br>🌟 Total Score: <span class="score">345/400 points</span><br><br>Overall, this is an impressive implementation of a CRUD fitness tracking app! You've demonstrated a solid grasp of fetching data from an API, using async/await, and implementing core CRUD functionality. The code is well-structured and the app runs smoothly without errors.<br><br>To take your project to the next level, consider adding the update functionality, more detailed code comments, and expanding your README. Implementing error handling for API calls would also improve the app's reliability.<br><br>Keep up the fantastic work! Your dedication and skills are evident in this assignment. Feel free to reach out if you have any questions or need further guidance. 👍
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/19/2025, 5:40:20 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

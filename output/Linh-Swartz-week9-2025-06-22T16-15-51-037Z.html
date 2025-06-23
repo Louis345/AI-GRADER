@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Linh Swartz - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Linh Swartz">
+  <meta name="student-email" content="wildcatua@aol.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-06-22T16:15:51.037Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Linh Swartz</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> wildcatua@aol.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Linh Swartz</p>
+    <p><strong>Student Email:</strong> wildcatua@aol.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of the JavaScript War Card Game assignment submitted by Linh Swartz:<br><br>📊 Completion (<span class="score">145/160 points</span>)<br>✅ Excellent use of classes (Card, Deck, Player) demonstrating strong OOP structure<br>✅ Game properly deals 26 cards to each player from a 52-card deck<br>✅ Iterates through all 26 rounds automatically as expected<br>✅ Correctly awards points to the player with the higher value card each round<br>✅ Ties are handled appropriately, resulting in zero points <br>✅ Final score is displayed and winner is declared<br>✅ Game runs smoothly using descriptive console.log output<br>⚠️ Opportunity to enhance game by handling "war" condition when tied (-10 points)<br>⚠️ Could allow user input for player names to further personalize game (-5 points)<br><br>📝 GitHub (<span class="score">135/140 points</span>)  <br>✅ Repository is properly set up and accessible on GitHub<br>✅ Code is extensively commented, clearly explaining functionality<br>✅ Includes a .gitignore file to exclude node_modules as expected<br>✅ Code structure is clean, organized, and easy to follow<br>✅ Uses meaningful and descriptive variable and function names<br>💡 A few more inline comments could be helpful to explain complex logic (-5 points)<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>🌟 Game executes without any crashes, bugs, or errors<br>🌟 All 26 rounds play through correctly with proper game flow<br>💯 Card dealing works perfectly, distributing 26 cards to each player <br>🔥 Point tracking is accurate throughout the game<br>🚀 No logical errors detected - game performs exactly as expected<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✨ Clear video demonstration showing the game running from start to finish<br>👍 Code explanation hits on key elements like classes and game flow <br>✨ Solid understanding of OOP concepts used in the project<br>⚠️ Audio is a bit choppy at times, making explanation hard to follow (-3 points)<br>⚠️ Code walkthrough could point out a few more specific highlights (-2 points)<br><br>🌟 Total Score: <span class="score">375/400 points</span><br><br>Linh, this is a fantastic implementation of the WAR card game in JavaScript! 👏 You've demonstrated a strong grasp of object-oriented programming principles and JavaScript fundamentals. Your code is well-structured, properly documented, and a pleasure to review. <br><br>Some ideas to consider:<br>- Enhance the game to handle "war" when there are ties 💡<br>- Allow players to input their names for a personal touch 😄<br>- Highlight a few more key code snippets in your walkthrough 📽️<br><br>Overall, this is exemplary work! You should be very proud of this project. Keep up the amazing coding! 🚀 Feel free to reach out if you have any other questions.
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 12:15:51 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Adam Peters - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Adam Peters">
+  <meta name="student-email" content="yankees08.ap@gmail.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-06-22T15:52:26.010Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Adam Peters</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Adam Peters</p>
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hi Adam! 👋 I've finished grading your Bootstrap project. Here's the detailed feedback:<br><br>📊 Completion (<span class="score">25/30 points</span>)<br>✅ Great job implementing multiple pages with the Home, Courses, and Submit pages! The navigation between them works smoothly.<br>✅ The responsive Bootstrap navbar is set up properly and collapses on smaller screens. Nice work! <br>⚠️ Tables are used on the Courses page with Bootstrap classes, but could use a bit more styling to enhance the visual appeal. Consider adding table head/body classes or additional CSS.<br>✅ The form on the home page looks good and includes proper Bootstrap form classes and a submit button.<br>💡 To take the responsive design to the next level, experiment with Bootstrap's grid system and spacing utilities to optimize the layout on various screen sizes.<br><br>📝 GitHub (<span class="score">20/25 points</span>)  <br>✅ Your repository is set up correctly under your GitHub account.<br>✅ The files are organized logically in a "coding assignment" folder.<br>⚠️ Consider adding a README file to provide an overview of your project, setup instructions, and any other relevant details. This is a helpful best practice.<br>⚠️ More frequent commits throughout the development process would give better insight into your progress and make it easier to track changes.<br><br>📈 Errors (<span class="score">13/15 points</span>)<br>✅ No console errors detected - your code looks clean and runs smoothly!<br>✅ All the links between pages are working properly.<br>⚠️ The HTML is mostly valid, but the opening <code><body></code> tag appears twice on the Courses page. Make sure to have only one pair of <code><body></code> tags per page.<br>✅ Bootstrap classes are used correctly on the navbar, tables, and form.<br><br>📱 Video Explanation (<span class="score">0/10 points</span>)<br>⚠️ Looks like the video walkthrough of the project was not included with the submission. Recording a quick video to demonstrate the features and discuss your process is a great way to showcase your work!<br><br>🌟 Total Score: <span class="score">58/70 points</span><br><br>Overall, you've done a solid job implementing the core requirements of the Bootstrap project! The multi-page structure is set up well, and the navbar, tables, and form all utilize Bootstrap classes effectively. There's room for improvement in the styling of the tables, committing more frequently to GitHub, and including a README file. <br><br>Keep up the good work, Adam! Let me know if you have any questions. You're making great progress with Bootstrap. 💪
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 11:52:26 AM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

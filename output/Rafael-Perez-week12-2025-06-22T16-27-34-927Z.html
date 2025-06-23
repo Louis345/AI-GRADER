@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Rafael Perez - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Rafael Perez">
+  <meta name="student-email" content="rafantperez1@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-22T16:27:34.933Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Rafael Perez</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> rafantperez1@gmail.com</p>
+    <p><strong>Date:</strong> 6/22/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Rafael Perez</p>
+    <p><strong>Student Email:</strong> rafantperez1@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+📊 Completion (<span class="score">145/160 points</span>)<br>✅ Fetch API successfully used for data retrieval<br>✅ Async/await implemented properly throughout the code<br>✅ Create (POST) functionality working as expected, allowing new posts to be added<br>✅ Read (GET) functionality displaying existing posts correctly<br>✅ Delete functionality implemented, enabling posts to be removed<br>✅ Forms properly connected to the API endpoints<br>✅ json-server utilized as the API backend<br>⚠️ While the core CRUD functionality is present, the update/edit feature is not fully implemented (-15 points)<br><br>📝 GitHub (<span class="score">125/140 points</span>)  <br>✅ GitHub repository is properly created and accessible<br>✅ File structure is logical and well-organized<br>💡 Code is mostly clean, but could benefit from additional comments explaining key sections (-10 points)<br>✅ README file provides a brief overview of the project<br>⚠️ Commit history is a bit sparse, making it harder to track development progress (-5 points)<br><br>📈 Errors (<span class="score">65/70 points</span>)<br>✅ No major console errors observed during normal operation<br>✅ Create, Read, and Delete operations work as intended<br>⚠️ Minor issue with the edit functionality not being fully implemented (-5 points)<br>✅ Proper usage of async/await without any asynchronous errors<br>✅ UI responds correctly to user interactions<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✅ Clear explanation of the project's core functionality<br>✅ Demonstration of the working CRUD operations <br>⚠️ Could have provided more detail on the specific API integration challenges faced (-5 points)<br>💡 Code walkthrough was brief and would benefit from a more in-depth explanation of key components<br><br>🌟 Total Score: <span class="score">360/400 points</span><br><br>Overall, this is a strong submission that demonstrates a solid understanding of working with APIs and implementing CRUD functionality. The core features of creating, reading, and deleting posts are all working well. There's room for improvement in fully implementing the update functionality and providing more detailed code explanations.<br><br>To take this project to the next level, consider:<br>- Finishing the update/edit feature to allow existing posts to be modified 💪<br>- Adding more detailed code comments to explain the purpose and functionality of key sections 📝 <br>- Providing additional context in the video explanation around the specific challenges encountered and how they were overcome 🎥<br><br>Great work on tackling this assignment! With some polish on the update feature and enhanced documentation, this will be an even stronger showcase of your skills. Keep up the excellent progress! 🚀
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/22/2025, 12:27:34 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

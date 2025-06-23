@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Kera Lloyd - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Kera Lloyd">
+  <meta name="student-email" content="kera.lloyd81@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-19T21:32:46.282Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Kera Lloyd</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> kera.lloyd81@gmail.com</p>
+    <p><strong>Date:</strong> 6/19/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Kera Lloyd</p>
+    <p><strong>Student Email:</strong> kera.lloyd81@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of your API's and Fetch assignment:<br><br>📊 Completion (<span class="score">120/160 points</span>)<br>✅ Great job using fetch API to retrieve data from the json-server! Your GET requests are working well.<br>✅ Async/await is implemented properly to handle the asynchronous API calls. Nice work there! <br>⚠️ The Create (POST) functionality is mostly working. However, you're not clearing the form fields after submitting, so the same data gets re-submitted on page refresh. Make sure to reset the form after a successful POST.<br>✅ The Read (GET) functionality is displaying the recipe data correctly. The recipes load on page start and after any CUD operations. <br>✅ Delete functionality is working - clicking the Delete button removes the recipe from both the UI and json-server data.<br>⚠️ The form is properly connected to the API for creating recipes. Just remember to clear it after submission.<br>✅ json-server is set up and working as your API. Good call using a db.json file to persist the data.<br><br>📝 GitHub (<span class="score">115/140 points</span>)  <br>✅ Your GitHub repository is set up correctly and the link works. The repo name clearly identifies the project.<br>⚠️ The file structure is mostly logical, but you have some unnecessary files like package.json and package-lock.json since you're not using npm. Try to include only the essential files.<br>💡 The JavaScript code could use more comments, especially for the main functions. Well-commented code is easier to understand and maintain.<br>✅ The README file provides good setup instructions for running the project locally. It explains the json-server setup clearly.<br>⚠️ The commit history is a bit sparse. More frequent commits with meaningful messages would better showcase your development process. Try committing after completing each major feature or fix.<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No major errors in the console during testing, which is great! The app runs smoothly.<br>⚠️ The CRUD operations mostly work, but there's a small bug with the form not clearing after creating a recipe. This can lead to duplicate submissions. Make sure to reset the form fields.<br>💡 There's no error handling for failed API calls. Consider adding some try/catch blocks to gracefully handle any errors.<br>✅ Async/await is used correctly without any synchronization issues. The code flow is easy to follow.<br>✅ The UI updates correctly after each CUD operation, providing immediate feedback to the user.<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ Your video provides a decent overview of the project functionality. We can see the app running.<br>⚠️ The explanation could be more detailed in places. Spend a bit more time discussing your code design decisions and any challenges faced.<br>💡 The audio quality makes it a bit hard to understand in places. Consider recording in a quieter environment or using a better microphone if possible. <br>⚠️ The code walkthrough is pretty quick. Slow down and take time to explain the key parts of your JavaScript code and how they interact with the API.<br><br>🌟 Total Score: <span class="score">315/400 points</span><br><br>Overall, this is a solid attempt at the assignment! Your core functionality is working, and you've integrated with the json-server API successfully. The main areas to work on are:<br>1) Resetting the form after creating a recipe <br>2) More robust error handling for API calls<br>3) Cleaning up the GitHub repo and improving the commit history<br>4) Providing clearer explanations and better audio in your video<br><br>Keep up the good work! Let me know if you have any other questions. 👍
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/19/2025, 5:32:46 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

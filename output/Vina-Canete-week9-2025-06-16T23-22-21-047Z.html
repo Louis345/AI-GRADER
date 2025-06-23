@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Vina Canete - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Vina Canete">
+  <meta name="student-email" content="vina.canete@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-06-16T23:22:21.048Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Vina Canete</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> vina.canete@gmail.com</p>
+    <p><strong>Date:</strong> 6/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Vina Canete</p>
+    <p><strong>Student Email:</strong> vina.canete@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of the WAR Card Game assignment:<br><br>📊 Completion (<span class="score">140/160 points</span>)<br>✅ Great job implementing the game using classes for Card, Deck and Player! The code structure shows a solid understanding of OOP principles.<br>✅ The game properly deals 26 cards to each player from a 52-card deck and automatically plays through all 26 rounds. <br>✅ Points are awarded correctly to the player with the higher card each round, with ties resulting in no points.<br>✅ The final score is displayed and a winner is declared at the end of the game.<br>⚠️ While the core functionality is there, some small details are missing for full points, such as displaying which cards were played each round. Adding a bit more output would enhance the user experience.<br><br>📝 GitHub (<span class="score">120/140 points</span>)  <br>✅ The code is hosted in a properly set up public GitHub repository that is accessible.<br>✅ Variables and functions have clear, descriptive names that convey their purpose.<br>⚠️ The code could use some more comments, especially explaining the logic in the playGame() function. Well-commented code is easier to read and maintain.<br>⚠️ There is no .gitignore file in the repo. It's a best practice to include this to avoid tracking unnecessary files.<br>💡 Consider organizing the code into separate files (e.g. Card.js, Deck.js, Player.js) for better modularity.<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>🌟 Fantastic work, the game runs smoothly from start to finish without any crashes or bugs! <br>✅ All 26 rounds are played properly, with cards being dealt correctly to each player.<br>✅ The point tracking logic is accurate, awarding points to the right player in each round based on card values.<br>✨ No errors were found during testing - the code is logically sound and handles all game scenarios properly.<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ The video clearly shows the game running from start to finish with the final score and winner.<br>✅ Key portions of the code, like creating the deck and determining round winners, are highlighted.<br>⚠️ The explanations could go into a bit more depth on how the different classes and methods work together to run the game. Don't assume the viewer is familiar with the code.<br>💡 Consider adding captions or on-screen text to reinforce key points as you explain them.<br><br>🌟 Total Score: <span class="score">350/400 points</span><br><br>Great work on this assignment, Vina! The core functionality of the game is all there, with the code properly handling card dealing, game rounds, and score tracking. The use of classes demonstrates a good grasp of object-oriented programming principles.<br><br>Some areas for improvement:<br>- More detailed code comments, especially for complex logic<br>- Organizing code into separate files for better structure  <br>- Including a .gitignore file in the GitHub repo<br>- More thorough explanations in the video of how the code works<br><br>Overall this is a strong submission that meets most of the key requirements. Keep up the great work! Let me know if you have any other questions.
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/16/2025, 7:22:21 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

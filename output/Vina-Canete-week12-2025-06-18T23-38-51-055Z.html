@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Vina Canete - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Vina Canete">
+  <meta name="student-email" content="cina.canete@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-18T23:38:51.056Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Vina Canete</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> cina.canete@gmail.com</p>
+    <p><strong>Date:</strong> 6/18/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Vina Canete</p>
+    <p><strong>Student Email:</strong> cina.canete@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+📊 Completion (<span class="score">140/160 points</span>)<br>✅ Great job implementing the CRUD functionality for the book tracking app! The create, read, and delete operations are all working well. <br><br>⚠️ However, I don't see the update functionality implemented. While not required, it would be a nice feature to allow editing existing book entries.<br><br>💡 Consider adding some validation on the form inputs, such as requiring fields or checking for valid rating values, to improve the user experience and data integrity.<br><br>📝 GitHub (<span class="score">120/140 points</span>)  <br>👏 Excellent work setting up the GitHub repository and providing access. The file structure is clean and well-organized.<br><br>⚠️ While the code is functioning well, adding more comments throughout to explain key sections and logic would enhance the readability and maintainability.<br><br>💡 The README file could be improved by providing clearer instructions for setting up and running the project, such as the required dependencies and commands.<br><br>🌟 Nice work making regular commits to track your development progress!<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>🔥 No console errors are present during the normal usage of the application, which is great!<br><br>⚠️ However, there is no error handling implemented for failed API calls. If the server is down or returns an error response, the user is not notified and the UI does not update gracefully. <br><br>💡 Consider adding try/catch blocks around the async API calls and displaying user-friendly error messages when something goes wrong.<br><br>📱 Video Explanation (<span class="score">0/30 points</span>)<br>🛠️ No video was submitted with this assignment. Make sure to include a video walkthrough in future assignments to earn full points in this category.<br><br>🌟 Total Score: <span class="score">320/370 points</span><br><br>👋 Well done on this assignment, Vina! You've implemented the core functionality of the book tracking app using json-server and fetch. The CRUD operations are working smoothly, and the code is organized nicely on GitHub.<br><br>💪 To take this project to the next level, consider adding the update feature, more validation on user inputs, and robust error handling for API calls. Providing clearer setup instructions in the README would also be beneficial.<br><br>🚀 Keep up the great work, and feel free to reach out if you have any questions or need further guidance. You're making fantastic progress, and I'm excited to see your future projects! 👍
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/18/2025, 7:38:51 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
