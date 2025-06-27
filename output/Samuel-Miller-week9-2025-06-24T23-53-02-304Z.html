@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Samuel Miller - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Samuel Miller">
+  <meta name="student-email" content="supersam343@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-06-24T23:53:02.305Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Samuel Miller</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> supersam343@gmail.com</p>
+    <p><strong>Date:</strong> 6/24/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Samuel Miller</p>
+    <p><strong>Student Email:</strong> supersam343@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of your WAR card game project:<br><br>📊 Completion (<span class="score">135/160 points</span>)<br>✅ Great job using classes for Card, Deck, and Player to structure the game with OOP principles! <br>✅ The deck is properly created with 52 cards and shuffled before dealing<br>✅ 26 cards are dealt to each player <br>✅ Game iterates through all rounds automatically as expected<br>✅ Points are awarded to the player with the higher card value each round<br>⚠️ Ties are handled by printing a message, but no points are awarded, which is correct. Consider also implementing the tie-breaker "war" mechanic for a more complete game.<br>✅ Final scores are displayed and winner is declared<br>✅ Game runs smoothly using console.log for output<br>Overall, solid implementation meeting most requirements! To get full points, consider adding the tie-breaker "war" rounds. <br><br>📝 GitHub (<span class="score">120/140 points</span>)  <br>✅ Repository is set up properly on GitHub and code is accessible<br>✅ Most code has helpful comments explaining functionality <br>⚠️ Missing .gitignore file to exclude node_modules and other unwanted files<br>✅ Code is well-structured and organized logically<br>✅ Variables and functions have clear, meaningful names<br>The GitHub portion is in great shape overall. Make sure to add a .gitignore file to get full marks here.<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>🌟 Fantastic work! The game runs without any crashes or errors<br>💯 All 26 rounds are played correctly with proper card dealing<br>💯 Point tracking works accurately throughout the game<br>💯 No logical issues found in the gameplay flow<br>The game is rock solid with no errors or bugs that I could find. Amazing job!<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ Video shows a complete run-through of the game from start to finish<br>⚠️ Code explanation is a bit brief - go into more detail on how each part works<br>⚠️ Demonstrates some understanding of OOP concepts but could explain further<br>✅ Screen share and audio are clear<br>✨ Nice job highlighting key code snippets during the explanation  <br>The video is a good overview but aim to explain your code design and OOP structure more thoroughly. Elaborate on the classes and how they interact. With some more detail, the video portion will be top notch!<br><br>🌟 Total Score: <span class="score">345/400 points</span><br><br>You've built an awesome WAR card game that demonstrates strong command of JavaScript and OOP! The gameplay works smoothly and the code is well-written. <br><br>Some suggestions to take it to the next level:<br>- Implement tie-breaker "war" rounds for a more complete game<br>- Add a .gitignore file to clean up the repo<br>- Explain your code and design choices more extensively in the video<br><br>Keep up the great work! With a few tweaks, this will be an outstanding project. Let me know if you have any other questions!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/24/2025, 7:53:02 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
