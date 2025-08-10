@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Griselda Romero - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Griselda Romero">
+  <meta name="student-email" content="gr.romero@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-07-15T18:19:41.301Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Griselda Romero</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> gr.romero@gmail.com</p>
+    <p><strong>Date:</strong> 7/15/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Griselda Romero</p>
+    <p><strong>Student Email:</strong> gr.romero@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+📊 Completion (<span class="score">135/160 points</span>)<br>✅ Great job implementing the core game mechanics using classes like Deck and Game! This demonstrates a solid understanding of OOP concepts. <br>✅ Your code successfully deals 26 cards to each player, iterates through all rounds automatically, and awards points appropriately.<br>✅ Excellent work displaying the final score and declaring the winner at the end.<br>⚠️ It would be even better to separate the Player class into its own class definition for cleaner code organization. Consider moving the player1 and player2 properties out of the Game class.<br>⚠️ To fully meet the rubric, consider adding a few more console.log statements to display the round number and make the game flow easier to follow.<br><br>📝 GitHub (<span class="score">115/140 points</span>)  <br>✅ Your repository is properly set up and accessible. Nice work!<br>✅ The code is generally well-organized and uses meaningful variable and function names.<br>⚠️ Consider adding more detailed comments explaining the purpose and functionality of each class and method. This will make your code even easier to understand.<br>⚠️ I don't see a .gitignore file in the repository. Make sure to add one to exclude files like node_modules that shouldn't be tracked.<br>💡 As your projects grow, organizing your files into folders like /src or /scripts can help keep things tidy.<br><br>📈 Errors (<span class="score">65/70 points</span>)<br>✅ Fantastic job - your game runs without any major crashes or errors! <br>✅ All 26 rounds seem to execute properly, and the card dealing logic looks solid.<br>✅ Point tracking is working as expected, and the final scores are accurate.<br>⚠️ One small thing to watch out for is potential ties - make sure you handle those correctly and award 0 points to both players.<br>💡 Adding some error handling, like checking for a valid deck before starting the game, could make your code even more robust.<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✅ Excellent work demonstrating the full game flow from start to finish! I can clearly see each round being played.<br>✅ Your code walkthrough touches on the key aspects of the Deck and Game classes.<br>✅ Discussing the Fisher-Yates shuffle and how you approached it was insightful.<br>⚠️ Consider elaborating a bit more on how the OOP concepts like classes, properties, and methods are used in your implementation. <br>💡 Adding a few code comments in the video could help reinforce the connection between your explanation and the relevant parts of the codebase.<br><br>🌟 Total Score: <span class="score">340/400 points</span><br><br>Amazing work on this challenging project, Griselda! You've demonstrated a strong grasp of OOP principles and JavaScript fundamentals. Your code is well-structured, properly handles game logic, and runs smoothly. With some minor tweaks to code organization and documentation, plus a little more depth in your technical explanations, you'll be in fantastic shape. Keep up the great work! 🚀💯<br><br>Let me know if you have any other questions!
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

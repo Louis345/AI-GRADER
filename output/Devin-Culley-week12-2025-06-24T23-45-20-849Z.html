@@ -1,119 +1,158 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grading: Devin Culley - API's and Fetch</title>
-  <!-- Student data for reporting -->
-  <meta name="student-name" content="Devin Culley">
-  <meta name="student-email" content="buhwheat43@yahoo.com">
-  <meta name="week-number" content="12">
-  <meta name="assignment-name" content="API's and Fetch">
-  <meta name="grading-date" content="2025-06-24T23:45:20.850Z">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #0275d8;
-      padding-bottom: 15px;
-    }
-    h1, h2, h3, h4 {
-      color: #0275d8;
-    }
-    .student-info {
-      background-color: #f0f8ff;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      border-left: 4px solid #0275d8;
-    }
-    .section {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 5px;
-      background-color: #f8f9fa;
-    }
-    .score {
-      font-weight: bold;
-      color: #0056b3;
-    }
-    .total-score {
-      font-size: 18px;
-      text-align: center;
-      margin: 20px 0;
-      padding: 10px;
-      background-color: #e9ecef;
-      border-radius: 5px;
-    }
-    .emoji {
-      font-size: 1.2em;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-    /* Copy button styling */
-    .copy-button {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background-color: #0275d8;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .copy-button:hover {
-      background-color: #0056b3;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.8em;
-      color: #6c757d;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <h1>API's and Fetch Evaluation</h1>
-    <h2>Student: Devin Culley</h2>
-    <p>Week 12</p>
-  </div>
-  <div class="student-info">
-    <p><strong>Student Email:</strong> buhwheat43@yahoo.com</p>
-    <p><strong>Date:</strong> 6/24/2025</p>
-  </div>
-  <div id="content-to-copy">
-    <p><strong>Student Name:</strong> Devin Culley</p>
-    <p><strong>Student Email:</strong> buhwheat43@yahoo.com</p>
-    <p><strong>Week 12:</strong> API's and Fetch</p>
-    <hr>
-Here is your evaluation of the student's assignment:<br><br>📊 Completion (<span class="score">140/160 points</span>)<br>✅ Fetch API used for data retrieval (20 points)<br>✅ Async/await implemented properly (20 points)<br>✅ Create (POST) functionality working (20 points)<br>✅ Read (GET) functionality displaying data (20 points) <br>✅ Delete functionality implemented (20 points)<br>✅ Forms properly connected to API (20 points)<br>✅ json-server used as API (20 points)<br>⚠️ Missing update (PUT) functionality (-20 points)<br><br>Excellent work on implementing the core CRUD operations! Your code demonstrates proper use of fetch, async/await, and JSON server. The GET, POST, and DELETE are all working as expected. <br><br>One area for improvement is to add the update/PUT functionality. This is a key part of CRUD and required for full points. Adding an edit form and ajax PUT request would round out the assignment. 💡<br><br>📝 GitHub (<span class="score">120/140 points</span>)  <br>✅ Repository properly created and accessible (20 points)<br>✅ File structure is logical and organized (20 points)<br>✅ Code is clean and well-commented (20 points)<br>⚠️ README file explains project setup but could use more detail (-20 points)<br>✅ Commit history shows development progress (20 points)<br><br>Your GitHub repo is set up correctly with all the necessary files. The code is tidy and includes helpful comments. <br><br>The README has basic info but could be more thorough. Consider adding details on how to install dependencies, run the server, and use the app. A few screenshots could also enhance it. 🌟<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No console errors during operation (20 points)<br>✅ All CRUD operations work correctly, except update (-10 points) <br>✅ Error handling for failed API calls (10 points)<br>✅ Proper async/await usage without errors (20 points)<br>✅ UI responds correctly to user interactions (20 points)<br><br>The app runs smoothly without any console errors, which is great! The implemented CRUD functions work reliably. Nice job adding error handling for API calls. <br><br>As mentioned, the only thing missing is the update feature, but what you have works solidly. Async code is used correctly throughout. The interface is intuitive and responsive. 👏<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ Clear explanation of project functionality (10 points)<br>⚠️ Demonstration of all CRUD operations - missing update (-5 points)<br>⚠️ Discussion of API integration challenges (-5 points)<br>✅ Code walkthrough showing key components (10 points)<br><br>The video gives a good overview of the app's features. You explain the key parts of the code clearly. <br><br>To get full marks, make sure to showcase the update functionality once added. It would also be beneficial to discuss any challenges faced with the API integration and how you overcame them. 💪<br><br>🌟 Total Score: <span class="score">340/400 points</span><br><br>You've done an excellent job on this assignment! The core functionality is there and the code is well-structured. <br><br>The main things to work on are:<br>1) Implementing the update/PUT <br>2) Enhancing the README<br>3) Demonstrating the full CRUD in the video with commentary<br><br>With those additions, this would be a top-notch project. Your coding skills are progressing nicely. Keep up the great work! 🚀<br><br>Let me know if you have any other questions!
-  </div>
-  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
-  <div class="footer">
-    <p>Generated by AI Grader on 6/24/2025, 7:45:20 PM</p>
-  </div>
-  <script>
-    function copyContent() {
-      const content = document.getElementById('content-to-copy').innerText;
-      navigator.clipboard.writeText(content)
-        .then(() => alert('Feedback copied to clipboard!'))
-        .catch(err => console.error('Failed to copy: ', err));
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading: Devin Culley - API's and Fetch</title>
+    <!-- Student data for reporting -->
+    <meta name="student-name" content="Devin Culley" />
+    <meta name="student-email" content="buhwheat43@yahoo.com" />
+    <meta name="week-number" content="12" />
+    <meta name="assignment-name" content="API's and Fetch" />
+    <meta name="grading-date" content="2025-06-24T23:45:20.850Z" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #0275d8;
+      }
+      .student-info {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #0275d8;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>API's and Fetch Evaluation</h1>
+      <h2>Student: Devin Culley</h2>
+      <p>Week 12</p>
+    </div>
+    <div class="student-info">
+      <p><strong>Student Email:</strong> buhwheat43@yahoo.com</p>
+      <p><strong>Date:</strong> 6/24/2025</p>
+    </div>
+    <div id="content-to-copy">
+      <p><strong>Student Name:</strong> Devin Culley</p>
+      <p><strong>Student Email:</strong> buhwheat43@yahoo.com</p>
+      <p><strong>Week 12:</strong> API's and Fetch</p>
+      <hr />
+      Here is your evaluation of the student's assignment:<br /><br />📊
+      Completion (<span class="score">140/160 points</span>)<br />✅ Fetch API
+      used for data retrieval (20 points)<br />✅ Async/await implemented
+      properly (20 points)<br />✅ Create (POST) functionality working (20
+      points)<br />✅ Read (GET) functionality displaying data (20 points)
+      <br />✅ Delete functionality implemented (20 points)<br />✅ Forms
+      properly connected to API (20 points)<br />✅ json-server used as API (20
+      points)<br />⚠️ Missing update (PUT) functionality (-20 points)<br /><br />Excellent
+      work on implementing the core CRUD operations! Your code demonstrates
+      proper use of fetch, async/await, and JSON server. The GET, POST, and
+      DELETE are all working as expected. <br /><br />One area for improvement
+      is to add the update/PUT functionality. This is a key part of CRUD and
+      required for full points. Adding an edit form and ajax PUT request would
+      round out the assignment. 💡<br /><br />📝 GitHub (<span class="score"
+        >120/140 points</span
+      >) <br />✅ Repository properly created and accessible (20 points)<br />✅
+      File structure is logical and organized (20 points)<br />✅ Code is clean
+      and well-commented (20 points)<br />⚠️ README file explains project setup
+      but could use more detail (-20 points)<br />✅ Commit history shows
+      development progress (20 points)<br /><br />Your GitHub repo is set up
+      correctly with all the necessary files. The code is tidy and includes
+      helpful comments. <br /><br />The README has basic info but could be more
+      thorough. Consider adding details on how to install dependencies, run the
+      server, and use the app. A few screenshots could also enhance it. 🌟<br /><br />📈
+      Errors (<span class="score">60/70 points</span>)<br />✅ No console errors
+      during operation (20 points)<br />✅ All CRUD operations work correctly,
+      except update (-10 points) <br />✅ Error handling for failed API calls
+      (10 points)<br />✅ Proper async/await usage without errors (20 points)<br />✅
+      UI responds correctly to user interactions (20 points)<br /><br />The app
+      runs smoothly without any console errors, which is great! The implemented
+      CRUD functions work reliably. Nice job adding error handling for API
+      calls. <br /><br />As mentioned, the only thing missing is the update
+      feature, but what you have works solidly. Async code is used correctly
+      throughout. The interface is intuitive and responsive. 👏<br /><br />📱
+      Video Explanation (<span class="score">20/30 points</span>)<br />✅ Clear
+      explanation of project functionality (10 points)<br />⚠️ Demonstration of
+      all CRUD operations - missing update (-5 points)<br />⚠️ Discussion of API
+      integration challenges (-5 points)<br />✅ Code walkthrough showing key
+      components (10 points)<br /><br />The video gives a good overview of the
+      app's features. You explain the key parts of the code clearly.
+      <br /><br />To get full marks, make sure to showcase the update
+      functionality once added. It would also be beneficial to discuss any
+      challenges faced with the API integration and how you overcame them. 💪<br /><br />🌟
+      Total Score: <span class="score">340/400 points</span><br /><br />You've
+      done an excellent job on this assignment! The core functionality is there
+      and the code is well-structured. <br /><br />The main things to work on
+      are:<br />1) Implementing the update/PUT <br />2) Enhancing the README<br />3)
+      Demonstrating the full CRUD in the video with commentary<br /><br />With
+      those additions, this would be a top-notch project. Your coding skills are
+      progressing nicely. Keep up the great work! 🚀<br /><br />Let me know if
+      you have any other questions!
+    </div>
+  </body>
 </html>
-  

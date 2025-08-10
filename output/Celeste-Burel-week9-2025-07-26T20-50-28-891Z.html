@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Celeste Burel - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Celeste Burel">
+  <meta name="student-email" content="krycel.2.0@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-07-26T20:50:28.891Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Celeste Burel</h2>
+    <p>Week 9</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> krycel.2.0@gmail.com</p>
+    <p><strong>Date:</strong> 7/26/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Celeste Burel</p>
+    <p><strong>Student Email:</strong> krycel.2.0@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+📊 Completion (<span class="score">140/160 points</span>)<br>✅ Great job implementing the War card game using classes for Card, Deck, and Player! Your code structure follows OOP principles well. <br>👏 The game deals 26 cards to each player, iterates through all rounds automatically, and tracks points correctly.<br>🌟 Ties are handled appropriately by awarding zero points. The final score is displayed and a winner is declared. <br>💯 The game runs smoothly using console.log output. Just a couple small suggestions:<br>- Consider renaming the <code>name</code> and <code>value</code> properties in the Card class to <code>suit</code> and <code>value</code> for clarity<br>- The <code>describe</code> method in the Hand class takes a parameter <code>hand</code> but uses <code>this.name</code> instead<br><br>📝 GitHub (<span class="score">130/140 points</span>)  <br>✨ Your GitHub repository is set up properly and the code is accessible. Nicely done!<br>👍 The code is well-organized and uses meaningful variable and function names. <br>💡 Consider adding more comments, especially in the main game loop, to explain the logic and flow for enhanced readability.<br>🌟 Great job including a .gitignore file to exclude the node_modules directory.<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>🎉 Fantastic, your game runs without any crashes or errors! All 26 rounds play correctly.<br>💯 The card dealing works properly and the point tracking is accurate. <br>🔥 No logical errors detected in the game flow. Everything looks great here!<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>👏 Your video does a good job showing the game running from start to finish. <br>✨ You explained how the code works, going through the key classes and methods.<br>⚠️ The video could be improved by focusing a bit more on the OOP concepts used and how they fit together in the overall game structure. <br>💡 Try highlighting specific parts of the code you wrote and explaining your thought process behind the implementation.<br><br>🌟 Total Score: <span class="score">360/400 points</span><br><br>Overall, this is an excellent implementation of the War card game! Your code demonstrates a solid understanding of OOP principles and JavaScript fundamentals. The game runs smoothly and meets all the key requirements.<br><br>To take this project to the next level, consider adding more detailed code comments, expanding on the video explanation to dive deeper into your design choices, and maybe even exploring some additional features or unit tests. <br><br>Keep up the great work! You're well on your way to mastering object-oriented programming in JavaScript. Feel free to reach out if you have any questions! 💪
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

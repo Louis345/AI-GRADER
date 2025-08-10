@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jenna Moy - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jenna Moy">
+  <meta name="student-email" content="jennacmoy@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-06-27T19:41:21.920Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jenna Moy</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Date:</strong> 6/27/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jenna Moy</p>
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of your API's and Fetch assignment:<br><br>📊 Completion (<span class="score">115/160 points</span>)<br>✅ Great job using fetch to retrieve data from the dog API! Your GET request is implemented correctly.<br>✅ Async/await is used properly to handle the asynchronous API calls. Well done! <br>⚠️ The create (POST) and delete functionality are partially implemented, but not fully functional. The POST request is missing the data to send in the request body, and the DELETE request doesn't specify which entity to delete.<br>⚠️ Forms for creating entities are not present. Adding forms to capture user input would improve the create functionality.<br>💡 Consider adding more CRUD operations like update (PUT) to round out the API integration.<br><br>📝 GitHub (<span class="score">115/140 points</span>)  <br>✅ Your GitHub repository is set up correctly and the link is accessible. Good work!<br>✅ The file structure is organized logically with separate files for HTML, JavaScript, and configuration. This makes your code easy to navigate.<br>⚠️ While your code is functional, adding more comments explaining key sections would enhance readability and maintainability.<br>⚠️ The README file is a bit sparse. Consider expanding it with details on how to set up and run your project, and an overview of the functionality.<br>💡 More frequent commits showing your development progress would give better insight into your coding process.<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>✅ No console errors during basic operations. Your code runs smoothly!<br>⚠️ The create and delete operations throw errors due to the issues mentioned in the completion section. Fixing those will resolve the errors.<br>✅ Good error handling for the API calls using try/catch blocks. This will help catch any failed requests.<br>✅ Async/await is used correctly without any syntax or runtime errors. Well done!<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✅ Your video gives a clear overview of the project functionality and user flow. Great job explaining the different components!<br>⚠️ The audio quality could be improved - there's some background noise that makes it a bit harder to hear. Using a microphone or recording in a quieter space will help.<br>💡 Walking through more of your actual code and explaining the key parts would give even better insight into how you built the project.<br><br>🌟 Total Score: <span class="score">315/400 points</span><br><br>Overall, this is a solid start on integrating with an external API and using fetch & async/await! Your code is functional and retrieving dog pictures successfully. The main areas for improvement are fleshing out the CRUD operations, adding more code comments & README details, and fixing the create/delete errors. Keep up the great work! 🚀<br><br>With some polishing and expanding the functionality, you'll have an even stronger project. Let me know if you have any other questions!
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    <p>Generated by AI Grader on 6/27/2025, 3:41:21 PM</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

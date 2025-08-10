@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Nyota Haley - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Nyota Haley">
+  <meta name="student-email" content="nattyhly@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-07-31T12:56:52.840Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Nyota Haley</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> nattyhly@gmail.com</p>
+    <p><strong>Date:</strong> 7/31/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Nyota Haley</p>
+    <p><strong>Student Email:</strong> nattyhly@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+📊 Completion (<span class="score">140/160 points</span>)<br>✅ Fetch API used to retrieve dog images from the API<br>✅ Async/await implemented properly in the fetchDogs function<br>✅ Create (POST) functionality working for user-submitted dog names<br>✅ Read (GET) functionality displaying fetched dog images<br>✅ Delete functionality implemented to remove selected dog images<br>✅ Form properly connected to API for posting user dog names<br>⚠️ Using an external API (dog API) instead of json-server or a custom API (-20 points)<br><br>Overall, great job on implementing the core CRUD functionality! The app fetches dog images, allows posting dog names, and supports deletion. However, the assignment specifies using json-server or a custom API, so I had to deduct some points for using an external API instead.<br><br>📝 GitHub (<span class="score">100/140 points</span>)  <br>✅ Repository is accessible and contains the necessary files<br>✅ File structure is organized with separate HTML, CSS, and JS files<br>⚠️ Code comments are a bit sparse - consider adding more to explain key sections (-20 points) <br>⚠️ README file is quite minimal - consider expanding it with setup instructions and an overview of the app (-20 points)<br>🚫 Unable to evaluate commit history due to limited repository access<br><br>The GitHub repository is set up correctly and contains the essential files. The code is organized, but could benefit from more thorough commenting. The README is rather bare-bones - consider adding more detail for users.<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>✅ No visible console errors during the app's operation<br>✅ All CRUD operations (fetch, post, delete) are working as expected<br>✅ Async/await usage is error-free and properly handles promises<br>✅ UI responds correctly to user interactions (form submission, deletion)<br>👏 Excellent work on the error-free functionality! The app runs smoothly.<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ Clear explanation of the project's functionality <br>✅ Demonstration of fetching dog images and deleting them<br>⚠️ More technical details about the API integration would be helpful (-5 points)<br>⚠️ Code walkthrough is fairly brief - consider expanding on key components (-5 points)<br><br>The video does a good job showcasing the app's features. However, diving a bit deeper into the API integration challenges and code structure would enhance the explanation.<br><br>🌟 Total Score: <span class="score">330/400 points</span><br><br>You've done an excellent job on this assignment, demonstrating a solid grasp of working with APIs and implementing CRUD functionality! The app successfully fetches and displays dog images, allows posting dog names, and supports deletion. <br><br>Some areas for improvement:<br>- Use json-server or create a custom API to fully align with the assignment requirements<br>- Add more detailed code comments to enhance maintainability<br>- Expand the README with setup instructions and an app overview<br>- Provide more technical insights in the video explanation<br><br>Keep up the great work! Let me know if you have any questions. 💪👍
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

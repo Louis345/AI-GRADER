@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Adam Peters - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Adam Peters">
+  <meta name="student-email" content="yankees08.ap@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-10T19:34:57.263Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Adam Peters</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Date:</strong> 8/10/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Adam Peters</p>
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+📊 Completion (<span class="score">120/160 points</span>)<br>✅ Great job using fetch to retrieve data from the National Parks API! Your code demonstrates a solid understanding of how to make API calls. <br>⚠️ However, I don't see full CRUD functionality implemented yet. The current code only displays a hardcoded list of parks, but doesn't include the ability to create, update or delete entries using the API. To get full points, make sure to add forms or UI elements to create new parks, update existing ones, and delete parks, all integrated with the actual API.<br>💡 Also consider refactoring to separate the API logic from the DOM manipulation and display code for better organization.<br><br>📝 GitHub (<span class="score">110/140 points</span>)  <br>👏 Your GitHub repository is set up correctly and accessible. The file structure is organized and easy to navigate.<br>✨ I see you have a .gitignore file excluding sensitive information like the API key and node_modules, which is great practice! <br>⚠️ To improve, add some comments explaining the purpose and functionality of each part of your code. Also flesh out your README with setup instructions and an overview of the project.<br>💡 Aim for more granular commits as you develop to better showcase your progress.<br><br>📈 Errors (<span class="score">50/70 points</span>)<br>🌟 No major errors or issues noted during the review, well done! The code runs without any console errors.<br>⚠️ However, there is limited error handling in place for potential issues like API call failures. Implement try/catch blocks or .catch() on your promises to gracefully handle errors.<br>🔨 Also double check your async/await usage, especially in the loadParks function, to make sure you are handling the asynchronous flow correctly. <br><br>📱 Video Explanation (<span class="score">0/30 points</span>)<br>⚠️ No video was submitted with this assignment, so I can't evaluate this criteria. In the future, include a video walk-through showcasing your project's functionality and code!<br><br>🌟 Total Score: <span class="score">280/370 points</span><br><br>Adam, you're off to a solid start with using APIs and fetch in your project! 💪 The key areas to focus on now are fully implementing the CRUD operations, adding some polish to your GitHub repo, and including that helpful video overview in your next submission. Keep up the JavaScript practice and you'll be integrating APIs like a pro in no time! Let me know if any part of the feedback is unclear or if you have additional questions. You've got this! 🚀
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

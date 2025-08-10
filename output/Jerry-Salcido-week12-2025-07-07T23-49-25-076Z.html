@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jerry Salcido - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jerry Salcido">
+  <meta name="student-email" content="jsal@duck.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-07-07T23:49:25.077Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jerry Salcido</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jsal@duck.com</p>
+    <p><strong>Date:</strong> 7/7/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jerry Salcido</p>
+    <p><strong>Student Email:</strong> jsal@duck.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hey Jerry! 👋 Thanks for submitting your CRUD application with API integration. Let's take a look at how you did! 🔍<br><br>📊 Completion (<span class="score">80/160 points</span>)<br>✅ Great job setting up the API URL and fetching student data! The display of students with their name and assignment looks good.<br>⚠️ However, it seems the create (POST) functionality is not working properly due to some server compatibility issues. This is a key requirement so a significant amount of points were deducted.<br>✅ The delete functionality appears to be working as intended - nice work!<br>⚠️ I didn't see clear evidence of the update (PUT) operation working from the video. Please make sure to demo this next time.<br>💡 For full points, all CRUD operations should be functional with the API. Keep working on ironing out those server issues!<br><br>📝 GitHub (<span class="score">70/140 points</span>)  <br>⚠️ The provided GitHub repository link gives a 404 error, so I wasn't able to access your code. Make sure the repo is public!<br>❌ Without access to the repo, I couldn't evaluate the file structure, code quality, README, or commit history.<br>🛠️ Double check your repo link and permissions. Committing code to GitHub is essential for collaboration and evaluation.<br><br>📈 Errors (<span class="score">40/70 points</span>)<br>⚠️ There were some terminal errors related to the JSON server and updating the database. The POST operation failed due to this.<br>✅ However, the GET and DELETE operations seemed to work without errors from what I could see.<br>💡 Solving the server issues should help get rid of those pesky errors. Don't hesitate to ask for help if you get stuck!<br><br>📱 Video Explanation (<span class="score">25/30 points</span>)<br>✅ Your video walkthrough showed the key parts of the application, including the form for adding students and the list display. <br>⚠️ The audio was a bit choppy at times but I could mostly follow along. Just aim to speak slowly and clearly.<br>💡 For full points, make sure to show all CRUD operations working if possible. Explaining your code is also helpful!<br><br>🌟 Total Score: <span class="score">215/400 points</span><br><br>Overall, this is a good start Jerry! 🙌 The main things to work on are:<br>1. Resolving the server issues to get all CRUD operations working <br>2. Making sure your GitHub repo is accessible <br>3. Demonstrating a fully functional app in your video<br><br>Keep up the coding practice and don't get discouraged by bugs! 💪 You're making great progress. Feel free to reach out if you have any questions!<br><br>Let me know if you update your repo or video and I'll be happy to review again. Keep up the awesome work! 👏
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

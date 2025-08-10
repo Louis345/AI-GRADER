@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: David Carranza - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="David Carranza">
+  <meta name="student-email" content="dcarranza0000@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-07-02T22:23:10.925Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: David Carranza</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> dcarranza0000@gmail.com</p>
+    <p><strong>Date:</strong> 7/2/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> David Carranza</p>
+    <p><strong>Student Email:</strong> dcarranza0000@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my evaluation of the War Game assignment submitted by David Carranza:<br><br>📊 Completion (<span class="score">30/160 points</span>)<br>⚠️ The assignment requires creating a CRUD application using an API, but the submitted code is a console-based card game without any API integration, forms, or CRUD functionality. The core requirements of fetching data from an API, creating/posting entities, displaying fetched data, and implementing deletion are not met.<br><br>📝 GitHub (<span class="score">90/140 points</span>)  <br>✅ The repository is properly created and accessible on GitHub.<br>✅ The file structure is logical with separate HTML, JS, and README files.<br>⚠️ The code could benefit from more comments explaining key sections and logic.<br>⚠️ The README file is quite minimal and doesn't provide setup instructions or an overview of the project.<br>✅ There are a couple commits showing some development progress.<br><br>📈 Errors (<span class="score">70/70 points</span>)<br>✅ The provided code runs without any console errors.<br>✅ The game logic seems to be implemented correctly with rounds, scoring, and a winner determined at the end.<br>✅ Error handling is not applicable since no API calls are made.<br>✅ The code flow and class interactions work without any async/await or other errors.<br>✅ The console output responds as expected to the game play.<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>✅ The video provides a clear code walkthrough explaining the key components like the Deck, Player, and WarGame classes.<br>⚠️ The explanation focuses on the existing code but doesn't discuss the omitted API integration or CRUD operations since they are not implemented.<br>✅ A demo of the console-based game is shown with multiple runs displaying different outcomes.<br><br>🌟 Total Score: <span class="score">210/400 points</span><br><br>Overall, the submitted code shows a good understanding of JavaScript classes and game logic. However, it does not meet the core requirements of the assignment to create a CRUD application with API integration. To improve the score, the following changes are recommended:<br><br>💡 Refactor the code to fetch card data from an API using fetch and async/await instead of hardcoding it.<br>🛠️ Implement forms to allow creating/posting new cards or players to an API.<br>💪 Add functionality to display the fetched data from the API on the page.<br>🚀 Include the ability to delete cards or players through the UI which removes them via the API.<br>✨ Expand the README with clearer setup instructions and an overview of the project's functionality.<br><br>Let me know if you have any other questions! Keep up the coding practice and you'll keep improving. 👍
+  </div>
+  <button class="copy-button" onclick="copyContent()">Copy Feedback for LMS</button>
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

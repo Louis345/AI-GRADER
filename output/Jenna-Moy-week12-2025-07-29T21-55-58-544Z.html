@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jenna Moy - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jenna Moy">
+  <meta name="student-email" content="jennacmoy@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-07-29T21:55:58.550Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jenna Moy</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Date:</strong> 7/29/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Jenna Moy</p>
+    <p><strong>Student Email:</strong> jennacmoy@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+📊 Completion (<span class="score">140/160 points</span>)<br>✅ Great job implementing the fetch API to retrieve dog pictures from the API! Your code correctly uses async/await to handle the asynchronous calls. <br>👏 The create (POST) and delete functionality are present in your code, showing you understand how to send different types of requests to the API.<br>⚠️ However, I didn't see the read (GET) functionality explicitly implemented to display the fetched data. Make sure to add code that renders the retrieved dog pictures on the page.<br>💡 Consider adding more detail to the UI to show the results of each CRUD operation, giving the user clear feedback.<br><br>📝 GitHub (<span class="score">110/140 points</span>)  <br>🌟 Your GitHub repository is set up correctly and accessible. The file structure is organized logically with separate files for HTML, JavaScript, and configuration.<br>✨ The .gitignore file properly excludes the node_modules directory and your API key file, which is a good security practice.<br>⚠️ While your code is clean, adding more comments explaining key sections would enhance readability and maintainability. <br>💡 Flesh out your README file with instructions on how to set up and run your project, including any dependencies that need to be installed.<br><br>📈 Errors (<span class="score">60/70 points</span>)<br>💯 No console errors are reported during the operation of your application, indicating clean code free of syntax issues.<br>🔥 Your code properly uses async/await to handle asynchronous API calls without errors.<br>⚠️ I couldn't fully evaluate the error handling for failed API calls based on the provided code. Consider adding try/catch blocks to gracefully handle any errors that may occur.<br><br>📱 Video Explanation (<span class="score">20/30 points</span>)<br>👍 Your video clearly explains the overall functionality of your project and shows a brief demonstration of the UI.<br>⚠️ For full points, walk through each CRUD operation individually, showing the code and the corresponding effect in the browser. <br>💡 Discuss any challenges you faced with the API integration and how you overcame them. This gives insight into your problem-solving process.<br><br>🌟 Total Score: <span class="score">330/400 points</span><br><br>You're off to a great start with this API project! Your code demonstrates a solid understanding of using fetch and async/await to interact with an external API. With some polish on the UI feedback, README details, and error handling, you'll have a fully functional CRUD application. Keep up the good work! 💪🚀
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

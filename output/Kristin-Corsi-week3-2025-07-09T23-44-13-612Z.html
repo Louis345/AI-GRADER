@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Kristin Corsi - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Kristin Corsi">
+  <meta name="student-email" content="k.corsi@yahoo.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-07-09T23:44:13.613Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Kristin Corsi</h2>
+    <p>Week 3</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> k.corsi@yahoo.com</p>
+    <p><strong>Date:</strong> 7/9/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Kristin Corsi</p>
+    <p><strong>Student Email:</strong> k.corsi@yahoo.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+📊 Completion (<span class="score">20/30 points</span>)<br>✅ Great work implementing multiple pages for your Bootstrap website! The home, menu, and contact pages provide a solid foundation.<br>✅ The navbar is present on all pages with functioning links. Nice work making it responsive and using the dark styling. <br>⚠️ The table on the menu page looks good visually but is missing some Bootstrap classes like <code>table-striped</code> or <code>table-bordered</code> to enhance the styling.<br>💡 The form on the contact page has Bootstrap styling applied. Consider adding validation classes like <code>required</code> to improve functionality.<br>⚠️ Responsive design is partially implemented. Most elements stack vertically on smaller screens, but some extra margins throw off alignment.<br><br>📝 GitHub (<span class="score">23/25 points</span>)  <br>✅ Fantastic job initializing a GitHub repository for this project! It's well-organized and contains all the necessary files.<br>👍 Your commit messages clearly document your development progress. This will be helpful for collaboration and tracking changes.<br>⚠️ The README file is a bit minimal. Consider adding more details like installation instructions, dependencies, and an overview of the project's purpose.<br><br>📈 Errors (<span class="score">10/15 points</span>)<br>⚠️ There are a few minor errors in the HTML, like unclosed <code><div></code> tags and incorrect indentation. Running your code through a validator can help catch these.<br>⚠️ The links in the navbar work well, but the footer link to <code>index.html</code> is missing. Double-check that all intended links are functioning.<br>✅ Bootstrap classes are mostly used correctly. Just a few places, like the table and form, where additional Bootstrap classes could enhance the styling and functionality.<br><br>📱 Video Explanation (<span class="score">8/10 points</span>)<br>✨ Your video walkthrough gives a nice overview of the website's pages and features. Showing the navigation between pages was helpful.<br>💡 It would be even better to discuss more of your thought process behind your design choices, like why you chose certain Bootstrap components or styling.<br>⚠️ The audio was a little choppy at times, making it harder to understand. Consider investing in a microphone or re-recording in a quiet space.<br><br>🌟 Total Score: <span class="score">61/80 points</span><br><br>Great work on this project, Kristin! You've demonstrated a solid understanding of Bootstrap by implementing key components like the navbar, tables, and forms. Your code is well-organized in a GitHub repository, making it easy to track your development progress.<br><br>To take this project to the next level, focus on refining the responsive design, ensuring all elements are aligned properly at different screen sizes. Add some more Bootstrap styling to your tables and forms to make them visually appealing and interactive. Incorporate more validation on the form to improve functionality.<br><br>On the technical side, double-check your HTML for any unclosed tags or formatting inconsistencies. Adding some more documentation to your README file will also help others understand your project at a glance.<br><br>Keep up the great work, and don't hesitate to reach out if you have any questions! 💪 You're making fantastic progress. With a few tweaks and some extra polish, you'll have an impressive Bootstrap website to showcase. Excited to see what you create next! 🚀
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
