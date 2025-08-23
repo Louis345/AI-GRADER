@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Keanu Portal - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Keanu Portal">
+  <meta name="student-email" content="Keanuporreal16@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-10T20:22:52.145Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Keanu Portal</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> Keanuporreal16@gmail.com</p>
+    <p><strong>Date:</strong> 8/10/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Keanu Portal</p>
+    <p><strong>Student Email:</strong> Keanuporreal16@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Thank you for submitting your Week 12 assignment on API's and Fetch. I've reviewed your code and video demonstration and have the following feedback:<br><br>## CODE ANALYSIS - API IMPLEMENTATION (Week 12):<br>### API Integration Check:<br>✅ Real API Calls Found: You are using a real API (mockAPI) for your data, which is great.<br>❌ Async/Await Used: I didn't see async/await being used in your code. Consider refactoring to use async/await for better readability and error handling.<br>✅ Error Handling: You have error handling in place using .catch() for your API calls. <br><br>### CRUD Operations Check:<br>✅ GET/READ: You have implemented methods to retrieve data from the API.<br>✅ POST/CREATE: You have a create method that sends data to the API to create new records.<br>❌ DELETE: I didn't see a delete method in your API service class, though you do have a deleteVehicle method in your DOM manager.<br>✅ Has Forms: Your HTML includes a form to add new vehicles, which is properly connected to your POST request.<br><br>## Completion: 120 / 160<br>You have implemented most of the required CRUD operations (3 out of 4) with a real API. The update functionality is missing from your API service class. Overall, your application is functional and meets most of the requirements.<br><br>## Github: 100 / 140<br>Your GitHub repository is set up and contains the necessary files. However, the repository structure could be improved for better organization. Consider adding more comments to your code and updating your README to explain how to set up and use your application with the API.<br><br>## Errors: 50 / 70<br>Your application runs without any major errors. The CRUD operations that are implemented seem to be working correctly. However, there are a few areas for improvement:<br>- Implement proper error handling for all API calls, not just the GET requests.<br>- Add user feedback (success/error messages) after each CRUD operation.<br><br>## Video: 30 / 30 <br>Your video demonstration was clear and concise. You walked through each part of your code and showed the CRUD operations in action. The audio and screen recording quality were good. Nice work!<br><br>Total Points: 300 / 400<br><br>Overall, this is a good submission that demonstrates your understanding of working with APIs and implementing CRUD operations. The main areas for improvement are:<br>- Refactoring to use async/await for your API calls<br>- Implementing the missing delete method in your API service class<br>- Adding more error handling and user feedback<br>- Improving your code organization and documentation<br><br>Keep up the good work! Let me know if you have any questions.
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

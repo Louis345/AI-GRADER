@@ -1,627 +1,495 @@
 const axios = require("axios");
 const path = require("path");
-const fs = require("fs-extra");
 
-/**
- * Process GitHub repository and extract relevant content
- * @param {string} repoUrl - GitHub repository URL (can be repo root, specific directory, or single file)
- * @returns {Promise<string>} Repository content as formatted text
- */
+const GITHUB_CONFIG = {
+  MAX_FILES: 20,
+  MAX_FILE_SIZE: 50000,
+  MAX_TOTAL_SIZE: 150000,
+  PRIORITY_FILES: [
+    "package.json",
+    "README.md",
+    "script.js",
+    "main.js",
+    "war.js",
+    "game.js",
+    "index.js",
+    "app.js",
+    "src/App.js",
+    "src/App.jsx",
+    "src/App.tsx",
+    "src/index.js",
+    "src/index.jsx",
+    "src/index.tsx",
+    "src/script.js",
+  ],
+};
+
 async function processGitHubRepo(repoUrl) {
   try {
-    console.log(`Processing GitHub URL: ${repoUrl}`);
+    console.log(`📦 Processing GitHub URL: ${repoUrl}`);
 
-    // Check if this is a specific path (directory or file)
-    if (repoUrl.includes("/tree/") || repoUrl.includes("/blob/")) {
-      return await processSpecificPath(repoUrl);
+    // Determine URL type and route accordingly
+    const urlType = analyzeGitHubUrl(repoUrl);
+    console.log(`📊 URL Type Detected: ${urlType.type}`);
+
+    switch (urlType.type) {
+      case "NESTED_DIRECTORY":
+        // e.g., /tree/main/Final-Project
+        return await processNestedDirectory(urlType);
+
+      case "ROOT_REPOSITORY":
+        // e.g., github.com/user/repo
+        return await processRootRepository(urlType);
+
+      case "SINGLE_FILE":
+        // e.g., /blob/main/src/App.js
+        return await processSingleFile(urlType);
+
+      case "SRC_DIRECTORY":
+        // e.g., /tree/main/src
+        return await processSourceDirectory(urlType);
+
+      default:
+        throw new Error(`Unsupported URL type: ${urlType.type}`);
     }
-
-    // For root repository URLs, search intelligently for assignment files
-    return await processEntireRepoWithSearch(repoUrl);
   } catch (error) {
-    console.error(`Error processing GitHub repository: ${error.message}`);
-
-    // Return a structured error message instead of throwing
-    return `
-# GitHub Repository: ${repoUrl}
-
-## Repository Content:
-
-I was able to detect that this repository exists but encountered issues accessing the specific content.
-
-Error: ${error.message}
-
-Please ensure the repository is public and all files are properly committed.
-`;
+    console.error(`❌ Error: ${error.message}`);
+    return generateErrorReport(repoUrl, error);
   }
 }
 
-/**
- * Process a specific directory or file path from GitHub
- * @param {string} url - GitHub URL pointing to specific path
- * @returns {Promise<string>} Formatted content
- */
-async function processSpecificPath(url) {
-  console.log(`Processing specific GitHub path: ${url}`);
+function analyzeGitHubUrl(url) {
+  // Remove trailing slashes
+  url = url.replace(/\/+$/, "");
 
-  // Parse the URL to extract components
-  const urlParts = parseGitHubUrl(url);
-  if (!urlParts) {
-    throw new Error("Invalid GitHub URL format");
-  }
-
-  const { owner, repo, branch, path: filePath, isFile } = urlParts;
-  console.log(
-    `Owner: ${owner}, Repo: ${repo}, Branch: ${branch}, Path: ${filePath}`
-  );
-
-  if (isFile) {
-    // Handle single file
-    return await processSingleFile(owner, repo, branch, filePath);
-  } else {
-    // Handle directory
-    return await processDirectory(owner, repo, branch, filePath);
-  }
-}
-
-/**
- * Parse GitHub URL to extract components
- * @param {string} url - GitHub URL
- * @returns {Object|null} Parsed components or null if invalid
- */
-function parseGitHubUrl(url) {
-  // Handle tree URLs (directories)
+  // Check for nested directory (e.g., /tree/main/Final-Project)
   let match = url.match(
     /github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/
   );
   if (match) {
+    const [, owner, repo, branch, path] = match;
+
+    // Check if it's a nested project (common patterns)
+    const isNested = path.match(
+      /^(Final-Project|final-project|project|client|frontend|my-app)/i
+    );
+    const isSrc = path.match(/^src$/i);
+
     return {
-      owner: match[1],
-      repo: match[2],
-      branch: match[3],
-      path: match[4],
-      isFile: false,
+      type: isNested
+        ? "NESTED_DIRECTORY"
+        : isSrc
+        ? "SRC_DIRECTORY"
+        : "NESTED_DIRECTORY",
+      owner,
+      repo,
+      branch,
+      path,
+      url,
     };
   }
 
-  // Handle blob URLs (single files)
+  // Check for single file
   match = url.match(/github\.com\/([^\/]+)\/([^\/]+)\/blob\/([^\/]+)\/(.+)/);
   if (match) {
     return {
+      type: "SINGLE_FILE",
       owner: match[1],
       repo: match[2],
       branch: match[3],
       path: match[4],
-      isFile: true,
+      url,
     };
   }
 
-  // Handle raw URLs (direct file access)
-  match = url.match(
-    /raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)/
-  );
+  // Check for root repository
+  match = url.match(/github\.com\/([^\/]+)\/([^\/]+)(?:\/)?$/);
   if (match) {
     return {
+      type: "ROOT_REPOSITORY",
       owner: match[1],
       repo: match[2],
-      branch: match[3],
-      path: match[4],
-      isFile: true,
+      branch: "main", // Will be determined later
+      url,
     };
   }
 
-  return null;
+  return { type: "UNKNOWN", url };
 }
 
 /**
- * Process a single file from GitHub
- * @param {string} owner - Repository owner
- * @param {string} repo - Repository name
- * @param {string} branch - Branch name
- * @param {string} filePath - File path
- * @returns {Promise<string>} File content
+ * Process nested directory (student created project in subdirectory)
  */
-async function processSingleFile(owner, repo, branch, filePath) {
-  try {
-    // Try raw URL first
-    const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
-    console.log(`Fetching file from: ${rawUrl}`);
+async function processNestedDirectory(urlInfo) {
+  const { owner, repo, branch, path: nestedPath } = urlInfo;
 
-    const response = await axios.get(rawUrl);
-    const fileName = filePath.split("/").pop();
+  console.log(`📂 Processing nested project in: ${nestedPath}/`);
+  console.log(`  This appears to be a nested submission structure`);
 
-    return formatRepositoryContent(`${owner}/${repo}`, [
-      {
-        path: filePath,
-        content: response.data,
-      },
-    ]);
-  } catch (error) {
-    console.log(`Raw URL failed, trying API: ${error.message}`);
+  const files = [];
+  let totalSize = 0;
 
-    // Fallback to GitHub API
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
-    const response = await axios.get(apiUrl);
+  // First, check if this nested directory has a package.json (validates it's a project root)
+  const packageJsonUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${nestedPath}/package.json?ref=${branch}`;
+  const hasPackageJson = await checkFileExists(packageJsonUrl);
 
-    const content = Buffer.from(response.data.content, "base64").toString(
-      "utf8"
-    );
-
-    return formatRepositoryContent(`${owner}/${repo}`, [
-      {
-        path: filePath,
-        content: content,
-      },
-    ]);
+  if (!hasPackageJson) {
+    console.log(`⚠️ Warning: No package.json found in ${nestedPath}/`);
   }
-}
 
-/**
- * Process a directory from GitHub
- * @param {string} owner - Repository owner
- * @param {string} repo - Repository name
- * @param {string} branch - Branch name
- * @param {string} dirPath - Directory path
- * @returns {Promise<string>} Directory content
- */
-async function processDirectory(owner, repo, branch, dirPath) {
-  try {
-    console.log(`Fetching directory contents for: ${dirPath}`);
+  // Priority files for nested structure
+  const priorityPaths = [
+    `${nestedPath}/package.json`,
+    `${nestedPath}/README.md`,
+    `${nestedPath}/src/App.js`,
+    `${nestedPath}/src/App.jsx`,
+    `${nestedPath}/src/App.tsx`,
+    `${nestedPath}/src/index.js`,
+    `${nestedPath}/src/index.jsx`,
+    `${nestedPath}/src/index.tsx`,
+  ];
 
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${branch}`;
-    const response = await axios.get(apiUrl);
+  // Fetch priority files
+  for (const filePath of priorityPaths) {
+    if (totalSize >= GITHUB_CONFIG.MAX_TOTAL_SIZE) break;
 
-    if (!Array.isArray(response.data)) {
-      throw new Error("Expected directory contents but got file");
+    const file = await fetchFile(owner, repo, branch, filePath);
+    if (file && file.content) {
+      files.push({
+        ...file,
+        path: file.path.replace(`${nestedPath}/`, ""), // Normalize path
+        priority: true,
+      });
+      totalSize += file.content.length;
+      console.log(`  ✅ Added priority file: ${file.path}`);
     }
-
-    const files = [];
-
-    // Process each item in the directory
-    for (const item of response.data) {
-      if (item.type === "file" && shouldIncludeFile(item.name)) {
-        try {
-          let content;
-
-          if (item.download_url) {
-            // Use download URL if available
-            const fileResponse = await axios.get(item.download_url);
-            content = fileResponse.data;
-          } else {
-            // Fallback to API
-            const fileApiResponse = await axios.get(item.url);
-            content = Buffer.from(
-              fileApiResponse.data.content,
-              "base64"
-            ).toString("utf8");
-          }
-
-          files.push({
-            path: item.path,
-            content:
-              typeof content === "object"
-                ? JSON.stringify(content, null, 2)
-                : String(content),
-          });
-        } catch (fileError) {
-          console.log(`Error fetching ${item.path}: ${fileError.message}`);
-          files.push({
-            path: item.path,
-            content: `[Error fetching content: ${fileError.message}]`,
-          });
-        }
-      } else if (item.type === "dir") {
-        // Recursively process subdirectories (limit depth to avoid API limits)
-        try {
-          const subdirFiles = await processDirectory(
-            owner,
-            repo,
-            branch,
-            item.path
-          );
-          // Extract files from the subdirectory response
-          const subdirMatch = subdirFiles.match(
-            /## File: (.+?)\n```[\s\S]*?\n```/g
-          );
-          if (subdirMatch) {
-            subdirMatch.forEach((fileBlock) => {
-              const filePathMatch = fileBlock.match(/## File: (.+?)\n/);
-              const contentMatch = fileBlock.match(
-                /```[\s\S]*?\n([\s\S]*?)\n```/
-              );
-              if (filePathMatch && contentMatch) {
-                files.push({
-                  path: filePathMatch[1],
-                  content: contentMatch[1],
-                });
-              }
-            });
-          }
-        } catch (subdirError) {
-          console.log(
-            `Error processing subdirectory ${item.path}: ${subdirError.message}`
-          );
-        }
-      }
-    }
-
-    return formatRepositoryContent(`${owner}/${repo}/${dirPath}`, files);
-  } catch (error) {
-    throw new Error(`Failed to fetch directory contents: ${error.message}`);
   }
+
+  // Fetch component files
+  const componentsPath = `${nestedPath}/src/components`;
+  const components = await fetchDirectory(
+    owner,
+    repo,
+    branch,
+    componentsPath,
+    5
+  );
+  files.push(
+    ...components.map((f) => ({
+      ...f,
+      path: f.path.replace(`${nestedPath}/`, ""), // Normalize path
+    }))
+  );
+
+  return formatOutput(owner, repo, files, "NESTED", nestedPath);
 }
 
 /**
- * Process entire repository with intelligent search for assignment files
- * @param {string} repoUrl - Repository URL
- * @returns {Promise<string>} Repository content
+ * Process root repository (correctly submitted project)
  */
-async function processEntireRepoWithSearch(repoUrl) {
-  const repoPath = getRepoPath(repoUrl);
-  const [owner, repo] = repoPath.split("/");
+async function processRootRepository(urlInfo) {
+  const { owner, repo } = urlInfo;
 
-  try {
-    // Get default branch
-    const repoInfo = await axios.get(
-      `https://api.github.com/repos/${repoPath}`
-    );
-    const defaultBranch = repoInfo.data.default_branch || "main";
+  console.log(`📦 Processing root repository: ${owner}/${repo}`);
+  console.log(`  This appears to be a correctly structured submission`);
 
-    console.log(`🔍 Searching entire repository for assignment files...`);
+  // Get default branch
+  const repoInfo = await axios.get(
+    `https://api.github.com/repos/${owner}/${repo}`
+  );
+  const branch = repoInfo.data.default_branch || "main";
 
-    // Get all files recursively
-    const allFiles = await getAllFilesRecursively(
-      owner,
-      repo,
-      defaultBranch,
-      ""
-    );
+  const files = [];
+  let totalSize = 0;
 
-    // Filter and prioritize relevant files
-    const relevantFiles = filterAndPrioritizeFiles(allFiles);
+  // Check if package.json exists at root (correct structure)
+  const hasRootPackageJson = await checkFileExists(
+    `https://api.github.com/repos/${owner}/${repo}/contents/package.json?ref=${branch}`
+  );
 
-    console.log(
-      `📁 Found ${allFiles.length} total files, selected ${relevantFiles.length} relevant files`
-    );
+  if (!hasRootPackageJson) {
+    console.log(`⚠️ No package.json at root - checking for nested projects...`);
 
-    return formatRepositoryContent(`${owner}/${repo}`, relevantFiles);
-  } catch (error) {
-    throw new Error(`Failed to process repository: ${error.message}`);
-  }
-}
-
-/**
- * Get all files recursively from a repository
- * @param {string} owner - Repository owner
- * @param {string} repo - Repository name
- * @param {string} branch - Branch name
- * @param {string} path - Current path
- * @returns {Promise<Array>} Array of all files
- */
-async function getAllFilesRecursively(owner, repo, branch, path) {
-  const allFiles = [];
-
-  try {
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-    const response = await axios.get(apiUrl);
-
-    if (!Array.isArray(response.data)) {
-      // Single file
-      if (shouldIncludeFile(response.data.name)) {
-        const content = await getFileContent(response.data);
-        allFiles.push({
-          path: response.data.path,
-          content: content,
-          name: response.data.name,
-          size: response.data.size,
-        });
-      }
-      return allFiles;
-    }
-
-    // Process each item
-    for (const item of response.data) {
-      if (item.type === "file" && shouldIncludeFile(item.name)) {
-        try {
-          const content = await getFileContent(item);
-          allFiles.push({
-            path: item.path,
-            content: content,
-            name: item.name,
-            size: item.size,
-          });
-        } catch (fileError) {
-          console.log(`⚠️ Error fetching ${item.path}: ${fileError.message}`);
-          allFiles.push({
-            path: item.path,
-            content: `[Error fetching content: ${fileError.message}]`,
-            name: item.name,
-            size: item.size,
-          });
-        }
-      } else if (item.type === "dir" && shouldExploreDirectory(item.name)) {
-        // Recursively get files from subdirectories (limit depth to avoid API limits)
-        const subdirFiles = await getAllFilesRecursively(
+    // Look for common nested patterns
+    const possibleNested = [
+      "Final-Project",
+      "final-project",
+      "client",
+      "frontend",
+    ];
+    for (const nested of possibleNested) {
+      const nestedExists = await checkFileExists(
+        `https://api.github.com/repos/${owner}/${repo}/contents/${nested}/package.json?ref=${branch}`
+      );
+      if (nestedExists) {
+        console.log(`📍 Found nested project in: ${nested}/`);
+        return processNestedDirectory({
           owner,
           repo,
           branch,
-          item.path
-        );
-        allFiles.push(...subdirFiles);
+          path: nested,
+          type: "NESTED_DIRECTORY",
+        });
+      }
+    }
+  }
+
+  // Process as normal root repository
+  const priorityPaths = GITHUB_CONFIG.PRIORITY_FILES;
+
+  for (const filePath of priorityPaths) {
+    if (totalSize >= GITHUB_CONFIG.MAX_TOTAL_SIZE) break;
+
+    const file = await fetchFile(owner, repo, branch, filePath);
+    if (file && file.content) {
+      files.push({ ...file, priority: true });
+      totalSize += file.content.length;
+      console.log(`  ✅ Added: ${file.path}`);
+    }
+  }
+
+  // Fetch src components
+  const components = await fetchDirectory(
+    owner,
+    repo,
+    branch,
+    "src/components",
+    5
+  );
+  files.push(...components);
+
+  // Also check src/Components (capital C)
+  if (components.length === 0) {
+    const componentsCapital = await fetchDirectory(
+      owner,
+      repo,
+      branch,
+      "src/Components",
+      5
+    );
+    files.push(...componentsCapital);
+  }
+
+  return formatOutput(owner, repo, files, "ROOT");
+}
+
+/**
+ * Process source directory directly
+ */
+async function processSourceDirectory(urlInfo) {
+  const { owner, repo, branch, path: srcPath } = urlInfo;
+
+  console.log(`📁 Processing src directory: ${srcPath}`);
+
+  const files = [];
+
+  // Get main app files from src
+  const appFiles = [
+    "App.js",
+    "App.jsx",
+    "App.tsx",
+    "index.js",
+    "index.jsx",
+    "index.tsx",
+  ];
+  for (const fileName of appFiles) {
+    const file = await fetchFile(owner, repo, branch, `${srcPath}/${fileName}`);
+    if (file) files.push(file);
+  }
+
+  // Get components
+  const components = await fetchDirectory(
+    owner,
+    repo,
+    branch,
+    `${srcPath}/components`,
+    8
+  );
+  files.push(...components);
+
+  // Get parent package.json if exists
+  const packageJson = await fetchFile(owner, repo, branch, "package.json");
+  if (packageJson) files.push({ ...packageJson, priority: true });
+
+  return formatOutput(owner, repo, files, "SRC_ONLY", srcPath);
+}
+
+/**
+ * Helper: Check if file exists
+ */
+async function checkFileExists(url) {
+  try {
+    const response = await axios.get(url);
+    return response.status === 200;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Helper: Fetch single file
+ */
+async function fetchFile(owner, repo, branch, filePath) {
+  try {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
+    const response = await axios.get(url);
+
+    if (response.data && response.data.content) {
+      const content = Buffer.from(response.data.content, "base64").toString(
+        "utf8"
+      );
+      return {
+        path: filePath,
+        content: truncateContent(content, GITHUB_CONFIG.MAX_FILE_SIZE),
+      };
+    }
+  } catch (error) {
+    // File doesn't exist or error
+    return null;
+  }
+}
+
+/**
+ * Helper: Fetch directory contents
+ */
+async function fetchDirectory(owner, repo, branch, dirPath, maxFiles = 5) {
+  const files = [];
+
+  try {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${branch}`;
+    const response = await axios.get(url);
+
+    if (Array.isArray(response.data)) {
+      const relevantFiles = response.data
+        .filter((item) => item.type === "file")
+        .filter(
+          (item) =>
+            !item.name.includes(".test.") && !item.name.includes(".spec.")
+        )
+        .slice(0, maxFiles);
+
+      for (const file of relevantFiles) {
+        const fileContent = await fetchFile(owner, repo, branch, file.path);
+        if (fileContent) {
+          files.push(fileContent);
+          console.log(`  ✅ Added: ${file.path}`);
+        }
       }
     }
   } catch (error) {
-    console.log(`⚠️ Error accessing path ${path}: ${error.message}`);
+    // Directory doesn't exist
+    console.log(`  ℹ️ Directory not found: ${dirPath}`);
   }
 
-  return allFiles;
+  return files;
 }
 
 /**
- * Get file content from GitHub API response
- * @param {Object} fileItem - GitHub API file item
- * @returns {Promise<string>} File content
+ * Helper: Format output
  */
-async function getFileContent(fileItem) {
-  try {
-    if (fileItem.download_url) {
-      // Use download URL if available (faster)
-      const response = await axios.get(fileItem.download_url);
-      return typeof response.data === "object"
-        ? JSON.stringify(response.data, null, 2)
-        : String(response.data);
-    } else if (fileItem.content) {
-      // Decode base64 content
-      return Buffer.from(fileItem.content, "base64").toString("utf8");
-    } else {
-      // Fetch via API
-      const response = await axios.get(fileItem.url);
-      return Buffer.from(response.data.content, "base64").toString("utf8");
-    }
-  } catch (error) {
-    throw new Error(`Failed to fetch file content: ${error.message}`);
+function formatOutput(owner, repo, files, submissionType, nestedPath = null) {
+  let output = `# GitHub Repository: ${owner}/${repo}\n\n`;
+
+  output += `## Submission Analysis:\n`;
+  output += `- **Submission Type:** ${
+    submissionType === "NESTED"
+      ? "⚠️ Nested Project Structure"
+      : "✅ Correct Root Structure"
+  }\n`;
+  if (nestedPath) {
+    output += `- **Project Location:** ${nestedPath}/\n`;
   }
-}
+  output += `- **Files Retrieved:** ${files.length}\n`;
+  output += `- **Repository Accessible:** ✅ Yes\n`;
 
-/**
- * Filter and prioritize files for assignment evaluation
- * @param {Array} allFiles - All files found
- * @returns {Array} Filtered and prioritized files
- */
-function filterAndPrioritizeFiles(allFiles) {
-  // Priority scoring for different file types and locations
-  const priorityScore = (file) => {
-    let score = 0;
-    const path = file.path.toLowerCase();
-    const name = file.name.toLowerCase();
-
-    // High priority: Main assignment files
-    if (
-      name.includes("index.") ||
-      name.includes("main.") ||
-      name.includes("app.")
-    )
-      score += 50;
-    if (name.includes("war.") || name.includes("game.")) score += 40;
-
-    // Medium priority: JavaScript/HTML/CSS files
-    if (name.endsWith(".js") || name.endsWith(".jsx")) score += 30;
-    if (name.endsWith(".html") || name.endsWith(".htm")) score += 25;
-    if (name.endsWith(".css")) score += 20;
-    if (
-      name.endsWith(".json") &&
-      (name.includes("package") || name.includes("config"))
-    )
-      score += 15;
-
-    // File location bonuses
-    if (
-      path.includes("week") ||
-      path.includes("assignment") ||
-      path.includes("project")
-    )
-      score += 20;
-    if (path.split("/").length <= 2) score += 10; // Prefer files closer to root
-
-    // Content size considerations (avoid empty files, prefer substantial content)
-    if (file.size > 100) score += 5;
-    if (file.size > 1000) score += 5;
-
-    // Penalties for common non-assignment files
-    if (path.includes("node_modules") || path.includes(".git")) score -= 100;
-    if (
-      name.includes("test") &&
-      !name.includes("war") &&
-      !name.includes("game")
-    )
-      score -= 10;
-
-    return score;
-  };
-
-  // Sort by priority score and take the most relevant files
-  const scored = allFiles
-    .map((file) => ({
-      ...file,
-      priority: priorityScore(file),
-    }))
-    .sort((a, b) => b.priority - a.priority);
-
-  // Take top 15 files, but ensure we get the most important ones
-  const topFiles = scored.slice(0, 15);
-
-  // Always include certain high-value files if they exist
-  const mustInclude = scored.filter(
-    (file) =>
-      file.priority >= 40 ||
-      file.name.toLowerCase().includes("readme") ||
-      file.name.toLowerCase().includes("package.json")
+  const hasPackageJson = files.some((f) => f.path.includes("package.json"));
+  const hasAppFile = files.some((f) => f.path.includes("App."));
+  const hasComponents = files.some((f) =>
+    f.path.toLowerCase().includes("component")
   );
 
-  // Combine and deduplicate
-  const combined = [
-    ...new Map(
-      [...mustInclude, ...topFiles].map((file) => [file.path, file])
-    ).values(),
-  ];
+  output += `- **package.json found:** ${hasPackageJson ? "✅" : "❌"}\n`;
+  output += `- **App file found:** ${hasAppFile ? "✅" : "❌"}\n`;
+  output += `- **Components found:** ${hasComponents ? "✅" : "❌"}\n\n`;
 
-  console.log(`📋 File priorities (top 10):`);
-  combined.slice(0, 10).forEach((file) => {
-    console.log(`  ${file.path} (score: ${file.priority})`);
-  });
-
-  return combined;
-}
-
-/**
- * Check if we should explore this directory
- * @param {string} dirName - Directory name
- * @returns {boolean} Whether to explore
- */
-function shouldExploreDirectory(dirName) {
-  const exclude = [
-    "node_modules",
-    ".git",
-    ".github",
-    "dist",
-    "build",
-    "coverage",
-    ".nyc_output",
-    "logs",
-    "tmp",
-    "temp",
-  ];
-
-  return !exclude.some((excluded) => dirName.toLowerCase().includes(excluded));
-}
-
-/**
- * Check if we should include this file type
- * @param {string} fileName - File name
- * @returns {boolean} Whether to include the file
- */
-function shouldIncludeFile(fileName) {
-  const exclude = [
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".gif",
-    ".svg",
-    ".mp4",
-    ".mp3",
-    ".zip",
-    ".tar.gz",
-    ".min.js",
-    ".bundle.js",
-  ];
-
-  for (const ext of exclude) {
-    if (fileName.toLowerCase().endsWith(ext)) return false;
+  if (submissionType === "NESTED") {
+    output += `### ⚠️ Note for Student:\n`;
+    output += `Your project is nested in a subdirectory (${nestedPath}/). `;
+    output += `For future submissions, consider placing your project files directly in the repository root.\n\n`;
   }
 
-  return true;
-}
+  output += `## File Contents:\n\n`;
 
-/**
- * Format repository content for output
- * @param {string} repoPath - Repository path
- * @param {Array} files - File array
- * @returns {string} Formatted content
- */
-function formatRepositoryContent(repoPath, files) {
-  let formattedContent = `# GitHub Repository: ${repoPath}\n\n`;
-
-  // Add a summary section
-  formattedContent += `## Repository Summary:\n`;
-  formattedContent += `Found ${files.length} relevant files (searched entire repository)\n\n`;
-
-  // Group files by type for summary
-  const fileTypes = {};
-  files.forEach((file) => {
-    const ext = path.extname(file.path).toLowerCase() || "no extension";
-    fileTypes[ext] = (fileTypes[ext] || 0) + 1;
-  });
-
-  // Show file type breakdown
-  Object.entries(fileTypes).forEach(([ext, count]) => {
-    formattedContent += `- ${ext}: ${count} files\n`;
-  });
-
-  formattedContent += `\n## Repository Structure:\n`;
-
-  // Show directory structure
-  const directories = new Set();
-  files.forEach((file) => {
-    const dir = path.dirname(file.path);
-    if (dir !== ".") directories.add(dir);
-  });
-
-  if (directories.size > 0) {
-    Array.from(directories)
-      .sort()
-      .forEach((dir) => {
-        formattedContent += `📁 ${dir}/\n`;
-      });
-    formattedContent += `\n`;
-  }
-
-  formattedContent += `## File Contents:\n\n`;
-
-  // Process each file with priority order maintained
   for (const file of files) {
-    const size = file.size ? ` (${file.size} bytes)` : "";
-    formattedContent += `## File: ${file.path}${size}\n`;
+    const ext = path.extname(file.path).substring(1);
+    const lang = getLanguageFromExtension(ext);
 
-    if (file.priority !== undefined) {
-      formattedContent += `*Priority Score: ${file.priority}*\n`;
-    }
-
-    formattedContent += `\`\`\`${getFileExtension(file.path)}\n${
-      file.content
-    }\n\`\`\`\n\n`;
+    output += `### File: ${file.path}${file.priority ? " 📌" : ""}\n`;
+    output += `\`\`\`${lang}\n`;
+    output += file.content;
+    output += `\n\`\`\`\n\n`;
   }
 
-  return formattedContent;
+  return output;
 }
 
 /**
- * Extract repository path from URL
- * @param {string} url - GitHub repository URL
- * @returns {string} Repository path (owner/repo)
+ * Helper: Generate error report
  */
-function getRepoPath(url) {
-  if (url.includes("github.com")) {
-    const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
-    if (match) {
-      return match[1].replace(".git", "");
-    }
-  }
-
-  throw new Error("Invalid GitHub URL format");
+function generateErrorReport(url, error) {
+  return (
+    `# GitHub Repository Access Error\n\n` +
+    `## Repository URL: ${url}\n\n` +
+    `## Error Details:\n` +
+    `- **Error Type:** ${error.message}\n` +
+    `- **Repository Accessible:** ❌ Unable to verify\n\n` +
+    `## Troubleshooting:\n` +
+    `1. Ensure the repository is public\n` +
+    `2. Check the URL is correct\n` +
+    `3. Verify all files are committed and pushed\n\n` +
+    `## Grading Note:\n` +
+    `Unable to fully evaluate the submission due to repository access issues.\n`
+  );
 }
 
 /**
- * Get file extension for syntax highlighting
- * @param {string} filePath - File path
- * @returns {string} File extension for syntax highlighting
+ * Helper: Truncate content
  */
-function getFileExtension(filePath) {
-  const ext = path.extname(filePath).toLowerCase().substring(1);
+function truncateContent(content, maxLength) {
+  if (!content) return "";
+  if (content.length <= maxLength) return content;
+  return content.substring(0, maxLength) + "\n// ... [truncated for length]";
+}
 
-  const languageMap = {
+/**
+ * Helper: Get language from file extension
+ */
+function getLanguageFromExtension(ext) {
+  const map = {
     js: "javascript",
     jsx: "javascript",
     ts: "typescript",
     tsx: "typescript",
-    py: "python",
-    html: "html",
-    css: "css",
     json: "json",
     md: "markdown",
-    txt: "text",
+    css: "css",
+    html: "html",
   };
+  return map[ext] || "";
+}
 
-  return languageMap[ext] || "";
+/**
+ * Process single file (backward compatibility)
+ */
+async function processSingleFile(urlInfo) {
+  const { owner, repo, branch, path: filePath } = urlInfo;
+  const file = await fetchFile(owner, repo, branch, filePath);
+
+  if (!file) {
+    throw new Error(`Could not fetch file: ${filePath}`);
+  }
+
+  return formatOutput(owner, repo, [file], "SINGLE_FILE");
 }
 
 module.exports = { processGitHubRepo };

@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Darin Sicurello - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Darin Sicurello">
+  <meta name="student-email" content="darin.sicurello@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-18T22:48:26.782Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Darin Sicurello</h2>
+    <p>Week 12</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> darin.sicurello@gmail.com</p>
+    <p><strong>Date:</strong> 8/18/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Darin Sicurello</p>
+    <p><strong>Student Email:</strong> darin.sicurello@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Thank you for submitting your Week 12 assignment on API's and Fetch. I've reviewed your code and have the following feedback:<br><br>✅ I can see you've made real API calls to the Disney API and OMDB API, which is great! Using actual APIs is a key requirement for this assignment.<br><br>✅ You're correctly using async/await and promises to handle the asynchronous nature of fetching data. Well done!<br><br>✅ Error handling is present in your code. I see you're checking for response status and catching errors. This is an important practice.<br><br>⚠️ While you have a form in your HTML, it doesn't seem to be used to POST new data to the API. The form appears to be used for deletion instead. Adding the ability to create new entities via POST would strengthen your project.<br><br>❌ I don't see a complete set of CRUD operations. You have GET and DELETE, but CREATE (POST) and UPDATE (PUT) are missing. Aim to implement all four operations for full CRUD functionality.<br><br>💡 Consider adding more comments to explain what each part of your code does. This will make it easier for other developers (and your future self) to understand your work.<br><br>🌟 Integrating multiple APIs (Disney and OMDB) is a nice touch! It shows you can work with different data sources.<br><br>Based on the grading rubric, here is your score breakdown:<ul><li>Completion: 80/160 - Some CRUD operations with real API</li><br><li>GitHub: 100/140 - Repository exists with most files but could use better organization</li><br><li>Errors: 50/70 - Minor errors, most features work</li><br><li>Video: 15/30 - Partial demonstration of features</li><br></ul>Total: 245/400<br><br>Your project shows a solid understanding of working with APIs and handling asynchronous operations. To take it to the next level, focus on implementing full CRUD functionality, connecting your form to the API for creating new data, and organizing your code a bit more.<br><br>Keep up the good work! Let me know if you have any questions.
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/18/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

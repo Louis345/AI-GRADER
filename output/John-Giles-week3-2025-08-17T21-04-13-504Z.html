@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading: John Giles - Bootstrap Project</title>
+    <!-- Student data for reporting -->
+    <meta name="student-name" content="John Giles" />
+    <meta name="student-email" content="ancapkoolaid@gmail.com" />
+    <meta name="week-number" content="3" />
+    <meta name="assignment-name" content="Bootstrap Project" />
+    <meta name="grading-date" content="2025-08-17T21:04:13.510Z" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #0275d8;
+      }
+      .student-info {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #0275d8;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Bootstrap Project Evaluation</h1>
+      <h2>Student: John Giles</h2>
+      <p>Week 3</p>
+    </div>
+    <div class="student-info">
+      <p><strong>Student Email:</strong> ancapkoolaid@gmail.com</p>
+      <p><strong>Date:</strong> 8/17/2025</p>
+    </div>
+    <div id="content-to-copy">
+      <p><strong>Student Name:</strong> John Giles</p>
+      <p><strong>Student Email:</strong> ancapkoolaid@gmail.com</p>
+      <p><strong>Week 3:</strong> Bootstrap Project</p>
+      <hr />
+      Hi John,<br /><br />Thanks for submitting your Bootstrap project for Week
+      3. Here's my assessment based on the grading rubric:<br /><br />Completion
+      Section (<span class="score">20/30 points</span>):<br />✅ Multiple pages
+      created <br />⚠️ Bootstrap navbar implementation not clearly shown in
+      code<br />⚠️ Tables with proper Bootstrap styling not clearly
+      demonstrated<br />✅ Form with Bootstrap classes included<br />✅
+      Responsive design elements used<br /><br />Github Section (<span
+        class="score"
+        >20/25 points</span
+      >):<br />✅ Repository properly created on GitHub<br />⚠️ File
+      organization unclear with only package.json submitted<br />❌ README file
+      not included <br />⚠️ Commit history not available to show development
+      progress<br /><br />Errors Section (<span class="score">10/15 points</span
+      >):<br />⚠️ Unable to fully assess console errors, link functionality, and
+      HTML/CSS validity without all code files<br />✅ Bootstrap classes used in
+      form and layout based on description<br /><br />Video Section (<span
+        class="score"
+        >8/10 points</span
+      >):<br />✅ Explanation provided of design choices like hero image, cards,
+      form<br />✅ Features like portfolio page layout and styling discussed<br />⚠️
+      Challenges faced not clearly discussed<br />💡 Consider rehearsing the
+      video to improve flow and professional presentation<br /><br />Total
+      Points: 58/80<br /><br />You're off to a good start with your Bootstrap
+      project! The video shows you implemented several key features like a hero
+      image, cards, a form, and a styled portfolio page. To achieve more points,
+      make sure to include your full code in the GitHub repo, with clear file
+      organization and a README explaining the project.<br /><br />The main
+      areas to focus on improving would be:<br />1) Clearly demonstrating the
+      Bootstrap navbar, tables, and any other required components in your code
+      <br />2) Organizing all code files on GitHub with regular commits to show
+      progress<br />3) Checking for any console errors and invalid HTML/CSS<br /><br />Keep
+      up the hard work and feel free to reach out if you have any questions!<br /><br />Best,<br />Jamal
+      Taylor
+    </div>
+
+    <div class="footer"></div>
+    <script>
+      function copyContent() {
+        const content = document.getElementById("content-to-copy").innerText;
+        navigator.clipboard
+          .writeText(content)
+          .then(() => alert("Feedback copied to clipboard!"))
+          .catch((err) => console.error("Failed to copy: ", err));
+      }
+    </script>
+  </body>
+</html>

@@ -30,6 +30,7 @@ function generateHtml(
   <meta name="week-number" content="${weekNumber}">
   <meta name="assignment-name" content="${assignmentName}">
   <meta name="grading-date" content="${new Date().toISOString()}">
+  <meta name="instructor" content="Jamal Taylor">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,6 +54,14 @@ function generateHtml(
       border-radius: 5px;
       margin-bottom: 20px;
       border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
     }
     .section {
       margin-bottom: 20px;
@@ -110,20 +119,30 @@ function generateHtml(
     <h2>Student: ${studentName}</h2>
     <p>Week ${weekNumber}</p>
   </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
   <div class="student-info">
     <p><strong>Student Email:</strong> ${safeEmail}</p>
     <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
   </div>
+  
   <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
     <p><strong>Student Name:</strong> ${studentName}</p>
     <p><strong>Student Email:</strong> ${safeEmail}</p>
     <p><strong>Week ${weekNumber}:</strong> ${assignmentName}</p>
     <hr>
 ${aiResponse.formattedHtml}
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
   </div>
  
   <div class="footer">
-    
+    <p>Graded by: <strong>Jamal Taylor</strong> | ${new Date().toLocaleDateString()}</p>
   </div>
   <script>
     function copyContent() {

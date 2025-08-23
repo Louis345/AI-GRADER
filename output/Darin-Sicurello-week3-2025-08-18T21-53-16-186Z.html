@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading: Darin Sicurello - Bootstrap Project</title>
+    <!-- Student data for reporting -->
+    <meta name="student-name" content="Darin Sicurello" />
+    <meta name="student-email" content="darin.sicurello@gmail.com" />
+    <meta name="week-number" content="3" />
+    <meta name="assignment-name" content="Bootstrap Project" />
+    <meta name="grading-date" content="2025-08-18T21:53:16.187Z" />
+    <meta name="instructor" content="Jamal Taylor" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #0275d8;
+      }
+      .student-info {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #0275d8;
+      }
+      .instructor-info {
+        background-color: #e8f5e8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #28a745;
+        text-align: center;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Bootstrap Project Evaluation</h1>
+      <h2>Student: Darin Sicurello</h2>
+      <p>Week 3</p>
+    </div>
+
+    <div class="instructor-info">
+      <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+      <p><em>Personally reviewed and graded by your instructor</em></p>
+    </div>
+
+    <div class="student-info">
+      <p><strong>Student Email:</strong> darin.sicurello@gmail.com</p>
+      <p><strong>Date:</strong> 8/18/2025</p>
+    </div>
+
+    <div id="content-to-copy">
+      <p><strong>Instructor:</strong> Jamal Taylor</p>
+      <p><strong>Student Name:</strong> Darin Sicurello</p>
+      <p><strong>Student Email:</strong> darin.sicurello@gmail.com</p>
+      <p><strong>Week 3:</strong> Bootstrap Project</p>
+      <hr />
+      Hi Darin,<br /><br />Great job on your Bootstrap project for Week 3!
+      Here's my assessment based on the grading rubric:<br /><br />Completion
+      Section: <span class="score">20/30 points</span><br />✅ Bootstrap navbar
+      implemented <br />✅ Forms with Bootstrap classes<br />✅ Responsive
+      design<br />⚠️ It's unclear if multiple pages were created as only the
+      index.html was provided<br />⚠️ Tables with proper styling not found in
+      the submitted code<br /><br />Github Section:
+      <span class="score">15/25 points</span><br />✅ Repository properly
+      created<br />⚠️ Files are not organized into a logical structure (no
+      separate directories for HTML, CSS, etc.)<br />✅ README file included,
+      but could use more detail about the project<br />⚠️ Commits not found in
+      the submitted repository to show development progress<br /><br />Errors
+      Section: <span class="score">15/15 points</span><br />✅ No console errors
+      <br />✅ All links seem to work properly based on the video demo<br />✅
+      Valid HTML/CSS<br />✅ Bootstrap classes used correctly<br /><br />Video
+      Section: <span class="score">8/10 points</span><br />✅ Clear explanation
+      of using Bootstrap and changes made from previous weeks<br />✅
+      Demonstration of the working project <br />💡 Consider discussing any
+      challenges you faced and how you overcame them<br />💡 A more structured
+      presentation following the rubric categories could enhance the video<br /><br />Total
+      Points: 58/80<br /><br />You've done a solid job integrating Bootstrap
+      into your project, especially with the navbar, forms, and responsive
+      design. The code seems error-free and you've demonstrated the
+      functionality well in your video.<br /><br />To improve, consider
+      organizing your GitHub repository with clear commits, and expand on your
+      README. Including multiple pages and styled tables would also help meet
+      all the requirements.<br /><br />Keep up the good work as you move into
+      Week 4! Let me know if you have any other questions.<br /><br />Best
+      regards,<br />Jamal Taylor
+      <hr />
+      <p>
+        <em
+          >This assignment was personally reviewed and graded by Jamal
+          Taylor.</em
+        >
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>Graded by: <strong>Jamal Taylor</strong> | 8/18/2025</p>
+    </div>
+    <script>
+      function copyContent() {
+        const content = document.getElementById("content-to-copy").innerText;
+        navigator.clipboard
+          .writeText(content)
+          .then(() => alert("Feedback copied to clipboard!"))
+          .catch((err) => console.error("Failed to copy: ", err));
+      }
+    </script>
+  </body>
+</html>

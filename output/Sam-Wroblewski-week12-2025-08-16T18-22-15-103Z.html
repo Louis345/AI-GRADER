@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Sam Wroblewski - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Sam Wroblewski">
+  <meta name="student-email" content="samevwro@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-16T18:22:15.104Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Sam Wroblewski</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Date:</strong> 8/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Sam Wroblewski</p>
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Sam,<br><br>I've reviewed your API's and Fetch assignment submission. Here is my assessment:<br><h2>Code Analysis - API Implementation</h2><br>❌ I was unable to verify real API calls in your code. It appears you are using hardcoded JSON data rather than fetching from an actual API endpoint. This is a critical issue for this assignment.<br><br>❌ I didn't see usage of async/await or proper promise handling for asynchronous operations. <br><br>❌ Error handling for failed API requests is missing. Try/catch blocks or .catch() on promises should be implemented.<br><br>❌ Forms are present but they don't appear to be submitting data to an actual API endpoint.<br><h2>Completion: <span class="score">40/160 points</span></h2><br>⚠️ The critical issue is the lack of real API integration. The code appears to be manipulating hardcoded JSON data rather than making actual API calls for CRUD operations. <br><br>For a passing grade, the app must make real API requests to create, read, and delete data on an external server, not just modify a local JSON file.<br><h2>GitHub: <span class="score">70/140 points</span></h2><br>⚠️ I was unable to access your GitHub repository. This may be due to the repository not being public or the provided URL being incorrect.<br><br>A public repository is required for grading. Pleae double check your repo settings and provide the correct link.<br><h2>Errors: <span class="score">30/70 points</span></h2><br>Though I couldn't fully test the app due to the repository access issue, the code appears to run without major errors based on the video demo. <br><br>However, the lack of real API integration, error handling, and asynchronous best practices are significant issues that impact this category's score.<br><h2>Video Demo: <span class="score">30/30 points</span></h2><br>✅ Your video thoroughly demonstrates the app's functionality from a user perspective. The narration is clear and easy to follow. <br><br>While the video indicates the app works as expected, the underlying API integration issues are a separate matter not reflected in the demo.<br><h2>Total Score: <span class="score">170/400 points</span></h2><br>In summary, the main blockers to a passing grade are:<br><br>1. Hardcoded JSON data instead of real API usage<br>2. Lack of asynchronous best practices <br>3. Missing error handling<br>4. GitHub repository not accessible<br><br>To improve your grade, refactor the app to make actual API calls using fetch() or axios, handle promises with async/await, and implement try/catch blocks to gracefully handle errors. Ensure your GitHub repo is public.<br><br>You have a solid foundation in place with the CRUD features and UI. Once you layer in real API functionality, you'll be in great shape! Let me know if you have any other questions.<br><br>Keep up the effort!
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

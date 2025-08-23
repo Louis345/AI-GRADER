@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading: Adam Peters - API's and Fetch</title>
+    <!-- Student data for reporting -->
+    <meta name="student-name" content="Adam Peters" />
+    <meta name="student-email" content="yankees08@gmail.com" />
+    <meta name="week-number" content="12" />
+    <meta name="assignment-name" content="API's and Fetch" />
+    <meta name="grading-date" content="2025-08-21T01:22:54.986Z" />
+    <meta name="instructor" content="Jamal Taylor" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #0275d8;
+        padding-bottom: 15px;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #0275d8;
+      }
+      .student-info {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #0275d8;
+      }
+      .instructor-info {
+        background-color: #e8f5e8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #28a745;
+        text-align: center;
+      }
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+      .score {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      .total-score {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .emoji {
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Copy button styling */
+      .copy-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>API's and Fetch Evaluation</h1>
+      <h2>Student: Adam Peters</h2>
+      <p>Week 12</p>
+    </div>
+
+    <div class="instructor-info">
+      <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+      <p><em>Personally reviewed and graded by your instructor</em></p>
+    </div>
+
+    <div class="student-info">
+      <p><strong>Student Email:</strong> yankees08@gmail.com</p>
+      <p><strong>Date:</strong> 8/20/2025</p>
+    </div>
+
+    <div id="content-to-copy">
+      <p><strong>Instructor:</strong> Jamal Taylor</p>
+      <p><strong>Student Name:</strong> Adam Peters</p>
+      <p><strong>Student Email:</strong> yankees08@gmail.com</p>
+      <p><strong>Week 12:</strong> API's and Fetch</p>
+      <hr />
+      Hi Adam,<br /><br />Thank you for submitting your Week 12 API's and Fetch
+      assignment. I've reviewed your code and have some feedback for you.
+      <br /><br />⚠️ The main issue I noticed is that there doesn't appear to be
+      any real API integration in your code. For this assignment, the critical
+      requirement was to implement CRUD operations that actually interact with a
+      real API endpoint using fetch or axios. However, I wasn't able to find any
+      API calls in the files you submitted.<br /><br />As a result, the key CRUD
+      operations are missing:<br />❌ GET/READ from API <br />❌ POST/CREATE to
+      API<br />❌ DELETE from API<br />❌ Forms posting data to API<br /><br />Without
+      the core API functionality, the maximum score for the Completion section
+      is <span class="score">40/160 points</span>.<br /><br />Looking at your
+      GitHub repository:<br />✅ The repository exists and I was able to access
+      it<br />✅ A package.json file is included<br />❌ However, the main
+      application file (week12.js based on package.json) and component files
+      appear to be missing. The repository should contain all the files needed
+      to run your application.<br />💡 I'd suggest adding a README that explains
+      how to set up and interact with the API for your app. A good commit
+      history documenting your development process is also recommended.<br /><br />Since
+      the main app files were not found, I was unable to assess the code
+      functionality, error handling, and proper use of async/await or promises.
+      Including those files on GitHub is necessary for full credit.<br /><br />Lastly,
+      I noticed you did not include a video walkthrough of your application. The
+      video is an important part of the submission to demonstrate the CRUD
+      operations working with the API. Consider recording a brief walkthrough
+      next time that shows the API calls being made and the results in your
+      app.<br /><br />I know working with APIs can be challenging, but I
+      encourage you to keep practicing and reach out if you need any help! Focus
+      on getting those API endpoints connected and your CRUD operations
+      functional. I'm confident you'll get there with a bit more effort. Let me
+      know if you have any questions!<br /><br />Best regards,<br /><br />JT
+      <hr />
+      <p>
+        <em
+          >This assignment was personally reviewed and graded by Jamal
+          Taylor.</em
+        >
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>Graded by: <strong>Jamal Taylor</strong> | 8/20/2025</p>
+    </div>
+    <script>
+      function copyContent() {
+        const content = document.getElementById("content-to-copy").innerText;
+        navigator.clipboard
+          .writeText(content)
+          .then(() => alert("Feedback copied to clipboard!"))
+          .catch((err) => console.error("Failed to copy: ", err));
+      }
+    </script>
+  </body>
+</html>

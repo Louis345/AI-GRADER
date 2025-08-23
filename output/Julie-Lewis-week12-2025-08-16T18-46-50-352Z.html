@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Julie Lewis - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Julie Lewis">
+  <meta name="student-email" content="jmlewis503@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-16T18:46:50.353Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Julie Lewis</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jmlewis503@gmail.com</p>
+    <p><strong>Date:</strong> 8/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Julie Lewis</p>
+    <p><strong>Student Email:</strong> jmlewis503@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Thank you for your submission, Julie! Here is my assessment of your Week 12 API's and Fetch assignment:<br><h2>Code Analysis - API Implementation (Week 12):</h2><br>API Integration Check:<ul><li>Real API Calls Found: ✅ Yes, the application uses a local JSON server as the API backend.</li><br><li>Async/Await Used: ✅ Yes, async/await is used consistently for handling API calls.</li><br><li>Error Handling: ⚠️ No explicit error handling for failed API calls was found in the provided code snippets. Consider adding try/catch blocks or .catch() for fetch promises to handle potential errors gracefully.</li><br></ul>CRUD Operations Check:<ul><li>GET/READ: ✅ The application fetches celebrity data from the API to display in the UI.</li><br><li>POST/CREATE: ✅ The form allows creating new celebrity entries which are sent to the API.</li><br><li>DELETE: ✅ Celebrities can be deleted from the API.</li><br><li>Has Forms: ✅ Yes, a form is provided for adding new celebrity predictions.</li><br></ul><h2>Completion: 140/160</h2>Your application demonstrates strong integration with a real API, implementing the core CRUD operations of creating, reading, and deleting celebrity data. The use of async/await for handling API calls is excellent. The only missing piece is explicit error handling for failed API requests. Overall, this is a very solid implementation meeting the key requirements.<br><h2>GitHub: 100/140</h2>The provided GitHub repository has the necessary files, but some key components like the main app file and component files are missing. This makes it a bit difficult to assess the full structure and organization of your codebase. Consider ensuring all relevant files are pushed to GitHub. The included package.json shows the necessary dependencies and a script for running the JSON server.<br><h2>Errors: 50/70 </h2>Based on the code snippets provided, the application seems to function well without major errors. The CRUD operations are working as expected. However, as mentioned earlier, there is no explicit error handling found for scenarios like network failures or issues with the API. Implementing proper error handling and providing user feedback would make the application more robust.<br><h2>Video: 30/30</h2>Your video walkthrough was comprehensive and clearly demonstrated all the CRUD functionalities working with the API. You explained your code well and showed the API calls in action. The demo of the UI showcasing the various operations was nicely done. Great job on the video!<br><br>Total Points: 320/400<br><br>In summary, you've done an excellent job on this assignment, Julie! Your celebrity deaths application showcases strong skills in working with APIs and implementing CRUD operations. The use of async/await and the integration with the JSON server are commendable. The main areas for improvement would be adding explicit error handling for API calls and ensuring all necessary code files are included in the GitHub repository. Keep up the great work!<br><br>Let me know if you have any further questions.
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

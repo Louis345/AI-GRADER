@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Sam Wroblewski - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Sam Wroblewski">
+  <meta name="student-email" content="samevwro@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-16T18:24:15.612Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Sam Wroblewski</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Date:</strong> 8/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Sam Wroblewski</p>
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Sam,<br><br>I've reviewed your API's and Fetch assignment submission. Here is my evaluation based on the provided grading rubric:<br><h2>CODE ANALYSIS - API IMPLEMENTATION (Week 12):</h2><br>⚠️ CRITICAL: No real API calls detected. Maximum Completion score: <span class="score">40/160 points</span>. <br><br>From the code shown in the video and the grading instruction, it appears that the assignment is not making real API calls to an actual external API. The data seems to be hardcoded or coming from a local JSON file. To meet the requirements, you needed to integrate with a real API endpoint.<br><h2>Completion: <span class="score">40/160 points</span></h2>Based on the critical issue above of no real API integration, the maximum score that can be awarded in this section is 40 points. <br><br>While you've implemented some CRUD-like functionality to add and delete events, these operations are not interacting with an actual API. The data is being stored locally rather than sent to and retrieved from an API endpoint.<br><br>To get full points here, the app needed to make real API calls for creating, reading and deleting data.<br><h2>Github: <span class="score">70/140 points</span></h2>⚠️ Unable to fully evaluate the GitHub repository due to access issues (404 error). <br><br>From the limited view in the video, the repository seems to exist with the necessary files. However, I couldn't verify the full contents, organization, and commit history.<br><br>To get full points, ensure the repo is public and includes a clear README, good code comments, and a logical file structure. The commit history should show iterative development.<br><h2>Errors: <span class="score">30/70 points</span></h2>From what I could see in the video, the basic event adding and deleting functionality worked without errors in the UI. You had some error handling for empty form fields which is good.<br><br>However, major points are deducted because the CRUD operations are not truly interacting with an API, so there is no real error handling around network failures or API errors. The promises and async/await are also not utilized since no real API calls are being made.<br><h2>Video: <span class="score">30/30 points</span></h2>✅ Your video was a complete demonstration of the app's functionality. You walked through the key features, showed the code, and explained the different parts.<br><br>The audio and screen recording were clear and easy to follow. Great job on the video!<br><h2><div class="total-score">Total Score: <span class="score">170/400</span></div></h2>This puts the submission at roughly 43%. The biggest gap is the lack of real API integration which is a core requirement for this assignment.<br><br>To improve the score, the app would need to be refactored to make actual API calls to an external API endpoint for the CRUD operations, utilizing async/await and error handling for the API responses. The GitHub repo should also be made accessible for full evaluation.<br><br>You've clearly put good work into building the event planner UI and interactions. The next step is connecting it to a real backend API. Keep up the effort and let me know if you have any questions!<br><br>Best regards,<br>The Grading Assistant
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

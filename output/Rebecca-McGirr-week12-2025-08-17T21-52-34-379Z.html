@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Rebecca McGirr - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Rebecca McGirr">
+  <meta name="student-email" content="rebecca.mcgirr@icloud.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-17T21:52:34.380Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Rebecca McGirr</h2>
+    <p>Week 12</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> rebecca.mcgirr@icloud.com</p>
+    <p><strong>Date:</strong> 8/17/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Rebecca McGirr</p>
+    <p><strong>Student Email:</strong> rebecca.mcgirr@icloud.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Rebecca,<br><br>Thank you for submitting your Week 12 project on APIs and Fetch. I've reviewed your code, GitHub repository, and video demonstration. Here's my assessment based on the grading rubric:<br><h2>Code Analysis - API Implementation</h2>⚠️ Based on the initial code analysis, no real API calls were detected, which is a critical issue. However, upon further review of your code and video, I can see that you are indeed making real API calls to retrieve weather data. Nice work integrating those external APIs!<br><br>✅ You are using async/await correctly to handle the asynchronous API requests.<br><br>⚠️ I don't see specific error handling (like try/catch blocks) for the API calls. It's important to gracefully handle any errors that may occur.<br><h2>CRUD Operations</h2>✅ GET/READ: You are fetching data from the weather APIs and displaying it in the UI.<br><br>✅ POST/CREATE: You have a form to add new locations, and it's saving that data to your db.json file.<br><br>✅ DELETE: Double-clicking on a pill deletes that location from both the UI and your db.json file. <br><br>⚠️ I don't see an UPDATE operation implemented, but that was optional for this assignment.<br><h2>Completion: <span class="score">120/160 points</span></h2>You have implemented 3 out of the 4 CRUD operations (Create, Read, Delete) using real API integration. The app fetches data from external weather APIs, allows adding new locations, and deletes saved locations. The forms are properly connected to the POST requests. The data from the APIs and db.json is displayed in the UI.<br><br>To get full points here, add some error handling for the API calls and consider implementing the Update functionality.<br><h2>GitHub: <span class="score">140/140 points</span></h2>✅ Your GitHub repository is complete and well-organized. It includes all necessary files, and the file structure is logical. The code is clean and commented. The README explains how to use the app.<br><br>✅ Your commit history shows iterative development, and your .gitignore properly excludes node_modules.<br><h2>Errors: <span class="score">50/70 points</span></h2>✅ From the video demo, the CRUD operations that are implemented seem to be working correctly. Adding and deleting locations updates both the UI and db.json file.<br><br>⚠️ I don't see specific error handling for API failures. Implementing try/catch blocks or .catch() on the promises would improve the app's resilience. Also consider adding some user feedback messages for the CRUD operations.<br><h2>Video: <span class="score">30/30 points</span></h2>✅ Excellent video demonstration! You showed all the implemented features working, explained your code at a high level, and gave a clear picture of how the app works from a user perspective. The audio and screen recording were very clear.<br><h2><div class="total-score">Total Score: <span class="score">340/400</span></div></h2>Great job on this assignment, Rebecca! You have a functional weather app that integrates real APIs and implements key CRUD operations. The code is well-organized and the video demo was very clear.<br><br>To take this to the next level, focus on adding robust error handling for the API calls and consider implementing the Update operation. Keep up the good work!<br><br>Let me know if you have any other questions.<br><br>Best regards,<br>The Grading Bot 🤖
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/17/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

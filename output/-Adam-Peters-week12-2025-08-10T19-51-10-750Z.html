@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading:  Adam Peters - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content=" Adam Peters">
+  <meta name="student-email" content="yankees08.ap@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-10T19:51:10.751Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student:  Adam Peters</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Date:</strong> 8/10/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong>  Adam Peters</p>
+    <p><strong>Student Email:</strong> yankees08.ap@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Here is my grading feedback for this assignment submission:<br><br>## GRADING - API's and Fetch<br><br>### Completion (<span class="score">40/160 points</span>)<br>❌ This submission uses hardcoded data arrays instead of making real API calls, which is a fundamental failure of the core assignment requirements. <br><br>- It looks like you tried to set up an API call to the National Park Service API, but never actually used the response data. Instead, the <code>parkCode</code> array is hardcoded.<br>- The code is missing most CRUD operations. I only see a GET operation attempted, but it's not fully implemented since it uses the hardcoded <code>parkCode</code> data.<br>- There are no CREATE, UPDATE or DELETE operations.<br><br>⚠️ Using hardcoded data instead of an API is an automatic major deduction. The maximum score I can give is <span class="score">40/160 points</span> for Completion. You need to actually integrate with an API to get credit.<br><br>### GitHub (<span class="score">95/140 points</span>)<br>✅ Your GitHub repo exists and is accessible <br>✅ Code files are present<br>⚠️ Overall repo is fairly basic. More comments and a detailed README would improve it.<br><br>### Errors (<span class="score">20/70 points</span>)<br>❌ The code has a fundamental flaw - it doesn't actually use an API, it just has hardcoded data. This is a major error.<br>✅ The code does run and displays the hardcoded park data, so a few points for that.<br><br>### Video (<span class="score">0/30 points</span>)<br>❌ No video was submitted. To get credit here you need to include a video demo.<br><br>## Overall Feedback<br>Adam, looks like you gave this a solid attempt but didn't quite achieve the core goal of integrating a real API. I see you set up the pieces, like an API key and a fetch request, but didn't follow through to load and display the real API data. <br><br>To get a higher grade, you absolutely must get rid of the hardcoded <code>parkCode</code> array and instead parse the response from the National Park Service API and display that dynamic data.<br><br>You're also missing the key CRUD operations like being able to submit a form to CREATE a new park, or DELETE a park. Adding those will be critical to improving your grade.<br><br>Keep at it! Let me know if you have any questions. Once you get the API connection working, the rest of the pieces will fall into place. You've got the right idea, just need to take it across the finish line.<br><br><strong>FINAL SCORE: 155/400</strong>
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

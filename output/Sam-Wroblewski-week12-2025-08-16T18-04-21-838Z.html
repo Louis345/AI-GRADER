@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Sam Wroblewski - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Sam Wroblewski">
+  <meta name="student-email" content="samevwro@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-16T18:04:21.839Z">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Sam Wroblewski</h2>
+    <p>Week 12</p>
+  </div>
+  <div class="student-info">
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Date:</strong> 8/16/2025</p>
+  </div>
+  <div id="content-to-copy">
+    <p><strong>Student Name:</strong> Sam Wroblewski</p>
+    <p><strong>Student Email:</strong> samevwro@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Sam,<br><br>Thanks for submitting your API and Fetch assignment. I've reviewed your code and video, and here is my assessment:<br><h2>Code Analysis - API Implementation</h2><br>❌ Real API Calls Found: NO - CRITICAL ISSUE <br>It appears your code is not making real API calls, but rather using a local JSON file. For this assignment, you need to integrate with an actual API endpoint.<br><br>❌ Async/Await Used: NO<br>I don't see async/await being used in your code for handling asynchronous operations.<br><br>❌ Error Handling: NO<br>There is no error handling implemented for failed API calls or network issues.<br><h3>CRUD Operations Check:</h3>❌ GET/READ: NO <br>❌ POST/CREATE: NO<br>❌ DELETE: NO<br>❌ Has Forms: NO<br>Since you are not using a real API, the CRUD operations are not truly interacting with an external data source.<br><br>⚠️ CRITICAL: No real API calls detected. Maximum Completion score: <span class="score">40/160 points</span>.<br><h2>Completion: <span class="score">40/160 points</span></h2>You've built the foundation of a CRUD application, but without real API integration it does not meet the core requirements. The critical piece that is missing is actual API calls to an external web service to create, read, and delete data.<br><h2>GitHub: <span class="score">70/140 points</span></h2>I was unable to access your GitHub repository to evaluate your code organization and development process. Please ensure the repository is public and the URL is correct. If you can resolve the access issue, let me know and I can update this portion of the assessment.<br><h2>Errors: <span class="score">30/70 points</span></h2>From what I can tell in the video, the basic functionality seems to work in terms of adding and deleting events on the client-side. However, without being able to test the code directly and verify error handling for API calls, I can only assign partial points here.<br><h2>Video: <span class="score">15/30 points</span> </h2>Your video demonstration gives a good overview of the application functionality from a user perspective. To get full points, it would be helpful to also show the actual API calls being made in the browser's network tab, and perhaps walk through some of the key code snippets.<br><br>Total Points: 155/400<br><br>I know it can be challenging to work with APIs for the first time, so don't be discouraged. The main thing to focus on for this assignment is making sure you have real API integration using fetch or axios, and that your CRUD operations are actually sending and receiving data from the API.<br><br>Some suggestions for improvement:<br>💡 Find a simple, public API to use for your project (e.g. JSONPlaceholder)<br>💡 Refactor your code to use fetch or axios for all CRUD operations <br>💡 Implement proper error handling for failed API requests<br>💡 Use async/await to manage the flow of asynchronous calls<br>💡 Ensure your GitHub repository is public and all code is pushed<br><br>You've made a good start, but the key piece that is missing is the real API integration. If you can refactor to include that, it will significantly boost your score. Let me know if you have any questions!<br><br>Keep up the effort,<br>The Grading Bot
+  </div>
+ 
+  <div class="footer">
+    
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
