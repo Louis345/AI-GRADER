@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Lucas Mason - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Lucas Mason">
+  <meta name="student-email" content="lucas.mason0620@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-24T23:41:06.207Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Lucas Mason</h2>
+    <p>Week 12</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> lucas.mason0620@gmail.com</p>
+    <p><strong>Date:</strong> 8/24/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Lucas Mason</p>
+    <p><strong>Student Email:</strong> lucas.mason0620@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Lucas,<br><br>Great job on your API's and Fetch assignment! I can see you've put in a lot of effort to create a functional to-do list application. Let's go through your submission:<br><br>✅ Real API calls found - You are using json-server to simulate an API and making actual fetch requests to it. Well done!<br><br>✅ Async/Await used - I see you're properly using async/await to handle promises from the fetch calls. <br><br>❌ Error handling - It looks like you haven't implemented any error handling for failed API requests. Consider adding try/catch blocks or .catch() to handle network errors gracefully.<br><br>✅ GET/READ operation - Your getTasks() function correctly retrieves the list of tasks from the API.<br><br>✅ POST/CREATE operation - The form submission handler sends a POST request to create new tasks. <br><br>✅ DELETE operation - Clicking the delete button removes the task via an API call. Nice work!<br><br>✅ Forms - The form for adding new tasks is wired up correctly to your POST request.<br><br>Your GitHub repository is well-organized with all the necessary files. The code is clean and easy to follow. Excellent!<br><br>The application appears to be fully functional based on the video demo. All the CRUD operations are working as expected. <br><br>💡 A few suggestions:<ul><li>Add some error handling for failed API requests</li><br><li>Consider adding an UPDATE operation to allow editing of tasks</li><br><li>Some loading feedback while waiting for API responses could enhance the UX</li><br></ul>Overall, this is a solid implementation meeting almost all the requirements for the API's and Fetch assignment. With a bit more polish on the error handling, it would be perfect. Keep up the great work!<br><br>Based on the rubric, here is my evaluation:<ul><li>Completion: 160/160 - All CRUD operations with real API</li><br><li>GitHub: 140/140 - Well-organized repository with all files</li><br><li>Errors: 50/70 - Fully functional but missing error handling</li><br><li>Video: 30/30 - Excellent demonstration of all features</li><br></ul>Total: 380/400<br><br>Let me know if you have any questions!<br><br>Best regards, Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/24/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

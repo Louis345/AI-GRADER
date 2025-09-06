@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Mathew Amago - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Mathew Amago">
+  <meta name="student-email" content="mathew_amago@yahoo.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-08-27T00:22:38.386Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Mathew Amago</h2>
+    <p>Week 9</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> mathew_amago@yahoo.com</p>
+    <p><strong>Date:</strong> 8/26/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Mathew Amago</p>
+    <p><strong>Student Email:</strong> mathew_amago@yahoo.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Hi Mathew,<br><br>Thanks for submitting your War Card Game project. I've reviewed your code and watched your video explanation. Here's my assessment:<br><br>Code Analysis - WAR Card Game (Week 9):<br>❌ Card Class Not Found<br>❌ Deck Class Not Found <br>❌ Player Class Not Found<br>❌ Uses OOP Concepts: No<br><br>Game Implementation Check:<br>✅ Deals 26 Cards: Yes<br>✅ Plays All Rounds: Yes  <br>✅ Has Point System: Yes<br>✅ Declares Winner: Yes<br><br>Completion Section: 80/160<br>You've implemented the basic game logic well, dealing cards, playing rounds, tracking points and declaring a winner. However, the key requirement for this project was to use object-oriented programming concepts with classes for Card, Deck and Player. Your current implementation is procedural rather than OOP.<br><br>Github Section: 100/140<br>Your repository is set up properly and the code is reasonably well-structured. Adding more comments explaining the key functionalities would make it even better. Consider using more meaningful variable names in places. <br><br>Errors Section: 70/70<br>From what I can see, your game runs without any errors. The rounds play correctly, cards are dealt properly, points are accurate and there are no obvious logic errors. Well done.<br><br>Video Section: 25/30 <br>Your video clearly demonstrates the game running from start to finish. You walk through the key parts of the code and showcase the final functionality. The audio is clear but the code is a bit hard to see. Zooming in slightly would help.<br><br>Total: 275/400<br><br>To take this project to the next level, I recommend refactoring to use classes and objects. Create a Card class to represent each card, a Deck class to manage the collection of cards, and a Player class to handle player state and actions. Implementing these OOP concepts is a core requirement.<br><br>Your procedural implementation shows you have a good grasp of the game logic and JavaScript fundamentals. Now try to organize that code into classes for a more modular, reusable and extensible design. Let me know if you have any other questions!<br><br>Best regards,<br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/26/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

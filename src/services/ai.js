@@ -1,4 +1,4 @@
-// CORRECTED src/services/ai.js with proper week-specific validation
+// CORRECTED src/services/ai.js with proper week-specific validation and Week 17 integration
 const Anthropic = require("@anthropic-ai/sdk");
 const config = require("../../config/config");
 
@@ -8,113 +8,180 @@ const anthropic = new Anthropic({
 });
 
 /**
- * Validates API implementation for Week 12 ONLY
+ * Validates Final Project implementation for Week 17 ONLY
  */
-function validateWeek12APIImplementation(githubContent) {
+function validateWeek17FinalProject(githubContent) {
   const validations = {
-    hasRealFetch: false,
-    hasAsyncAwait: false,
-    hasPOST: false,
-    hasDELETE: false,
-    hasGET: false,
+    hasReactApp: false,
+    hasRouting: false,
+    hasAPIIntegration: false,
+    hasRealCRUD: false,
+    hasComponents: false,
+    hasStateManagement: false,
     hasErrorHandling: false,
-    usesHardcodedData: false,
+    usesOnlyLocalState: false,
+    hasPackageJson: false,
     actualAPICallsFound: [],
+    // CORRECTED: Use the new structure that matches the prompt
+    localCrudOperations: {
+      create: false,
+      read: false,
+      update: false,
+      delete: false,
+    },
+    apiCrudOperations: {
+      create: false,
+      read: false,
+      update: false,
+      delete: false,
+    },
   };
 
-  // Check for real fetch/axios calls with actual endpoints
-  const fetchPattern = /fetch\s*\(\s*['"](https?:\/\/[^'"]+|\/api\/[^'"]+)/gi;
-  const axiosPattern =
-    /axios\.(get|post|put|delete|patch)\s*\(\s*['"](https?:\/\/[^'"]+)/gi;
-
-  const fetchMatches = githubContent.match(fetchPattern) || [];
-  const axiosMatches = githubContent.match(axiosPattern) || [];
-
-  validations.hasRealFetch = fetchMatches.length > 0 || axiosMatches.length > 0;
-  validations.actualAPICallsFound = [...fetchMatches, ...axiosMatches];
-
-  // Check for proper async/await implementation
-  const asyncAwaitPattern =
-    /async\s+function.*?await\s+fetch|async\s*\(\s*\)\s*=>\s*{[\s\S]*?await/gi;
-  validations.hasAsyncAwait = asyncAwaitPattern.test(githubContent);
-
-  // Check for CRUD operations
-  validations.hasPOST = /method:\s*['"]POST['"]|\.post\(/gi.test(githubContent);
-  validations.hasDELETE = /method:\s*['"]DELETE['"]|\.delete\(/gi.test(
-    githubContent
-  );
-  validations.hasGET = /method:\s*['"]GET['"]|\.get\(|fetch\(/gi.test(
-    githubContent
-  );
-
-  // Check for error handling
-  validations.hasErrorHandling =
-    /\.catch\(|try\s*{[\s\S]*?catch|\.then\([\s\S]*?,\s*[\s\S]*?\)/gi.test(
+  // Check for React application
+  validations.hasReactApp =
+    /import.*React.*from.*react|import.*{.*Component.*}.*from.*react/gi.test(
       githubContent
     );
 
-  // Check for forms (needed for POST)
-  validations.hasFormElements =
-    /<form|document\.createElement\(['"]form|<input/gi.test(githubContent);
+  // Check for React Router
+  validations.hasRouting = /react-router|BrowserRouter|Routes?|Route\s/gi.test(
+    githubContent
+  );
+
+  // Check for proper components structure
+  validations.hasComponents =
+    /export.*function.*Component|class.*extends.*Component/gi.test(
+      githubContent
+    );
+
+  // CRITICAL: Check for API integration
+  const apiPatterns = [
+    /fetch\s*\(\s*['"](https?:\/\/[^'"]+)/gi, // External API calls
+    /axios\.(get|post|put|delete|patch)\s*\(/gi, // Axios calls
+    /fetch\s*\(\s*['"](\/api\/[^'"]+)/gi, // Local API calls
+  ];
+
+  let apiCallsFound = [];
+  for (const pattern of apiPatterns) {
+    const matches = githubContent.match(pattern) || [];
+    if (matches.length > 0) {
+      validations.hasAPIIntegration = true;
+      apiCallsFound.push(...matches);
+    }
+  }
+  validations.actualAPICallsFound = apiCallsFound;
+
+  // Check if ONLY using local state (red flag for final project)
+  const hasOnlyLocalState =
+    /useState\s*\(/.test(githubContent) &&
+    !validations.hasAPIIntegration &&
+    !/(useEffect.*fetch|componentDidMount.*fetch|api|server)/gi.test(
+      githubContent
+    );
+
+  validations.usesOnlyLocalState = hasOnlyLocalState;
+
+  // LOCAL CRUD operations (what student actually implemented)
+  validations.localCrudOperations.create =
+    /addTask|createTask|add.*function|create.*function/gi.test(githubContent) ||
+    /setTasks.*\[.*newTask.*tasks\]/gi.test(githubContent);
+
+  validations.localCrudOperations.read =
+    /tasks\.map|\.find|\.filter|display.*tasks/gi.test(githubContent);
+
+  validations.localCrudOperations.update =
+    /updateTask|editTask|update.*function|edit.*function/gi.test(githubContent);
+
+  validations.localCrudOperations.delete =
+    /deleteTask|removeTask|delete.*function|tasks\.filter.*id/gi.test(
+      githubContent
+    );
+
+  // API CRUD operations (what's required for Week 17)
+  validations.apiCrudOperations.create =
+    /POST|post\(/gi.test(githubContent) && validations.hasAPIIntegration;
+  validations.apiCrudOperations.read =
+    /GET|get\(/gi.test(githubContent) && validations.hasAPIIntegration;
+  validations.apiCrudOperations.update =
+    /PUT|PATCH|put\(|patch\(/gi.test(githubContent) &&
+    validations.hasAPIIntegration;
+  validations.apiCrudOperations.delete =
+    /DELETE|delete\(/gi.test(githubContent) && validations.hasAPIIntegration;
+
+  validations.hasRealCRUD =
+    Object.values(validations.apiCrudOperations).filter(Boolean).length >= 3;
+
+  // Check for proper state management (Context, Redux, or API-based)
+  validations.hasStateManagement =
+    /useContext|createContext|useReducer|redux|Provider/gi.test(
+      githubContent
+    ) || validations.hasAPIIntegration;
+
+  // Check for error handling in API calls
+  validations.hasErrorHandling =
+    /try\s*{.*catch|\.catch\s*\(|error.*handling/gi.test(githubContent);
+
+  // Check for package.json (React project indicator)
+  validations.hasPackageJson =
+    /react.*dependencies|react-dom|react-scripts/gi.test(githubContent);
+
+  // Log findings for debugging
+  console.log("🔍 Week 17 Final Project Analysis:");
+  console.log(`  React App: ${validations.hasReactApp ? "✅" : "❌"}`);
+  console.log(`  Routing: ${validations.hasRouting ? "✅" : "❌"}`);
+  console.log(
+    `  API Integration: ${validations.hasAPIIntegration ? "✅" : "❌ CRITICAL"}`
+  );
+  console.log(`  Real API CRUD: ${validations.hasRealCRUD ? "✅" : "❌"}`);
+  console.log(
+    `  Only Local State: ${
+      validations.usesOnlyLocalState ? "⚠️ WARNING" : "✅"
+    }`
+  );
+  console.log(`  Components: ${validations.hasComponents ? "✅" : "❌"}`);
+
+  console.log("  Local CRUD Operations:");
+  console.log(
+    `    CREATE: ${validations.localCrudOperations.create ? "✅" : "❌"}`
+  );
+  console.log(
+    `    READ: ${validations.localCrudOperations.read ? "✅" : "❌"}`
+  );
+  console.log(
+    `    UPDATE: ${validations.localCrudOperations.update ? "✅" : "❌"}`
+  );
+  console.log(
+    `    DELETE: ${validations.localCrudOperations.delete ? "✅" : "❌"}`
+  );
+
+  console.log("  API CRUD Operations:");
+  console.log(
+    `    CREATE: ${validations.apiCrudOperations.create ? "✅" : "❌"}`
+  );
+  console.log(`    READ: ${validations.apiCrudOperations.read ? "✅" : "❌"}`);
+  console.log(
+    `    UPDATE: ${validations.apiCrudOperations.update ? "✅" : "❌"}`
+  );
+  console.log(
+    `    DELETE: ${validations.apiCrudOperations.delete ? "✅" : "❌"}`
+  );
+
+  if (validations.actualAPICallsFound.length > 0) {
+    console.log(
+      `  API Calls Found: ${validations.actualAPICallsFound
+        .slice(0, 3)
+        .join(", ")}`
+    );
+  } else {
+    console.log(`  API Calls Found: None - This is a major issue for Week 17!`);
+  }
 
   return validations;
 }
 
 /**
- * Validates WAR card game implementation for Week 9
+ * Validates API implementation for Week 12 ONLY
  */
-function validateWeek9WARGame(githubContent) {
-  const validations = {
-    hasCardClass: false,
-    hasDeckClass: false,
-    hasPlayerClass: false,
-    deals26Cards: false,
-    playsAllRounds: false,
-    hasPointSystem: false,
-    declaresWinner: false,
-    usesOOP: false,
-    hasUnitTests: false,
-  };
-
-  // Check for OOP classes
-  validations.hasCardClass = /class\s+Card\s*{|function\s+Card\s*\(/gi.test(
-    githubContent
-  );
-  validations.hasDeckClass = /class\s+Deck\s*{|function\s+Deck\s*\(/gi.test(
-    githubContent
-  );
-  validations.hasPlayerClass =
-    /class\s+Player\s*{|function\s+Player\s*\(/gi.test(githubContent);
-
-  // Check for dealing logic
-  validations.deals26Cards = /26|twenty.?six/gi.test(githubContent);
-
-  // Check for game loop
-  validations.playsAllRounds = /for\s*\(|while\s*\(|\.forEach|rounds/gi.test(
-    githubContent
-  );
-
-  // Check for scoring
-  validations.hasPointSystem = /score|points?|wins?/gi.test(githubContent);
-
-  // Check for winner declaration
-  validations.declaresWinner = /winner|won|wins|victory/gi.test(githubContent);
-
-  // Check OOP usage
-  validations.usesOOP =
-    validations.hasCardClass ||
-    validations.hasDeckClass ||
-    validations.hasPlayerClass;
-
-  // Check for unit tests (bonus)
-  validations.hasUnitTests =
-    /describe\s*\(|it\s*\(|test\s*\(|expect\s*\(/gi.test(githubContent);
-
-  return validations;
-}
-
-// Updated validateWeek12APIImplementation function in src/services/ai.js
-
 function validateWeek12APIImplementation(githubContent) {
   const validations = {
     hasRealFetch: false,
@@ -237,6 +304,59 @@ function validateWeek12APIImplementation(githubContent) {
 }
 
 /**
+ * Validates WAR card game implementation for Week 9
+ */
+function validateWeek9WARGame(githubContent) {
+  const validations = {
+    hasCardClass: false,
+    hasDeckClass: false,
+    hasPlayerClass: false,
+    deals26Cards: false,
+    playsAllRounds: false,
+    hasPointSystem: false,
+    declaresWinner: false,
+    usesOOP: false,
+    hasUnitTests: false,
+  };
+
+  // Check for OOP classes
+  validations.hasCardClass = /class\s+Card\s*{|function\s+Card\s*\(/gi.test(
+    githubContent
+  );
+  validations.hasDeckClass = /class\s+Deck\s*{|function\s+Deck\s*\(/gi.test(
+    githubContent
+  );
+  validations.hasPlayerClass =
+    /class\s+Player\s*{|function\s+Player\s*\(/gi.test(githubContent);
+
+  // Check for dealing logic
+  validations.deals26Cards = /26|twenty.?six/gi.test(githubContent);
+
+  // Check for game loop
+  validations.playsAllRounds = /for\s*\(|while\s*\(|\.forEach|rounds/gi.test(
+    githubContent
+  );
+
+  // Check for scoring
+  validations.hasPointSystem = /score|points?|wins?/gi.test(githubContent);
+
+  // Check for winner declaration
+  validations.declaresWinner = /winner|won|wins|victory/gi.test(githubContent);
+
+  // Check OOP usage
+  validations.usesOOP =
+    validations.hasCardClass ||
+    validations.hasDeckClass ||
+    validations.hasPlayerClass;
+
+  // Check for unit tests (bonus)
+  validations.hasUnitTests =
+    /describe\s*\(|it\s*\(|test\s*\(|expect\s*\(/gi.test(githubContent);
+
+  return validations;
+}
+
+/**
  * Main evaluation function with week-specific validation
  */
 async function evaluateAssignment({
@@ -262,6 +382,11 @@ async function evaluateAssignment({
         console.log("📊 Analyzing Week 12 API Implementation...");
         codeAnalysis = validateWeek12APIImplementation(githubContent);
         validationType = "API";
+        break;
+      case 17:
+        console.log("📊 Analyzing Week 17 Final Project...");
+        codeAnalysis = validateWeek17FinalProject(githubContent);
+        validationType = "FINAL_PROJECT";
         break;
       default:
         console.log(
@@ -388,6 +513,63 @@ ${
     : ""
 }
 `;
+  } else if (validationType === "FINAL_PROJECT" && codeAnalysis) {
+    prompt += `
+## CODE ANALYSIS - FINAL PROJECT (Week 17):
+### React Application Check:
+- **React App Structure:** ${codeAnalysis.hasReactApp ? "YES ✅" : "NO ❌"}
+- **React Router Used:** ${codeAnalysis.hasRouting ? "YES ✅" : "NO ❌"}
+- **Components Structure:** ${codeAnalysis.hasComponents ? "YES ✅" : "NO ❌"}
+
+### API Integration Check (CRITICAL):
+- **API Calls Found:** ${
+      codeAnalysis.hasAPIIntegration ? "YES ✅" : "NO ❌ - MAJOR ISSUE"
+    }
+- **External Data Persistence:** ${
+      codeAnalysis.hasRealCRUD ? "YES ✅" : "NO ❌"
+    }
+- **Only Local State (Warning):** ${
+      codeAnalysis.usesOnlyLocalState
+        ? "YES ⚠️ - Not suitable for final project"
+        : "NO ✅"
+    }
+
+### Local CRUD Operations (What Student Implemented):
+- **Local CREATE:** ${
+      codeAnalysis.localCrudOperations.create ? "YES ✅" : "NO ❌"
+    }
+- **Local READ:** ${codeAnalysis.localCrudOperations.read ? "YES ✅" : "NO ❌"}
+- **Local UPDATE:** ${
+      codeAnalysis.localCrudOperations.update ? "YES ✅" : "NO ❌"
+    }
+- **Local DELETE:** ${
+      codeAnalysis.localCrudOperations.delete ? "YES ✅" : "NO ❌"
+    }
+
+### API CRUD Operations (What's Required for Week 17):
+- **API CREATE (POST):** ${
+      codeAnalysis.apiCrudOperations.create ? "YES ✅" : "NO ❌"
+    }
+- **API READ (GET):** ${
+      codeAnalysis.apiCrudOperations.read ? "YES ✅" : "NO ❌"
+    }
+- **API UPDATE (PUT):** ${
+      codeAnalysis.apiCrudOperations.update ? "YES ✅" : "NO ❌"
+    }
+- **API DELETE:** ${codeAnalysis.apiCrudOperations.delete ? "YES ✅" : "NO ❌"}
+
+${
+  !codeAnalysis.hasAPIIntegration
+    ? "### ⚠️ CRITICAL ISSUE: No API integration detected. This is a core requirement for Week 17. Maximum Completion score: 160/320 points."
+    : ""
+}
+
+${
+  codeAnalysis.usesOnlyLocalState
+    ? "### ⚠️ WARNING: Project appears to use only local state without persistence. Final projects should integrate with APIs or external data sources."
+    : ""
+}
+`;
   }
 
   // Add rubric sections
@@ -423,6 +605,8 @@ ${hasYoutubeVideo ? youtubeTranscript : "No video submitted"}
 Evaluate based on the Week ${
     weekConfig.weekNumber
   } requirements above. Use the code analysis results to inform your grading but verify against the actual code.
+
+MANDATORY: Always end your response with "Best regards, Jamal Taylor" - DO NOT use any other signature.
 `;
 
   return prompt;
@@ -432,7 +616,9 @@ Evaluate based on the Week ${
  * Get week-specific system prompt
  */
 function getWeekSpecificSystemPrompt(weekConfig, codeAnalysis, validationType) {
-  let systemPrompt = `You are grading a Week ${weekConfig.weekNumber} assignment: ${weekConfig.name}.
+  let systemPrompt = `You are Jamal Taylor, grading a Week ${weekConfig.weekNumber} assignment: ${weekConfig.name}.
+
+CRITICAL INSTRUCTION: You are Jamal Taylor. Always end your feedback with "Best regards, Jamal Taylor" - never use "Best regards, The Grading Bot" or any other signature.
 
 IMPORTANT: Grade according to the SPECIFIC requirements for Week ${weekConfig.weekNumber}, not any other week.
 `;
@@ -458,6 +644,23 @@ This is the API and Fetch assignment (Week 12). Focus on:
 - Error handling for API failures
 
 If no real API calls are found, this is a critical failure worth maximum 40/160 completion points.`;
+  } else if (validationType === "FINAL_PROJECT") {
+    systemPrompt += `
+This is the FINAL PROJECT assignment (Week 17). This is CRITICAL - focus on:
+- React application with proper component structure
+- React Router for navigation
+- **API INTEGRATION IS MANDATORY** - must connect to external API or backend
+- Full CRUD operations that persist data (not just local state)
+- Professional code quality and error handling
+- Proper state management (not just useState for everything)
+
+CRITICAL GRADING RULES FOR WEEK 17:
+- If NO API integration found: Maximum Completion score is 160/320 points
+- If using ONLY local state with useState: Maximum Completion score is 200/320 points  
+- If no external data persistence: Deduct significant points from Completion
+- Perfect scores (800/800) should be RARE and only for exceptional work with all requirements
+
+DO NOT give full points for basic Todo apps that only use local state without API integration.`;
   }
 
   systemPrompt += `
@@ -469,8 +672,10 @@ Use emojis in feedback:
 💡 for suggestions
 🌟 for exceptional work
 
-Write in first person ("I can see...", "You've implemented...").
-Be supportive but accurate in assessment.`;
+Write in first person as Jamal Taylor ("I can see...", "You've implemented...").
+Be supportive but accurate in assessment.
+
+MANDATORY: Always end with "Best regards, Jamal Taylor" - never use any other name or signature.`;
 
   return systemPrompt;
 }

@@ -31,10 +31,11 @@ async function processGitHubRepo(repoUrl) {
     // Determine URL type and route accordingly
     const urlType = analyzeGitHubUrl(repoUrl);
     console.log(`📊 URL Type Detected: ${urlType.type}`);
+    console.log(`📊 Branch Detected: ${urlType.branch}`);
 
     switch (urlType.type) {
       case "NESTED_DIRECTORY":
-        // e.g., /tree/main/Final-Project
+        // e.g., /tree/main/Final-Project OR /tree/master/Todo-app
         return await processNestedDirectory(urlType);
 
       case "ROOT_REPOSITORY":
@@ -62,16 +63,27 @@ function analyzeGitHubUrl(url) {
   // Remove trailing slashes
   url = url.replace(/\/+$/, "");
 
-  // Check for nested directory (e.g., /tree/main/Final-Project)
+  // Check for nested directory (e.g., /tree/main/Final-Project OR /tree/master/Todo-app)
   let match = url.match(
-    /github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)\/(.+)/
+    /github\.com\/([^\/]+)\/([^\/]+)\/tree\/([^\/]+)(?:\/(.+))?/
   );
   if (match) {
     const [, owner, repo, branch, path] = match;
 
+    // If no path specified, treat as root repository with specific branch
+    if (!path) {
+      return {
+        type: "ROOT_REPOSITORY",
+        owner,
+        repo,
+        branch,
+        url,
+      };
+    }
+
     // Check if it's a nested project (common patterns)
     const isNested = path.match(
-      /^(Final-Project|final-project|project|client|frontend|my-app)/i
+      /^(Final-Project|final-project|project|client|frontend|my-app|Todo-app|todo-app)/i
     );
     const isSrc = path.match(/^src$/i);
 
@@ -109,7 +121,7 @@ function analyzeGitHubUrl(url) {
       type: "ROOT_REPOSITORY",
       owner: match[1],
       repo: match[2],
-      branch: "main", // Will be determined later
+      branch: null, // Will be determined later
       url,
     };
   }
@@ -124,6 +136,7 @@ async function processNestedDirectory(urlInfo) {
   const { owner, repo, branch, path: nestedPath } = urlInfo;
 
   console.log(`📂 Processing nested project in: ${nestedPath}/`);
+  console.log(`📂 Using branch: ${branch}`);
   console.log(`  This appears to be a nested submission structure`);
 
   const files = [];
@@ -147,6 +160,12 @@ async function processNestedDirectory(urlInfo) {
     `${nestedPath}/src/index.js`,
     `${nestedPath}/src/index.jsx`,
     `${nestedPath}/src/index.tsx`,
+    // Add common root-level files for Todo apps
+    `${nestedPath}/index.html`,
+    `${nestedPath}/style.css`,
+    `${nestedPath}/styles.css`,
+    `${nestedPath}/script.js`,
+    `${nestedPath}/main.js`,
   ];
 
   // Fetch priority files
@@ -165,7 +184,7 @@ async function processNestedDirectory(urlInfo) {
     }
   }
 
-  // Fetch component files
+  // Fetch component files (if it's a React app)
   const componentsPath = `${nestedPath}/src/components`;
   const components = await fetchDirectory(
     owner,
@@ -181,7 +200,33 @@ async function processNestedDirectory(urlInfo) {
     }))
   );
 
-  return formatOutput(owner, repo, files, "NESTED", nestedPath);
+  // Also try to get any additional JS/CSS files in the root of nested directory
+  const additionalFiles = await fetchDirectory(
+    owner,
+    repo,
+    branch,
+    nestedPath,
+    8
+  );
+
+  // Filter out already fetched priority files and add the rest
+  const newFiles = additionalFiles.filter(
+    (f) =>
+      !files.some(
+        (existing) => existing.path === f.path.replace(`${nestedPath}/`, "")
+      )
+  );
+
+  files.push(
+    ...newFiles
+      .map((f) => ({
+        ...f,
+        path: f.path.replace(`${nestedPath}/`, ""), // Normalize path
+      }))
+      .slice(0, 5) // Limit additional files
+  );
+
+  return formatOutput(owner, repo, files, "NESTED", nestedPath, branch);
 }
 
 /**
@@ -189,15 +234,27 @@ async function processNestedDirectory(urlInfo) {
  */
 async function processRootRepository(urlInfo) {
   const { owner, repo } = urlInfo;
+  let { branch } = urlInfo;
 
   console.log(`📦 Processing root repository: ${owner}/${repo}`);
-  console.log(`  This appears to be a correctly structured submission`);
 
-  // Get default branch
-  const repoInfo = await axios.get(
-    `https://api.github.com/repos/${owner}/${repo}`
-  );
-  const branch = repoInfo.data.default_branch || "main";
+  // Get default branch if not specified
+  if (!branch) {
+    try {
+      const repoInfo = await axios.get(
+        `https://api.github.com/repos/${owner}/${repo}`
+      );
+      branch = repoInfo.data.default_branch || "main";
+      console.log(`🌿 Default branch detected: ${branch}`);
+    } catch (error) {
+      console.log(`⚠️ Could not fetch repo info, trying 'main' branch`);
+      branch = "main";
+    }
+  } else {
+    console.log(`🌿 Using specified branch: ${branch}`);
+  }
+
+  console.log(`  This appears to be a correctly structured submission`);
 
   const files = [];
   let totalSize = 0;
@@ -216,6 +273,8 @@ async function processRootRepository(urlInfo) {
       "final-project",
       "client",
       "frontend",
+      "Todo-app",
+      "todo-app",
     ];
     for (const nested of possibleNested) {
       const nestedExists = await checkFileExists(
@@ -270,7 +329,20 @@ async function processRootRepository(urlInfo) {
     files.push(...componentsCapital);
   }
 
-  return formatOutput(owner, repo, files, "ROOT");
+  // For Todo apps and similar, also check for root-level files
+  const rootFiles = ["index.html", "style.css", "styles.css"];
+  for (const fileName of rootFiles) {
+    if (totalSize >= GITHUB_CONFIG.MAX_TOTAL_SIZE) break;
+
+    const file = await fetchFile(owner, repo, branch, fileName);
+    if (file && file.content) {
+      files.push({ ...file, priority: false });
+      totalSize += file.content.length;
+      console.log(`  ✅ Added root file: ${file.path}`);
+    }
+  }
+
+  return formatOutput(owner, repo, files, "ROOT", null, branch);
 }
 
 /**
@@ -280,6 +352,7 @@ async function processSourceDirectory(urlInfo) {
   const { owner, repo, branch, path: srcPath } = urlInfo;
 
   console.log(`📁 Processing src directory: ${srcPath}`);
+  console.log(`🌿 Using branch: ${branch}`);
 
   const files = [];
 
@@ -311,7 +384,7 @@ async function processSourceDirectory(urlInfo) {
   const packageJson = await fetchFile(owner, repo, branch, "package.json");
   if (packageJson) files.push({ ...packageJson, priority: true });
 
-  return formatOutput(owner, repo, files, "SRC_ONLY", srcPath);
+  return formatOutput(owner, repo, files, "SRC_ONLY", srcPath, branch);
 }
 
 /**
@@ -332,6 +405,7 @@ async function checkFileExists(url) {
 async function fetchFile(owner, repo, branch, filePath) {
   try {
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
+    console.log(`🔍 Fetching: ${url}`);
     const response = await axios.get(url);
 
     if (response.data && response.data.content) {
@@ -344,7 +418,11 @@ async function fetchFile(owner, repo, branch, filePath) {
       };
     }
   } catch (error) {
-    // File doesn't exist or error
+    console.log(
+      `  ❌ Could not fetch ${filePath}: ${
+        error.response?.status || error.message
+      }`
+    );
     return null;
   }
 }
@@ -357,6 +435,7 @@ async function fetchDirectory(owner, repo, branch, dirPath, maxFiles = 5) {
 
   try {
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${branch}`;
+    console.log(`📂 Fetching directory: ${url}`);
     const response = await axios.get(url);
 
     if (Array.isArray(response.data)) {
@@ -364,7 +443,15 @@ async function fetchDirectory(owner, repo, branch, dirPath, maxFiles = 5) {
         .filter((item) => item.type === "file")
         .filter(
           (item) =>
-            !item.name.includes(".test.") && !item.name.includes(".spec.")
+            !item.name.includes(".test.") &&
+            !item.name.includes(".spec.") &&
+            !item.name.startsWith(".") &&
+            (item.name.endsWith(".js") ||
+              item.name.endsWith(".jsx") ||
+              item.name.endsWith(".ts") ||
+              item.name.endsWith(".tsx") ||
+              item.name.endsWith(".css") ||
+              item.name.endsWith(".html"))
         )
         .slice(0, maxFiles);
 
@@ -378,7 +465,11 @@ async function fetchDirectory(owner, repo, branch, dirPath, maxFiles = 5) {
     }
   } catch (error) {
     // Directory doesn't exist
-    console.log(`  ℹ️ Directory not found: ${dirPath}`);
+    console.log(
+      `  ℹ️ Directory not found: ${dirPath} (${
+        error.response?.status || error.message
+      })`
+    );
   }
 
   return files;
@@ -387,7 +478,14 @@ async function fetchDirectory(owner, repo, branch, dirPath, maxFiles = 5) {
 /**
  * Helper: Format output
  */
-function formatOutput(owner, repo, files, submissionType, nestedPath = null) {
+function formatOutput(
+  owner,
+  repo,
+  files,
+  submissionType,
+  nestedPath = null,
+  branch = null
+) {
   let output = `# GitHub Repository: ${owner}/${repo}\n\n`;
 
   output += `## Submission Analysis:\n`;
@@ -396,6 +494,9 @@ function formatOutput(owner, repo, files, submissionType, nestedPath = null) {
       ? "⚠️ Nested Project Structure"
       : "✅ Correct Root Structure"
   }\n`;
+  if (branch) {
+    output += `- **Branch:** ${branch}\n`;
+  }
   if (nestedPath) {
     output += `- **Project Location:** ${nestedPath}/\n`;
   }
@@ -407,10 +508,16 @@ function formatOutput(owner, repo, files, submissionType, nestedPath = null) {
   const hasComponents = files.some((f) =>
     f.path.toLowerCase().includes("component")
   );
+  const hasIndexHtml = files.some((f) => f.path.includes("index.html"));
+  const hasCssFile = files.some((f) => f.path.match(/\.(css|scss|sass)$/));
+  const hasJsFile = files.some((f) => f.path.match(/\.(js|jsx|ts|tsx)$/));
 
   output += `- **package.json found:** ${hasPackageJson ? "✅" : "❌"}\n`;
   output += `- **App file found:** ${hasAppFile ? "✅" : "❌"}\n`;
-  output += `- **Components found:** ${hasComponents ? "✅" : "❌"}\n\n`;
+  output += `- **Components found:** ${hasComponents ? "✅" : "❌"}\n`;
+  output += `- **HTML file found:** ${hasIndexHtml ? "✅" : "❌"}\n`;
+  output += `- **CSS file found:** ${hasCssFile ? "✅" : "❌"}\n`;
+  output += `- **JavaScript file found:** ${hasJsFile ? "✅" : "❌"}\n\n`;
 
   if (submissionType === "NESTED") {
     output += `### ⚠️ Note for Student:\n`;
@@ -420,7 +527,14 @@ function formatOutput(owner, repo, files, submissionType, nestedPath = null) {
 
   output += `## File Contents:\n\n`;
 
-  for (const file of files) {
+  // Sort files to show priority files first
+  const sortedFiles = files.sort((a, b) => {
+    if (a.priority && !b.priority) return -1;
+    if (!a.priority && b.priority) return 1;
+    return 0;
+  });
+
+  for (const file of sortedFiles) {
     const ext = path.extname(file.path).substring(1);
     const lang = getLanguageFromExtension(ext);
 
@@ -446,7 +560,8 @@ function generateErrorReport(url, error) {
     `## Troubleshooting:\n` +
     `1. Ensure the repository is public\n` +
     `2. Check the URL is correct\n` +
-    `3. Verify all files are committed and pushed\n\n` +
+    `3. Verify all files are committed and pushed\n` +
+    `4. Check if the branch name is correct (master vs main)\n\n` +
     `## Grading Note:\n` +
     `Unable to fully evaluate the submission due to repository access issues.\n`
   );
@@ -489,7 +604,7 @@ async function processSingleFile(urlInfo) {
     throw new Error(`Could not fetch file: ${filePath}`);
   }
 
-  return formatOutput(owner, repo, [file], "SINGLE_FILE");
+  return formatOutput(owner, repo, [file], "SINGLE_FILE", null, branch);
 }
 
 module.exports = { processGitHubRepo };

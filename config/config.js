@@ -10,7 +10,7 @@ module.exports = {
 
   // Anthropic API configuration
   anthropic: {
-    model: "claude-3-opus-20240229", // Best model for complex reasoning tasks
+    model: "claude-sonnet-4-20250514", // Best model for complex reasoning tasks
     maxTokens: 4000,
   },
 

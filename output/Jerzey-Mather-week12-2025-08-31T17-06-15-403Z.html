@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Jerzey Mather - API's and Fetch</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Jerzey Mather">
+  <meta name="student-email" content="jerz0215@gmail.com">
+  <meta name="week-number" content="12">
+  <meta name="assignment-name" content="API's and Fetch">
+  <meta name="grading-date" content="2025-08-31T17:06:15.409Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>API's and Fetch Evaluation</h1>
+    <h2>Student: Jerzey Mather</h2>
+    <p>Week 12</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> jerz0215@gmail.com</p>
+    <p><strong>Date:</strong> 8/31/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Jerzey Mather</p>
+    <p><strong>Student Email:</strong> jerz0215@gmail.com</p>
+    <p><strong>Week 12:</strong> API's and Fetch</p>
+    <hr>
+Hi Jerzey,<br><br>I've reviewed your Week 12 API and Fetch assignment submission. Here's my assessment:<br><br>✅ Excellent work integrating a real API into your todo application! I can see you are using actual fetch calls to a local API server to manage your tasks.<br><br>✅ All the key CRUD operations are implemented correctly. You have working GET, POST, and DELETE functionality that interacts with the API. <br><br>✅ I like how you used async/await to handle the asynchronous API calls. This keeps your code clean and readable.<br><br>✅ Your form is properly set up to submit new tasks to the API via a POST request. Well done!<br><br>✅ Error handling is present for the API calls. You're using try/catch blocks to gracefully handle any errors that may occur.<br><br>💡 One suggestion would be to add some user feedback messages for the CRUD operations. For example, showing a success message when a task is added or deleted. This would enhance the user experience.<br><br>Based on the grading rubric, here's how your submission stacks up:<br><br>Completion: 160/160 <br>All CRUD operations are working with the real API. Fantastic job!<br><br>Github: 100/140<br>The repository exists with the main files, but there are a few missing pieces like the package.json, components, and CSS. Make sure to include all the necessary files for a complete project.<br><br>Errors: 70/70<br>No errors observed. The code executes smoothly and all features are working as expected. <br><br>Video: 15/30<br>The video provides a partial demonstration of the features. For full points, make sure to show all the CRUD operations working, explain your code implementation, and discuss any challenges you faced.<br><br>Total: 345/400<br><br>This is an impressive submission that demonstrates a solid understanding of working with APIs in a web application. Keep up the great work!<br><br>Best regards,<br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/31/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

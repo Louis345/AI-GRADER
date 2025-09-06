@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Brianna Tranmer - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Brianna Tranmer">
+  <meta name="student-email" content="brianna.tranmer@my.southeast.edu">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-08-31T00:42:25.234Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Brianna Tranmer</h2>
+    <p>Week 9</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> brianna.tranmer@my.southeast.edu</p>
+    <p><strong>Date:</strong> 8/30/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Brianna Tranmer</p>
+    <p><strong>Student Email:</strong> brianna.tranmer@my.southeast.edu</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Hi Brianna,<br><br>I've reviewed your final JavaScript project for the WAR card game. Here's my evaluation based on the Week 9 requirements:<br><br>Object-Oriented Programming:<br>✅ Card Class Found<br>✅ Deck Class Found <br>✅ Player Class Found<br>✅ Uses OOP Concepts<br><br>Game Implementation:<br>✅ Deals 26 Cards<br>✅ Plays All Rounds<br>✅ Has Point System<br>✅ Declares Winner<br><br>Your code demonstrates a solid understanding of object-oriented programming concepts by implementing the Card, Deck, and Player classes. The game logic is well-structured, dealing 26 cards to each player, playing through all 26 rounds automatically, tracking points, and declaring a winner at the end. Great job on getting the core functionality working! <br><br>Some suggestions for improvement:<br>💡 Consider adding more detailed comments explaining what each part of the code does<br>💡 Look for opportunities to further modularize the code into reusable functions<br><br>On the GitHub side, your repository is set up correctly and accessible. The code is organized and uses meaningful variable and function names. <br><br>⚠️ I didn't see a .gitignore file excluding node_modules - make sure to add that in the future.<br><br>The game runs without any crashes or errors, and the 26 rounds play out correctly with accurate point tracking. No major logical errors spotted - well done!<br><br>Your video walkthrough clearly demonstrates the game running from start to finish. You've explained how the code works, showing an understanding of the OOP concepts applied.<br><br>💡 In future videos, try to avoid scrolling too quickly through the code. Take your time to highlight and explain the key portions you contributed.<br><br>Overall, this is a strong submission that meets the core requirements of the WAR card game project. With some minor polish, you'll have an impressive project to showcase your JavaScript skills. Keep up the great work!<br><br>Your score breakdown:<ul><li>Completion: 150/160</li><br><li>GitHub: 120/140 </li><br><li>Errors: 70/70</li><br><li>Video: 25/30</li><br><li>Total: 365/400 (91%)</li><br></ul>Let me know if you have any other questions!<br><br>Best regards,<br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/30/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

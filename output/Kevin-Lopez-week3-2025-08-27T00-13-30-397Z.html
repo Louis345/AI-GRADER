@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Kevin Lopez - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Kevin Lopez">
+  <meta name="student-email" content="kglopez455@gmail.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-08-27T00:13:30.400Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Kevin Lopez</h2>
+    <p>Week 3</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> kglopez455@gmail.com</p>
+    <p><strong>Date:</strong> 8/26/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Kevin Lopez</p>
+    <p><strong>Student Email:</strong> kglopez455@gmail.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hi Kevin,<br><br>Thanks for submitting your Week 3 Bootstrap Project! I've reviewed your code and project video. Here's my assessment:<br><br>Completion Section: <span class="score">22/30 points</span><br>✅ Multiple pages created (index.html and table.html)<br>✅ Bootstrap navbar implemented <br>⚠️ Navbar hamburger icon not collapsing properly<br>✅ Table with proper styling on table.html<br>✅ Form with Bootstrap classes on index.html<br>✅ Responsive design - elements stack vertically on small screens<br><br>Github Section: <span class="score">15/25 points</span><br>✅ Repository properly created<br>⚠️ File organization could be improved (no separate folders for HTML, CSS, JS)<br>❌ README file not included<br>⚠️ Commit history is minimal, doesn't show full development progress<br><br>Errors Section: <span class="score">10/15 points</span><br>⚠️ Navbar hamburger not functioning <br>✅ Links between pages work properly<br>⚠️ Some HTML validation issues (unclosed tags)<br>✅ Bootstrap classes used correctly overall<br><br>Video Section: <span class="score">8/10 points</span><br>✅ Clear explanation of design choices<br>✅ Demonstration of all main features<br>💡 Could discuss challenges faced in more depth<br>✅ Professional presentation <br><br>Total: <span class="score">55/80 points</span><br><br>You've done a good job implementing the core Bootstrap components and responsive design! The main areas for improvement are:<ul><li>Fix the navbar hamburger functionality </li><br><li>Organize files into logical folders</li><br><li>Include a README explaining the project</li><br><li>Use frequent, descriptive commits to show your development process</li><br><li>Validate your HTML to catch any tag issues</li><br></ul>Let me know if you have any other questions!<br><br>Best regards,<br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/26/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

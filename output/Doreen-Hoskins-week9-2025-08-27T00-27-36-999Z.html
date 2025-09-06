@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Doreen Hoskins - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Doreen Hoskins">
+  <meta name="student-email" content="onthinice56@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-08-27T00:27:37.000Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Doreen Hoskins</h2>
+    <p>Week 9</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> onthinice56@gmail.com</p>
+    <p><strong>Date:</strong> 8/26/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Doreen Hoskins</p>
+    <p><strong>Student Email:</strong> onthinice56@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Hi Doreen,<br><br>Thanks for submitting your JavaScript Unit Final Coding Project - WAR Card Game. I've reviewed your code and have the following feedback:<br><br>✅ Great job creating a Card class! This is a key part of the OOP structure for the game.<br><br>⚠️ I don't see a Deck or Player class in your code. Implementing these classes would help further organize the game logic and align with OOP principles.<br><br>❌ The game doesn't seem to deal 26 cards to each player from a 52 card deck. Make sure you are splitting the deck in half and assigning 26 cards to each player.<br><br>❌ It looks like the game doesn't iterate through all rounds automatically. The game should play out all 26 rounds without additional user input.<br><br>❌ I don't see a point system that tracks score for each player based on who wins each round. Implement logic to award points to the player with the higher value card.<br><br>❌ There's no output that declares the final winner based on who has the most points after 26 rounds. Make sure to compare final scores and print out the result.<br><br>💡 Use console.log statements to print out the result of each round and the updating score. This will help display the flow of the game.<br><br>Your GitHub repository is set up properly and the code is organized and commented which is great! I would suggest using more descriptive variable and function names to enhance the readability.<br><br>The video does a good job demonstrating the basic functionality, but I would like to see the full game play out from start to finish with 26 rounds and a clear winner.<br><br>Keep working on implementing the core game logic for dealing cards, iterating through rounds, tracking points, and determining a winner. Don't hesitate to reach out if you have any questions!<br><br>Best regards,<br><br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/26/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

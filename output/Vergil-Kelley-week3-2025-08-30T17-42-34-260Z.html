@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Vergil Kelley - Bootstrap Project</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Vergil Kelley">
+  <meta name="student-email" content="vergilkelley@vergildkelley.com">
+  <meta name="week-number" content="3">
+  <meta name="assignment-name" content="Bootstrap Project">
+  <meta name="grading-date" content="2025-08-30T17:42:34.266Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bootstrap Project Evaluation</h1>
+    <h2>Student: Vergil Kelley</h2>
+    <p>Week 3</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> vergilkelley@vergildkelley.com</p>
+    <p><strong>Date:</strong> 8/30/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Vergil Kelley</p>
+    <p><strong>Student Email:</strong> vergilkelley@vergildkelley.com</p>
+    <p><strong>Week 3:</strong> Bootstrap Project</p>
+    <hr>
+Hi Vergil,<br><br>I've reviewed your Bootstrap project submission for Week 3. Here's my assessment:<br><br>Completion Section (<span class="score">24/30 points</span>):<br>✅ Bootstrap navbar implemented <br>✅ Table with proper styling<br>✅ Form with Bootstrap classes<br>✅ Responsive design with container and columns<br>⚠️ About page mentioned in navbar but not included in submission<br><br>Github Section (<span class="score">18/25 points</span>):<br>✅ Repository properly created<br>⚠️ Only 2 files in repository, more organization needed<br>❌ README file not included<br>⚠️ Limited commits, progress not clearly shown<br><br>Errors Section (<span class="score">15/15 points</span>):<br>✅ No apparent console errors<br>✅ Links in navbar work properly<br>✅ Valid HTML <br>✅ Bootstrap classes used correctly<br><br>Video Section (<span class="score">0/10 points</span>):<br>❌ Video not able to be graded due to transcript extraction error<br><br>Total Points: 57/80<br><br>You've done a good job implementing key Bootstrap components like the navbar, table, form and responsive grid. The code looks clean and error-free. To improve, focus on expanding your repository with additional pages, better organization, a README, and more granular commits. Also make sure to enable transcript generation on your explanatory video.<br><br>Keep up the solid work on learning Bootstrap! Let me know if you have any other questions.<br><br>Best regards,<br>Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/30/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  

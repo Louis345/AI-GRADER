@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading: Lucas Mason - JavaScript Unit Final Coding Project - WAR Card Game</title>
+  <!-- Student data for reporting -->
+  <meta name="student-name" content="Lucas Mason">
+  <meta name="student-email" content="lucas.mason0620@gmail.com">
+  <meta name="week-number" content="9">
+  <meta name="assignment-name" content="JavaScript Unit Final Coding Project - WAR Card Game">
+  <meta name="grading-date" content="2025-08-24T23:33:57.848Z">
+  <meta name="instructor" content="Jamal Taylor">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #0275d8;
+      padding-bottom: 15px;
+    }
+    h1, h2, h3, h4 {
+      color: #0275d8;
+    }
+    .student-info {
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0275d8;
+    }
+    .instructor-info {
+      background-color: #e8f5e8;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #28a745;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .score {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .total-score {
+      font-size: 18px;
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    /* Copy button styling */
+    .copy-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>JavaScript Unit Final Coding Project - WAR Card Game Evaluation</h1>
+    <h2>Student: Lucas Mason</h2>
+    <p>Week 9</p>
+  </div>
+  
+  <div class="instructor-info">
+    <p><strong>👨‍🏫 Instructor:</strong> Jamal Taylor</p>
+    <p><em>Personally reviewed and graded by your instructor</em></p>
+  </div>
+  
+  <div class="student-info">
+    <p><strong>Student Email:</strong> lucas.mason0620@gmail.com</p>
+    <p><strong>Date:</strong> 8/24/2025</p>
+  </div>
+  
+  <div id="content-to-copy">
+    <p><strong>Instructor:</strong> Jamal Taylor</p>
+    <p><strong>Student Name:</strong> Lucas Mason</p>
+    <p><strong>Student Email:</strong> lucas.mason0620@gmail.com</p>
+    <p><strong>Week 9:</strong> JavaScript Unit Final Coding Project - WAR Card Game</p>
+    <hr>
+Here is my evaluation of your WAR Card Game project based on the Week 9 requirements:<br><br>✅ Great job using classes for Card, Deck and Player to implement object-oriented programming principles.<br><br>✅ Your Game class encapsulates the game logic well, including playing rounds, awarding points, and declaring a winner. <br><br>⚠️ However, I notice you are only dealing out cards until one player runs out, rather than ensuring each player gets dealt exactly 26 cards from the 52 card deck at the start. Make sure you split the deck evenly between the two players.<br><br>✅ Excellent work playing through all the rounds automatically and displaying the results of each round and the final winner using console.log. Your output is clear and easy to follow.<br><br>✅ You've implemented a solid point tracking system that accurately determines the winner based on number of rounds won.<br><br>⚠️ A few suggestions:<ul><li>Consider extracting the console output into a separate function or class to keep the Game class focused on game logic</li><br><li>Adding some error checking around the Deck creation to ensure the right number of unique cards</li><br><li>Some additional code comments explaining the deal() function logic would help with readability</li><br></ul>💡 Nice work finding and implementing the Fisher-Yates shuffle algorithm to randomize the deck of cards.<br><br>🌟 Overall this is a very strong implementation of the WAR card game that demonstrates a solid grasp of object-oriented JavaScript programming. With some minor tweaks to how the initial hands are dealt, you'll have an excellent final project here. Well done!<br><br>Best regards, Jamal Taylor
+    <hr>
+    <p><em>This assignment was personally reviewed and graded by Jamal Taylor.</em></p>
+  </div>
+ 
+  <div class="footer">
+    <p>Graded by: <strong>Jamal Taylor</strong> | 8/24/2025</p>
+  </div>
+  <script>
+    function copyContent() {
+      const content = document.getElementById('content-to-copy').innerText;
+      navigator.clipboard.writeText(content)
+        .then(() => alert('Feedback copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  </script>
+</body>
+</html>
+  
